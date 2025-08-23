@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Armature Games</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+    section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      text-align: center;
+      padding: 40px;
+    }
+    h1, h2 {
+      margin-bottom: 20px;
+    }
+    .arrow {
+      position: absolute;
+      bottom: 20px;
+      font-size: 2em;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+    }
+    .arrow-up {
+      top: 20px;
+      bottom: auto;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+    .content {
+      max-width: 800px;
+    }
+  </style>
+</head>
+<body>
+
+  <section id="home">
+    <div class="content">
+      <h1>Armature Games</h1>
+      <p>There is nothing more scary than a closed door.</p>
+      <a href="#our-games" class="arrow">⬇️</a>
+    </div>
+  </section>
+
+  <section id="our-games">
+    <div class="content">
+      <h2>Our Games</h2>
+      <p>Discover the unique horror experience of our psychological thriller game, filled with tension and narrative depth.</p>
+      <a href="#videos" class="arrow">⬇️</a>
+    </div>
+  </section>
+
+  <section id="videos">
+    <div class="content">
+      <h2>Trailers & Media</h2>
+      <p>[Your video embed or screenshots here]</p>
+      <a href="#about" class="arrow">⬇️</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="content">
+      <h2>About the Developer</h2>
+      <p>Armature Games is a solo indie project by a passionate developer focused on crafting atmospheric storytelling experiences.</p>
+      <a href="#contact" class="arrow">⬇️</a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="content">
+      <h2>Contact</h2>
+      <p>Have questions? Reach out via email or social media. Your feedback is always welcome.</p>
+      <a href="#home" class="arrow arrow-up">⬆️</a>
+    </div>
+  </section>
+
+</body>
+</html>
