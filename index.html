@@ -41,6 +41,11 @@
         color: #ccc;
       }
 
+      /* 🔴 активный пункт меню */
+      .navbar a.active {
+        color: #b33; /* можно заменить на #3e0808 для совпадения с плашкой */
+      }
+
       .scroll-container {
         height: 100vh;
         overflow-y: auto;
@@ -291,6 +296,34 @@ Are you ready to challenge evil when 12 o'clock strikes?
           const k = e.key.toLowerCase();
           if ((e.ctrlKey || e.metaKey) && ['s','p','u'].includes(k)) e.preventDefault();
         }, { capture: true });
+      })();
+    </script>
+
+    <!-- 🔴 Подсветка активного пункта меню -->
+    <script>
+      (function () {
+        const sc = document.querySelector('.scroll-container');
+        const ids = ['home','games','about','contacts'];
+        const links = new Map(ids.map(id => [id, document.querySelector(`.navbar a[href="#${id}"]`)]));
+
+        function setActive(id){
+          links.forEach(a => a && a.classList.remove('active'));
+          const a = links.get(id);
+          if (a) a.classList.add('active');
+        }
+
+        // при клике
+        links.forEach((a, id) => a && a.addEventListener('click', () => setActive(id)));
+
+        // при прокрутке
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); });
+        }, { root: sc, threshold: 0.6 });
+
+        ids.forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
+
+        // стартовое состояние
+        setActive('home');
       })();
     </script>
   </body>
