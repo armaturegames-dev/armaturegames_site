@@ -117,14 +117,69 @@
           transform: scale(1.03);
         }
       }
+
+      /* === ДОБАВЛЕНО: стили только для контента внутри OUR GAMES === */
+      .games-wrap{
+        width: min(1200px, 92%);
+        margin: 18px auto 0;
+        text-align: left;
+      }
+      .game-card{
+        display:flex;
+        gap:32px;
+        align-items:flex-start;
+        flex-wrap:wrap;
+      }
+      .game-cover{
+        width:340px;
+        max-width:100%;
+        border-radius:6px;
+        box-shadow:0 6px 18px rgba(0,0,0,0.45);
+      }
+      .game-info{
+        flex:1 1 420px;
+        line-height:1.55;
+      }
+      .game-title{
+        font-size:2.1rem;
+        margin:0 0 10px;
+      }
+      .release{
+        font-size:1rem;
+        opacity:.9;
+        margin-bottom:18px;
+      }
+      .platforms{
+        display:flex;
+        gap:12px;
+        flex-wrap:wrap;
+        margin:14px 0 18px;
+      }
+      .platforms img{
+        height:44px;
+        width:auto;
+        filter:drop-shadow(0 2px 6px rgba(0,0,0,.5));
+      }
+      .game-text{
+        font-size:.98rem;
+        opacity:.95;
+        white-space:pre-line;
+      }
+      .bullets{
+        margin:14px 0 0 0;
+        padding-left:18px;
+        font-size:.98rem;
+        opacity:.95;
+      }
+      /* === КОНЕЦ ДОБАВЛЕННЫХ СТИЛЕЙ === */
     </style>
   </head>
   <body>
     <div class="navbar">
-      <a href="#home">• Home</a>
-      <a href="#games">• Our Games</a>
-      <a href="#about">• About</a>
-      <a href="#contacts">• Contacts</a>
+      <a href="#home">Home</a>
+      <a href="#games">Our Games</a>
+      <a href="#about">About</a>
+      <a href="#contacts">Contacts</a>
     </div>
 
     <div class="scroll-container">
@@ -138,6 +193,43 @@
 
       <section id="games" style="background-image: url('video_BG_for_gif_site_01.gif')">
         <div class="separator">OUR GAMES</div>
+
+        <!-- === ДОБАВЛЕНО: наполнение блока "Наши игры" (без изменения размеров секции) === -->
+        <div class="games-wrap">
+          <div class="game-card">
+            <!-- Обложка игры -->
+            <img src="tic-tac-cover.jpg" alt="TIC-TAC: Twelve o'clock cover" class="game-cover" />
+
+            <!-- Информация об игре -->
+            <div class="game-info">
+              <h3 class="game-title">TIC-TAC: Twelve o'clock</h3>
+              <div class="release"><strong>Release Date:</strong> Coming soon</div>
+
+              <!-- Иконки платформ (замени пути на свои файлы PNG/SVG) -->
+              <div class="platforms">
+                <img src="platform-steam.png" alt="Available on Steam" />
+                <img src="platform-playstation.png" alt="PlayStation" />
+                <img src="platform-switch.png" alt="Nintendo Switch" />
+                <img src="platform-xbox.png" alt="Xbox" />
+              </div>
+
+              <!-- Краткое описание -->
+              <div class="game-text">
+TIC‑TAC: Twelve o'clock — одиночная adventure‑puzzle с элементами survival horror, действие которой происходит в Bluebird Middle School. Проведите несколько ночей в заброшенном здании, разгадайте тайну и попытайтесь выжить.
+              </div>
+
+              <!-- Ключевые особенности -->
+              <ul class="bullets">
+                <li>оригинальный сюжет;</li>
+                <li>атмосфера изоляции и напряжения;</li>
+                <li>тайминговые испытания и головоломки;</li>
+                <li>случайные события и реиграбельность;</li>
+                <li>ретро‑хоррор стилистика.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- === КОНЕЦ добавленного наполнения === -->
       </section>
 
       <section id="about" style="background-image: url('video_BG_for_gif_site_02.gif')">
