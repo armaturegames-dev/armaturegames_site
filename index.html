@@ -102,18 +102,11 @@
       }
 
       @keyframes fadeIn {
-        to {
-          opacity: 1;
-        }
+        to { opacity: 1; }
       }
       @keyframes pulse {
-        0%,
-        100% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.03);
-        }
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.03); }
       }
 
       /* === стили для блока OUR GAMES === */
@@ -149,19 +142,15 @@
       }
       .platforms{
         display: grid;
-        grid-template-columns: repeat(2, minmax(200px, 1fr)); /* 2 колонки */
-        gap: 16px 28px;                                      /* вертикальный и горизонтальный отступы */
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
+        gap: 16px 28px;
         align-items: center;
-        justify-items: center;                               /* центрируем кнопки в ячейках */
+        justify-items: center;
         margin: 14px 0 18px;
       }
-      
-      .platforms a{
-        display: inline-block;
-      }
-      
+      .platforms a{ display: inline-block; }
       .platforms img{
-        height: 44px;     /* единая высота кнопок, как и было */
+        height: 44px;
         width: auto;
         filter: drop-shadow(0 2px 6px rgba(0,0,0,.5));
       }
@@ -176,6 +165,28 @@
         font-size: 0.98rem;
         opacity: 0.95;
       }
+
+      /* --- ДОБАВЛЕНО: левая колонка с вертикальными кнопками под обложкой --- */
+      .game-left{
+        display:flex;
+        flex-direction:column;
+        gap:18px;
+        width:340px;
+        max-width:100%;
+      }
+      .game-left .platforms{
+        display:flex;
+        flex-direction:column;
+        gap:16px;
+        margin:0;
+        justify-items:stretch;
+        align-items:stretch;
+      }
+      .game-left .platforms img{
+        width:100%;
+        height:auto;
+      }
+      /* --- КОНЕЦ добавленного --- */
     </style>
   </head>
   <body>
@@ -198,15 +209,11 @@
       <section id="games" style="background-image: url('video_BG_for_gif_site_01.gif')">
         <div class="separator">OUR GAMES</div>
 
-        <!-- === ДОБАВЛЕНО: наполнение игры === -->
+        <!-- ЛЕВАЯ КОЛОНКА: обложка + вертикальные кнопки; ПРАВАЯ — текст -->
         <div class="games-wrap">
           <div class="game-card">
-            <img src="header_image_616x353.png" alt="TIC-TAC: Twelve o'clock cover" class="game-cover" />
-
-            <div class="game-info">
-              <h3 class="game-title">TIC-TAC: Twelve o'clock</h3>
-              <div class="release"><strong>Release Date:</strong> Coming soon</div>
-
+            <div class="game-left">
+              <img src="header_image_616x353.png" alt="TIC-TAC: Twelve o'clock cover" class="game-cover" />
               <div class="platforms">
                 <a href="https://store.steampowered.com/app/1490020/TICTAC_Twelve_oclock/" target="_blank">
                   <img src="steam.png" alt="Steam" />
@@ -221,6 +228,11 @@
                   <img src="xbox.png" alt="Xbox" />
                 </a>
               </div>
+            </div>
+
+            <div class="game-info">
+              <h3 class="game-title">TIC-TAC: Twelve o'clock</h3>
+              <div class="release"><strong>Release Date:</strong> Coming soon</div>
 
               <div class="game-text">
 TIC-TAC: Twelve o'clock is a single adventure–puzzle game with a storyline that runs through survival horror in the Bluebird Middle school. You must spend several nights in an abandoned building, trying to find out whats going on, and protect your life.
