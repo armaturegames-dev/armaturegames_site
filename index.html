@@ -1,77 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Armature Games</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html, body {
-      scroll-behavior: smooth;
-      font-family: Arial, sans-serif;
-      overflow-x: hidden;
-    }
-    section {
-      height: 100vh;
-      position: relative;
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-    }
-    .arrow {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 2rem;
-      cursor: pointer;
-      animation: bounce 2s infinite;
-    }
-    .top-arrow {
-      top: 20px;
-      bottom: auto;
-      transform: translateX(-50%) rotate(180deg);
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(-10px); }
-    }
-    img.logo {
-      width: 50%;
-      max-width: 500px;
-    }
-    h1, h2 {
-      text-shadow: 2px 2px 4px black;
-    }
-  </style>
-</head>
-<body>
-  <section id="home" style="background-image: url('video_BG_for_gif_site_04.gif');">
-    <img src="armag_logo_horizontal_white.png" alt="Armature Games" class="logo" />
-    <div class="arrow" onclick="document.getElementById('games').scrollIntoView()">&#x25BC;</div>
-  </section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Armature Games</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-  <section id="games" style="background-image: url('video_BG_for_gif_site_01.gif');">
-    <h1>Our Games</h1>
-    <div class="arrow" onclick="document.getElementById('about').scrollIntoView()">&#x25BC;</div>
-  </section>
+      body, html {
+        height: 100%;
+        font-family: Arial, sans-serif;
+        scroll-behavior: smooth;
+      }
 
-  <section id="about" style="background-image: url('video_BG_for_gif_site_02.gif');">
-    <h1>About</h1>
-    <div class="arrow" onclick="document.getElementById('contacts').scrollIntoView()">&#x25BC;</div>
-  </section>
+      section {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        color: white;
+        text-align: center;
+      }
 
-  <section id="contacts" style="background-image: url('video_BG_for_gif_site_03_v2.gif');">
-    <h1>Contacts</h1>
-    <div class="arrow top-arrow" onclick="document.getElementById('home').scrollIntoView()">&#x25B2;</div>
-  </section>
-</body>
+      section video, section img.bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      header img {
+        width: 40vw; /* Увеличено */
+        max-width: 600px;
+      }
+
+      h1.section-title {
+        background: rgba(200, 0, 0, 0.85);
+        padding: 10px 30px;
+        font-size: 3rem;
+        font-weight: bold;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(255,0,0,0.5);
+      }
+
+      nav {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+      }
+
+      nav a {
+        display: block;
+        margin-bottom: 10px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 8px 15px;
+        border-radius: 5px;
+      }
+
+      .scroll-down, .scroll-up {
+        position: absolute;
+        bottom: 30px;
+        font-size: 2rem;
+        cursor: pointer;
+        color: white;
+        animation: bounce 2s infinite;
+      }
+
+      .scroll-up {
+        bottom: auto;
+        top: 30px;
+      }
+
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(10px); }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#games">Our Games</a>
+      <a href="#about">About</a>
+      <a href="#contacts">Contacts</a>
+    </nav>
+
+    <section id="home">
+      <img src="armag_logo_horizontal_white.png" alt="Armature Games Logo" />
+      <img class="bg" src="video_BG_for_gif_site_04.gif" alt="Background" />
+      <div class="scroll-down" onclick="document.getElementById('games').scrollIntoView({ behavior: 'smooth' })">↓</div>
+    </section>
+
+    <section id="games">
+      <h1 class="section-title">OUR GAMES</h1>
+      <img class="bg" src="video_BG_for_gif_site_01.gif" alt="Games Background" />
+      <div class="scroll-down" onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' })">↓</div>
+    </section>
+
+    <section id="about">
+      <h1 class="section-title">ABOUT</h1>
+      <img class="bg" src="video_BG_for_gif_site_02.gif" alt="About Background" />
+      <div class="scroll-down" onclick="document.getElementById('contacts').scrollIntoView({ behavior: 'smooth' })">↓</div>
+    </section>
+
+    <section id="contacts">
+      <h1 class="section-title">CONTACTS</h1>
+      <img class="bg" src="video_BG_for_gif_site_03_v2.gif" alt="Contacts Background" />
+      <div class="scroll-up" onclick="document.getElementById('home').scrollIntoView({ behavior: 'smooth' })">↑</div>
+    </section>
+  </body>
 </html>
