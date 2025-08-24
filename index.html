@@ -79,9 +79,7 @@
         margin-top: 280px;
         margin-bottom: 20px;
         opacity: 0;
-        animation:
-          fadeIn 1.5s ease-out forwards,
-          pulse 2.5s ease-in-out infinite;
+        animation: fadeIn 1.5s ease-out forwards, pulse 2.5s ease-in-out infinite;
       }
 
       .quote {
@@ -99,63 +97,77 @@
         font-weight: 400;
         display: inline-block;
       }
-      .quote .line:last-child { font-size: 0.85em; }
+      .quote .line:last-child {
+        font-size: 0.85em;
+      }
 
-      @keyframes fadeIn { to { opacity: 1; } }
-      @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.03)} }
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.03);
+        }
+      }
 
-      /* --- стили для OUR GAMES --- */
-      .games-wrap{
+      /* === стили для блока OUR GAMES === */
+      .games-wrap {
         width: min(1200px, 92%);
         margin: 18px auto 0;
         text-align: left;
       }
-      .game-card{
-        display:flex;
-        gap:32px;
-        align-items:flex-start;
-        flex-wrap:wrap;
+      .game-card {
+        display: flex;
+        gap: 32px;
+        align-items: flex-start;
+        flex-wrap: wrap;
       }
-      .game-cover{
-        width:340px;
-        max-width:100%;
-        border-radius:6px;
-        box-shadow:0 6px 18px rgba(0,0,0,0.45);
+      .game-cover {
+        width: 340px;
+        max-width: 100%;
+        border-radius: 6px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
       }
-      .game-info{
-        flex:1 1 420px;
-        line-height:1.55;
+      .game-info {
+        flex: 1 1 420px;
+        line-height: 1.55;
       }
-      .game-title{
-        font-size:2.1rem;
-        margin:0 0 10px;
+      .game-title {
+        font-size: 2.1rem;
+        margin: 0 0 10px;
       }
-      .release{
-        font-size:1rem;
-        opacity:.9;
-        margin-bottom:18px;
+      .release {
+        font-size: 1rem;
+        opacity: 0.9;
+        margin-bottom: 18px;
       }
-      .platforms{
-        display:flex;
-        gap:12px;
-        flex-wrap:wrap;
-        margin:14px 0 18px;
+      .platforms {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin: 14px 0 18px;
       }
-      .platforms img{
-        height:44px;
-        width:auto;
-        filter:drop-shadow(0 2px 6px rgba(0,0,0,.5));
+      .platforms img {
+        height: 44px;
+        width: auto;
+        filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
       }
-      .game-text{
-        font-size:.98rem;
-        opacity:.95;
-        white-space:pre-line;
+      .game-text {
+        font-size: 0.98rem;
+        opacity: 0.95;
+        white-space: pre-line;
       }
-      .bullets{
-        margin:14px 0 0 0;
-        padding-left:18px;
-        font-size:.98rem;
-        opacity:.95;
+      .bullets {
+        margin: 14px 0 0 0;
+        padding-left: 18px;
+        font-size: 0.98rem;
+        opacity: 0.95;
       }
     </style>
   </head>
@@ -179,7 +191,60 @@
       <section id="games" style="background-image: url('video_BG_for_gif_site_01.gif')">
         <div class="separator">OUR GAMES</div>
 
-        <!-- Контент игры -->
+        <!-- === ДОБАВЛЕНО: наполнение игры === -->
         <div class="games-wrap">
           <div class="game-card">
-            <!-- Обложка -->
+            <img src="header_image_616x353.png" alt="TIC-TAC: Twelve o'clock cover" class="game-cover" />
+
+            <div class="game-info">
+              <h3 class="game-title">TIC-TAC: Twelve o'clock</h3>
+              <div class="release"><strong>Release Date:</strong> Coming soon</div>
+
+              <div class="platforms">
+                <a href="https://store.steampowered.com/app/1490020/TICTAC_Twelve_oclock/" target="_blank">
+                  <img src="steam.png" alt="Steam" />
+                </a>
+                <a href="https://store.playstation.com/en-us/concept/10014052" target="_blank">
+                  <img src="ps.png" alt="PlayStation" />
+                </a>
+                <a href="https://www.nintendo.com/en-gb/Games/Nintendo-Switch-download-software/TIC-TAC-Twelve-o-clock-2817441.html?srsltid=AfmBOopY7rm6Hq8E01QvUAgBZIKJGLVLCtQPRRFpl84UOYJTf6xZzwtq" target="_blank">
+                  <img src="switch.png" alt="Nintendo Switch" />
+                </a>
+                <a href="https://www.xbox.com/en-us/games/store/tic-tac-twelve-oclock/9pm8nq8d4phb" target="_blank">
+                  <img src="xbox.png" alt="Xbox" />
+                </a>
+              </div>
+
+              <div class="game-text">
+TIC-TAC: Twelve o'clock is a single adventure–puzzle game with a storyline that runs through survival horror in the Bluebird Middle school. You must spend several nights in an abandoned building, trying to find out whats going on, and protect your life.
+
+TIC-TAC: Twelve o'clock Game is inspired by cult horrors of the early 90s. You have to help a group of schoolchildren–adventurers to solve the dark mystery of the abandoned school.
+              </div>
+
+              <ul class="bullets">
+                <li>original plot</li>
+                <li>gloomy atmosphere of isolation</li>
+                <li>dynamic gameplay with hard timings</li>
+                <li>puzzles and random events</li>
+                <li>detailed style of a retro horror</li>
+              </ul>
+
+              <div class="game-text" style="margin-top:15px;">
+Are you ready to challenge evil when 12 o'clock strikes?
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- === КОНЕЦ добавленного блока === -->
+      </section>
+
+      <section id="about" style="background-image: url('video_BG_for_gif_site_02.gif')">
+        <div class="separator">ABOUT</div>
+      </section>
+
+      <section id="contacts" style="background-image: url('video_BG_for_gif_site_03_v2.gif')">
+        <div class="separator">CONTACTS</div>
+      </section>
+    </div>
+  </body>
+</html>
