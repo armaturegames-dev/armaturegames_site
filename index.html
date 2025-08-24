@@ -147,16 +147,23 @@
         opacity: 0.9;
         margin-bottom: 18px;
       }
-      .platforms {
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
+      .platforms{
+        display: grid;
+        grid-template-columns: repeat(2, minmax(200px, 1fr)); /* 2 колонки */
+        gap: 16px 28px;                                      /* вертикальный и горизонтальный отступы */
+        align-items: center;
+        justify-items: center;                               /* центрируем кнопки в ячейках */
         margin: 14px 0 18px;
       }
-      .platforms img {
-        height: 44px;
+      
+      .platforms a{
+        display: inline-block;
+      }
+      
+      .platforms img{
+        height: 44px;     /* единая высота кнопок, как и было */
         width: auto;
-        filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+        filter: drop-shadow(0 2px 6px rgba(0,0,0,.5));
       }
       .game-text {
         font-size: 0.98rem;
