@@ -90,6 +90,19 @@
         font-weight: normal;
         margin-top: auto;
         margin-bottom: 40px;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+      
+      .quote span {
+        font-style: italic;
+        font-weight: 400;      /* явно нормальная толщина */
+        display: inline-block; /* одинаковый рендер */
+      }
+      
+      .quote .author {
+        font-size: 0.85em;     /* только размер для автора */
+        font-weight: 400;
       }
 
       @keyframes fadeIn {
@@ -121,7 +134,7 @@
         <img src="armag_logo_horizontal_white.png" class="logo" />
         <div class="quote">
           <span>There is nothing more scary than a closed door.</span><br />
-          <span style="font-size: 0.85em;">Alfred Hitchcock</span>
+          <span class="author">Alfred Hitchcock</span>
         </div>
       </section>
 
