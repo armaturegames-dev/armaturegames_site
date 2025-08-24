@@ -15,25 +15,25 @@
       }
 
       .navbar {
-        position: sticky; /* было fixed */
+        position: sticky;
         top: 0;
         width: 100%;
         background-color: rgba(0, 0, 0, 0.8);
         color: white;
         display: flex;
         justify-content: flex-end;
-        padding: 10px 50px 10px 20px;
+        padding: 10px 30px 10px 20px;
         font-size: 0.95em;
         z-index: 1000;
         box-sizing: border-box;
-        gap: 20px;
-        flex-wrap: wrap;
+        gap: 12px;           /* уменьшил расстояние между словами */
+        flex-wrap: nowrap;   /* 🔥 запрет переноса */
+        white-space: nowrap; /* 🔥 весь текст в одну строку */
       }
-
+      
       .navbar a {
         color: white;
         text-decoration: none;
-        margin-left: 20px;
         transition: color 0.3s;
       }
 
