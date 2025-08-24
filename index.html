@@ -86,23 +86,19 @@
 
       .quote {
         font-style: italic;
-        font-size: 1.14em;
+        font-size: 1em;       /* общий размер для обеих строк */
         font-weight: normal;
         margin-top: auto;
         margin-bottom: 40px;
         -webkit-font-smoothing: antialiased;
         text-rendering: optimizeLegibility;
+        font-synthesis: none; /* запрещаем "подделку" жирности браузером */
       }
       
-      .quote span {
+      .quote .line {
         font-style: italic;
-        font-weight: 400;      /* явно нормальная толщина */
-        display: inline-block; /* одинаковый рендер */
-      }
-      
-      .quote .author {
-        font-size: 0.85em;     /* только размер для автора */
-        font-weight: 400;
+        font-weight: 400; /* одинаковая толщина */
+        display: inline-block;
       }
 
       @keyframes fadeIn {
@@ -133,8 +129,8 @@
       <section id="home" style="background-image: url('video_BG_for_gif_site_04.gif')">
         <img src="armag_logo_horizontal_white.png" class="logo" />
         <div class="quote">
-          <span>There is nothing more scary than a closed door.</span><br />
-          <span class="author">Alfred Hitchcock</span>
+          <span class="line">There is nothing more scary than a closed door.</span><br />
+          <span class="line">Alfred Hitchcock</span>
         </div>
       </section>
 
