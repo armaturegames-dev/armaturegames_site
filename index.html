@@ -9,104 +9,72 @@
       body {
         margin: 0;
         padding: 0;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
         scroll-behavior: smooth;
-        font-family: 'Arial', sans-serif;
-        color: white;
-        overflow-x: hidden;
+      }
+
+      .scroll-container {
+        height: 100vh;
+        overflow-y: auto;
+        scroll-snap-type: y mandatory;
       }
 
       section {
-        height: 100vh;
         position: relative;
+        height: 100vh;
+        scroll-snap-align: start;
         background-size: cover;
         background-position: center;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        color: white;
         text-align: center;
       }
 
-      .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
+      .separator {
+        background-color: #3e0808;
         width: 100%;
-        background-color: rgba(0, 0, 0, 0.6);
+        padding: 20px 0;
+        font-size: 2em;
+        font-weight: bold;
       }
 
       .logo {
-        max-width: 600px;
-        width: 60%;
-        z-index: 1;
-        margin-bottom: 1rem;
-        margin-top: -60px;
+        max-width: 40%;
+        margin-bottom: 20px;
       }
 
       .quote {
-        z-index: 1;
-        font-size: 1.2rem;
         font-style: italic;
-        margin-top: 1rem;
-      }
-
-      .quote small {
-        display: block;
-        margin-top: 0.5rem;
-        font-size: 0.9rem;
-      }
-
-      .arrow {
-        position: absolute;
-        bottom: 20px;
-        font-size: 2rem;
-        color: white;
-        z-index: 1;
-        cursor: pointer;
-      }
-
-      .section-title {
-        background-color: #350707;
-        padding: 1rem 0;
-        font-size: 2rem;
-        font-weight: bold;
-        z-index: 2;
-        position: relative;
-        width: 100%;
+        font-size: 1.2em;
+        margin-top: 30px;
       }
     </style>
   </head>
   <body>
-    <section style="background-image: url('video_BG_for_gif_site_04.gif');">
-      <div class="overlay"></div>
-      <img src="armag_logo_horizontal_white.png" alt="Logo" class="logo" />
-      <p class="quote">
-        There is nothing more scary than a closed door.
-        <small>Alfred Hitchcock</small>
-      </p>
-      <div class="arrow" onclick="scrollToSection('games')">&#x25BC;</div>
-    </section>
+    <div class="scroll-container">
+      <section style="background-image: url('video_BG_for_gif_site_04.gif')">
+        <img src="armag_logo_horizontal_white.png" class="logo" />
+        <div class="quote">
+          There is nothing more scary than a closed door.<br />
+          <span style="font-size: 0.85em;">Alfred Hitchcock</span>
+        </div>
+      </section>
 
-    <section id="games" style="background-image: url('video_BG_for_gif_site_01.gif');">
-      <div class="section-title">OUR GAMES</div>
-      <div class="arrow" onclick="scrollToSection('about')">&#x25BC;</div>
-    </section>
+      <section style="background-image: url('video_BG_for_gif_site_01.gif')">
+        <div class="separator">OUR GAMES</div>
+      </section>
 
-    <section id="about" style="background-image: url('video_BG_for_gif_site_02.gif');">
-      <div class="section-title">ABOUT</div>
-      <div class="arrow" onclick="scrollToSection('contacts')">&#x25BC;</div>
-    </section>
+      <section style="background-image: url('video_BG_for_gif_site_02.gif')">
+        <div class="separator">ABOUT</div>
+      </section>
 
-    <section id="contacts" style="background-image: url('video_BG_for_gif_site_03_v2.gif');">
-      <div class="section-title">CONTACTS</div>
-      <div class="arrow" onclick="scrollToSection('top')">&#x25B2;</div>
-    </section>
-
-    <script>
-      function scrollToSection(id) {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-      }
-    </script>
+      <section style="background-image: url('video_BG_for_gif_site_03_v2.gif')">
+        <div class="separator">CONTACTS</div>
+      </section>
+    </div>
   </body>
 </html>
