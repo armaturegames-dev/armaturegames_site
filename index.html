@@ -191,13 +191,14 @@
         justify-content:center;
         gap:30px;
       }
+      .social-links a{ display:inline-block; }             /* чтобы было что ховерить */
       .social-links img{
         width:48px; height:48px;
-        transition: transform .2s ease, opacity .2s ease; /* как у платформ */
+        transition: transform .2s ease, opacity .2s ease;  /* плавность оставляем на img */
       }
-      .social-links img:hover{
-        transform: scale(1.06);   /* как у платформ */
-        opacity: .9;              /* как у платформ */
+      .social-links a:hover img{
+        transform: scale(1.1);
+        opacity: .85;
       }
     </style>
   </head>
