@@ -220,6 +220,23 @@
       #contacts .contacts-intro  { margin-top: 5vh; }     /* вводный текст */
       #contacts .contacts-email  { margin-top: 10vh; }  /* E‑MAIL и адрес */
       #contacts .contacts-social { margin-top: 10vh; }  /* Follow Us + соц. иконки */
+
+      /* === добавлено: красная плашка внизу CONTACTS === */
+      #contacts .footer-bar{
+        position: absolute;
+        left: 0; right: 0; bottom: 0;
+        background-color: #3e0808;
+        height: 6.5vh;                 /* ~половина separator */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.95rem;
+        opacity: 0.95;
+      }
+      /* поднимаем стрелку над плашкой */
+      #contacts .scroll-arrow.up{
+        bottom: calc(6.5vh + 14px);
+      }
     </style>
   </head>
   <body>
@@ -350,6 +367,10 @@ We take part in festivals and community events and are grateful for the support 
             </div>
           </div>
         </div>
+
+        <!-- ↓↓↓ ДОБАВЛЕННАЯ КРАСНАЯ ПЛАШКА (всегда внизу) ↓↓↓ -->
+        <div class="footer-bar">©2021 ARMAG. All rights reserved.</div>
+        <!-- ↑↑↑ КОНЕЦ ПЛАШКИ ↑↑↑ -->
       
         <a class="scroll-arrow up js-scroll" data-target="home" aria-label="Back to top"></a>
       </section>
