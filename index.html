@@ -102,7 +102,19 @@
       .release { font-size: 1.12rem; opacity: 0.9; margin-bottom: 18px; }
       .platforms{ display: grid; grid-template-columns: repeat(2, minmax(200px, 1fr)); gap: 16px 28px; align-items: center; justify-items: center; margin: 14px 0 18px; }
       .platforms a{ display: inline-block; }
-      .platforms img{ height: 44px; width: auto; filter: drop-shadow(0 2px 6px rgba(0,0,0,.5)); }
+      .platforms img{
+        height: 44px;
+        width: auto;
+        filter: drop-shadow(0 2px 6px rgba(0,0,0,.5));
+        /* ▼ добавил плавный hover для платформ */
+        transition: transform .2s ease, opacity .2s ease;
+      }
+      /* ▼ эффект как у соцсетей */
+      .platforms a:hover img{
+        transform: scale(1.06);
+        opacity: .9;
+      }
+
       .game-text { font-size: 1.12rem; opacity: 1.65; white-space: pre-line; }
       .bullets { margin: 14px 0 0 0; padding-left: 18px; font-size: 1.12rem; opacity: 1.65; }
 
@@ -156,6 +168,38 @@
         max-width: 100%;          
         width: 1100px;            
         height: auto;
+      }
+
+      /* === CONTACTS (добавлено) === */
+      .contacts-wrap {
+        margin: 60px auto 0;
+        text-align: center;
+        font-size: 1.12rem;   /* как в описании игры */
+        line-height: 1.55;
+      }
+      .contact-item { margin-bottom: 20px; }
+      .contact-label { font-weight: bold; margin-right: 8px; }
+
+      .contacts-wrap a{
+        color:#fff;
+        text-decoration:none;
+        transition: color .3s;
+      }
+      .contacts-wrap a:hover{ color:#ccc; }
+
+      .social-links{
+        margin-top:25px;
+        display:flex;
+        justify-content:center;
+        gap:30px;
+      }
+      .social-links img{
+        width:48px; height:48px;
+        transition: transform .2s ease, opacity .2s ease;
+      }
+      .social-links img:hover{
+        transform: scale(1.1);
+        opacity: .85;
       }
     </style>
   </head>
@@ -255,10 +299,32 @@ We take part in festivals and community events and are grateful for the support 
         <a class="scroll-arrow" href="#contacts" aria-label="Next section"></a>
       </section>
 
+      <!-- ▼▼▼ ОБНОВЛЁННЫЙ БЛОК CONTACTS ▼▼▼ -->
       <section id="contacts" style="background-image: url('video_BG_for_gif_site_03_v2.gif')">
         <div class="separator">CONTACTS</div>
+
+        <div class="contacts-wrap">
+          <div class="contact-item">
+            <span class="contact-label">Email:</span>
+            <a href="mailto:armaturegames@gmail.com">armaturegames@gmail.com</a>
+          </div>
+
+          <div class="social-links">
+            <a href="https://www.youtube.com/channel/UC6KhgQm7oOCAuS6rbbC3QFw" target="_blank">
+              <img src="youtube-icon.png" alt="YouTube" class="no-save" />
+            </a>
+            <a href="https://x.com/ArmagTeam" target="_blank">
+              <img src="x-icon.png" alt="X (Twitter)" class="no-save" />
+            </a>
+            <a href="https://www.facebook.com/TicTacTwelveOclock/" target="_blank">
+              <img src="facebook-icon.png" alt="Facebook" class="no-save" />
+            </a>
+          </div>
+        </div>
+
         <a class="scroll-arrow up" href="#home" aria-label="Back to top"></a>
       </section>
+      <!-- ▲▲▲ КОНЕЦ CONTACTS ▲▲▲ -->
     </div>
 
     <!-- JS блокировки сохранения -->
