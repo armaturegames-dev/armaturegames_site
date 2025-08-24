@@ -31,7 +31,7 @@
         white-space: nowrap;
       }
       
-      .navbar a { color: white; text-decoration: none; transition: color 0.3s; }
+      .navbar a { color: white; text-decoration: none; transition: color 0.3s; cursor: pointer; }
       .navbar a:hover { color: #ccc; }
       .navbar a.active { color: #b33; }
 
@@ -106,10 +106,8 @@
         height: 44px;
         width: auto;
         filter: drop-shadow(0 2px 6px rgba(0,0,0,.5));
-        /* ▼ добавил плавный hover для платформ */
         transition: transform .2s ease, opacity .2s ease;
       }
-      /* ▼ эффект как у соцсетей */
       .platforms a:hover img{
         transform: scale(1.06);
         opacity: .9;
@@ -129,7 +127,7 @@
       /* стрелки */
       .scroll-arrow{
         position:absolute; left:50%; bottom:14px; transform:translateX(-50%);
-        width:36px; height:36px; text-decoration:none; opacity:.85; animation: arrowPulse 2s infinite;
+        width:36px; height:36px; text-decoration:none; opacity:.85; animation: arrowPulse 2s infinite; cursor: pointer;
       }
       .scroll-arrow::after{
         content:""; display:block; width:18px; height:18px; margin:auto;
@@ -195,21 +193,22 @@
       }
       .social-links img{
         width:48px; height:48px;
-        transition: transform .2s ease, opacity .2s ease;
+        transition: transform .2s ease, opacity .2s ease; /* как у платформ */
       }
       .social-links img:hover{
-        transform: scale(1.1);
-        opacity: .85;
+        transform: scale(1.06);   /* как у платформ */
+        opacity: .9;              /* как у платформ */
       }
     </style>
   </head>
   <body>
     <div class="scroll-container">
       <div class="navbar">
-        <a href="#home">• Home</a>
-        <a href="#games">• Our Games</a>
-        <a href="#about">• About</a>
-        <a href="#contacts">• Contacts</a>
+        <!-- заменено на js-scroll + data-target, чтобы не светился href -->
+        <a class="js-scroll" data-target="home">• Home</a>
+        <a class="js-scroll" data-target="games">• Our Games</a>
+        <a class="js-scroll" data-target="about">• About</a>
+        <a class="js-scroll" data-target="contacts">• Contacts</a>
       </div>
 
       <section id="home" style="background-image: url('video_BG_for_gif_site_04.gif')">
@@ -218,7 +217,8 @@
           <span class="line">There is nothing more scary than a closed door.</span><br />
           <span class="line">Alfred Hitchcock</span>
         </div>
-        <a class="scroll-arrow" href="#games" aria-label="Next section"></a>
+        <!-- стрелка теперь тоже через data-target -->
+        <a class="scroll-arrow js-scroll" data-target="games" aria-label="Next section"></a>
       </section>
 
       <section id="games" style="background-image: url('video_BG_for_gif_site_01.gif')">
@@ -269,7 +269,7 @@ Are you ready to challenge evil when 12 o'clock strikes?
           </div>
         </div>
 
-        <a class="scroll-arrow" href="#about" aria-label="Next section"></a>
+        <a class="scroll-arrow js-scroll" data-target="about" aria-label="Next section"></a>
       </section>
 
       <section id="about" style="background-image: url('video_BG_for_gif_site_02.gif')">
@@ -296,7 +296,7 @@ We take part in festivals and community events and are grateful for the support 
         </div>
         <!-- ▲▲▲ КОНЕЦ наполнения ABOUT ▲▲▲ -->
 
-        <a class="scroll-arrow" href="#contacts" aria-label="Next section"></a>
+        <a class="scroll-arrow js-scroll" data-target="contacts" aria-label="Next section"></a>
       </section>
 
       <!-- ▼▼▼ ОБНОВЛЁННЫЙ БЛОК CONTACTS ▼▼▼ -->
@@ -322,7 +322,7 @@ We take part in festivals and community events and are grateful for the support 
           </div>
         </div>
 
-        <a class="scroll-arrow up" href="#home" aria-label="Back to top"></a>
+        <a class="scroll-arrow up js-scroll" data-target="home" aria-label="Back to top"></a>
       </section>
       <!-- ▲▲▲ КОНЕЦ CONTACTS ▲▲▲ -->
     </div>
@@ -341,19 +341,34 @@ We take part in festivals and community events and are grateful for the support 
       })();
     </script>
 
-    <!-- Подсветка активного пункта меню -->
+    <!-- Подсветка активного пункта меню + плавный скролл без href -->
     <script>
       (function () {
         const sc = document.querySelector('.scroll-container');
         const ids = ['home','games','about','contacts'];
-        const links = new Map(ids.map(id => [id, document.querySelector(`.navbar a[href="#${id}"]`)]));
 
+        // плавный переход по клику на .js-scroll
+        function goto(id){
+          const el = document.getElementById(id);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        document.querySelectorAll('.js-scroll').forEach(a=>{
+          a.addEventListener('click', e=>{
+            e.preventDefault();
+            const id = a.getAttribute('data-target');
+            if (id) goto(id);
+          });
+        });
+
+        // подсветка активного пункта
+        const linkMap = new Map(
+          ids.map(id => [id, document.querySelector(`.navbar .js-scroll[data-target="${id}"]`)])
+        );
         function setActive(id){
-          links.forEach(a => a && a.classList.remove('active'));
-          const a = links.get(id);
+          linkMap.forEach(a => a && a.classList.remove('active'));
+          const a = linkMap.get(id);
           if (a) a.classList.add('active');
         }
-        links.forEach((a, id) => a && a.addEventListener('click', () => setActive(id)));
 
         const observer = new IntersectionObserver(entries => {
           entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); });
