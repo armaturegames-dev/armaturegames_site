@@ -188,6 +188,19 @@
         height:auto;
       }
       /* --- конец добавленного --- */
+
+      /* === защита картинок === */
+      .no-save {
+        -webkit-user-drag: none;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        pointer-events: none;
+      }
+      body {
+        -webkit-touch-callout: none;
+      }
     </style>
   </head>
   <body>
@@ -200,7 +213,7 @@
       </div>
 
       <section id="home" style="background-image: url('video_BG_for_gif_site_04.gif')">
-        <img src="armag_logo_horizontal_white.png" class="logo" />
+        <img src="armag_logo_horizontal_white.png" class="logo no-save" />
         <div class="quote">
           <span class="line">There is nothing more scary than a closed door.</span><br />
           <span class="line">Alfred Hitchcock</span>
@@ -214,19 +227,19 @@
         <div class="games-wrap">
           <div class="game-card">
             <div class="game-left">
-              <img src="header_image_616x353.png" alt="TIC-TAC: Twelve o'clock cover" class="game-cover" />
+              <img src="header_image_616x353.png" alt="TIC-TAC: Twelve o'clock cover" class="game-cover no-save" />
               <div class="platforms">
                 <a href="https://store.steampowered.com/app/1490020/TICTAC_Twelve_oclock/" target="_blank">
-                  <img src="steam.png" alt="Steam" />
+                  <img src="steam.png" alt="Steam" class="no-save" />
                 </a>
                 <a href="https://store.playstation.com/en-us/concept/10014052" target="_blank">
-                  <img src="ps.png" alt="PlayStation" />
+                  <img src="ps.png" alt="PlayStation" class="no-save" />
                 </a>
                 <a href="https://www.nintendo.com/en-gb/Games/Nintendo-Switch-download-software/TIC-TAC-Twelve-o-clock-2817441.html?srsltid=AfmBOopY7rm6Hq8E01QvUAgBZIKJGLVLCtQPRRFpl84UOYJTf6xZzwtq" target="_blank">
-                  <img src="switch.png" alt="Nintendo Switch" />
+                  <img src="switch.png" alt="Nintendo Switch" class="no-save" />
                 </a>
                 <a href="https://www.xbox.com/en-us/games/store/tic-tac-twelve-oclock/9pm8nq8d4phb" target="_blank">
-                  <img src="xbox.png" alt="Xbox" />
+                  <img src="xbox.png" alt="Xbox" class="no-save" />
                 </a>
               </div>
             </div>
@@ -266,5 +279,19 @@ Are you ready to challenge evil when 12 o'clock strikes?
         <div class="separator">CONTACTS</div>
       </section>
     </div>
+
+    <!-- === JS для блокировки правого клика и сохранения === -->
+    <script>
+      (function () {
+        const block = e => e.preventDefault();
+        document.addEventListener('contextmenu', block, { capture: true });
+        document.addEventListener('dragstart', block, { capture: true });
+        document.addEventListener('copy', block, { capture: true });
+        document.addEventListener('keydown', e => {
+          const k = e.key.toLowerCase();
+          if ((e.ctrlKey || e.metaKey) && ['s','p','u'].includes(k)) e.preventDefault();
+        }, { capture: true });
+      })();
+    </script>
   </body>
 </html>
