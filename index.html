@@ -21,6 +21,7 @@
         width: 100%;
         overflow: hidden;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
       }
@@ -34,9 +35,11 @@
         z-index: -1;
       }
       .logo {
-        width: 46%; /* 15% more than 40% */
+        width: 46%;
         max-width: 700px;
         min-width: 250px;
+        margin-bottom: 20px;
+        margin-top: -40px; /* slightly raised */
       }
       .headline {
         background-color: rgba(200, 0, 0, 0.85);
@@ -46,6 +49,14 @@
         font-size: 2em;
         font-weight: bold;
         text-shadow: 2px 2px 5px black;
+      }
+      .quote {
+        color: white;
+        font-size: 1.2em;
+        text-align: center;
+        max-width: 600px;
+        margin-top: 10px;
+        text-shadow: 1px 1px 4px black;
       }
       .arrow {
         position: absolute;
@@ -80,6 +91,10 @@
     <section id="home">
       <img class="bg" src="video_BG_for_gif_site_04.gif" alt="Background" />
       <img class="logo" src="armag_logo_horizontal_white.png" alt="Logo" />
+      <div class="quote">
+        There is nothing more scary than a closed door.<br />
+        <em>Alfred Hitchcock</em>
+      </div>
       <a href="#games" class="arrow">&#8595;</a>
     </section>
 
