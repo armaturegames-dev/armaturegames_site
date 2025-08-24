@@ -5,129 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Armature Games</title>
     <style>
-      * {
+      html,
+      body {
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
-      }
-      body, html {
-        height: 100%;
-        font-family: Arial, sans-serif;
         scroll-behavior: smooth;
+        font-family: 'Arial', sans-serif;
+        color: white;
+        overflow-x: hidden;
       }
+
       section {
-        position: relative;
         height: 100vh;
-        width: 100%;
-        overflow: hidden;
+        position: relative;
+        background-size: cover;
+        background-position: center;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        text-align: center;
       }
-      .bg {
+
+      .overlay {
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
         height: 100%;
-        object-fit: cover;
-        z-index: -1;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
       }
+
       .logo {
-        width: 46%;
-        max-width: 700px;
-        min-width: 250px;
-        margin-bottom: 20px;
-        margin-top: -40px; /* slightly raised */
-      }
-      .headline {
-        background-color: rgba(200, 0, 0, 0.85);
-        color: white;
-        padding: 10px 30px;
-        border-radius: 6px;
-        font-size: 2em;
-        font-weight: bold;
-        text-shadow: 2px 2px 5px black;
-      }
-      .quote {
-        color: white;
-        font-size: 1.2em;
-        text-align: center;
         max-width: 600px;
-        margin-top: 10px;
-        text-shadow: 1px 1px 4px black;
+        width: 60%;
+        z-index: 1;
+        margin-bottom: 1rem;
+        margin-top: -60px;
       }
+
+      .quote {
+        z-index: 1;
+        font-size: 1.2rem;
+        font-style: italic;
+        margin-top: 1rem;
+      }
+
+      .quote small {
+        display: block;
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+      }
+
       .arrow {
         position: absolute;
         bottom: 20px;
-        font-size: 2em;
+        font-size: 2rem;
         color: white;
-        animation: bounce 1.5s infinite;
+        z-index: 1;
+        cursor: pointer;
       }
-      @keyframes bounce {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
-      }
-      .scroll-up {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        font-size: 2em;
-        background-color: rgba(200, 0, 0, 0.85);
-        color: white;
-        padding: 10px 15px;
-        border-radius: 50%;
-        text-decoration: none;
-        z-index: 10;
-        display: none;
-      }
-      .scroll-up.show {
-        display: block;
+
+      .section-title {
+        background-color: #350707;
+        padding: 1rem 0;
+        font-size: 2rem;
+        font-weight: bold;
+        z-index: 2;
+        position: relative;
+        width: 100%;
       }
     </style>
   </head>
   <body>
-    <section id="home">
-      <img class="bg" src="video_BG_for_gif_site_04.gif" alt="Background" />
-      <img class="logo" src="armag_logo_horizontal_white.png" alt="Logo" />
-      <div class="quote">
-        There is nothing more scary than a closed door.<br />
-        <em>Alfred Hitchcock</em>
-      </div>
-      <a href="#games" class="arrow">&#8595;</a>
+    <section style="background-image: url('video_BG_for_gif_site_04.gif');">
+      <div class="overlay"></div>
+      <img src="armag_logo_horizontal_white.png" alt="Logo" class="logo" />
+      <p class="quote">
+        There is nothing more scary than a closed door.
+        <small>Alfred Hitchcock</small>
+      </p>
+      <div class="arrow" onclick="scrollToSection('games')">&#x25BC;</div>
     </section>
 
-    <section id="games">
-      <img class="bg" src="video_BG_for_gif_site_01.gif" alt="Background" />
-      <div class="headline">OUR GAMES</div>
-      <a href="#about" class="arrow">&#8595;</a>
+    <section id="games" style="background-image: url('video_BG_for_gif_site_01.gif');">
+      <div class="section-title">OUR GAMES</div>
+      <div class="arrow" onclick="scrollToSection('about')">&#x25BC;</div>
     </section>
 
-    <section id="about">
-      <img class="bg" src="video_BG_for_gif_site_02.gif" alt="Background" />
-      <div class="headline">ABOUT</div>
-      <a href="#contacts" class="arrow">&#8595;</a>
+    <section id="about" style="background-image: url('video_BG_for_gif_site_02.gif');">
+      <div class="section-title">ABOUT</div>
+      <div class="arrow" onclick="scrollToSection('contacts')">&#x25BC;</div>
     </section>
 
-    <section id="contacts">
-      <img class="bg" src="video_BG_for_gif_site_03_v2.gif" alt="Background" />
-      <div class="headline">CONTACTS</div>
-      <a href="#home" class="arrow scroll-top">&#8593;</a>
+    <section id="contacts" style="background-image: url('video_BG_for_gif_site_03_v2.gif');">
+      <div class="section-title">CONTACTS</div>
+      <div class="arrow" onclick="scrollToSection('top')">&#x25B2;</div>
     </section>
-
-    <a href="#home" class="scroll-up" id="scrollUpBtn">&#8593;</a>
 
     <script>
-      const scrollUpBtn = document.getElementById('scrollUpBtn');
-
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > window.innerHeight) {
-          scrollUpBtn.classList.add('show');
-        } else {
-          scrollUpBtn.classList.remove('show');
-        }
-      });
+      function scrollToSection(id) {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      }
     </script>
   </body>
 </html>
