@@ -180,10 +180,6 @@
         margin-bottom: 40px;  /* как абзац описания игры */
       }
       .contact-item { margin-bottom: 28px; }
-
-      .contacts-wrap .contact-item {
-        margin-top: 20vh;
-      }
       
       .contact-label{
         font-weight: bold;
@@ -219,6 +215,11 @@
         transform: scale(1.1);
         opacity: .85;
       }
+
+      /* — позиционирование трёх блоков в CONTACTS — */
+      #contacts .contacts-intro  { margin-top: 0; }     /* вводный текст */
+      #contacts .contacts-email  { margin-top: 20vh; }  /* E‑MAIL и адрес */
+      #contacts .contacts-social { margin-top: 10vh; }  /* Follow Us + соц. иконки */
     </style>
   </head>
   <body>
@@ -324,27 +325,29 @@ We take part in festivals and community events and are grateful for the support 
         <div class="separator">CONTACTS</div>
       
         <div class="contacts-wrap">
-          <div class="game-text">
+          <div class="game-text contacts-intro">
             Are you interested in horror games, have interesting ideas, or something else - 
             just contact us by email. We will be glad to talk to you.
           </div>
       
-          <div class="contact-item">
+          <div class="contact-item contacts-email">
             <span class="contact-label">E-MAIL</span>
             <a href="mailto:armaturegames@gmail.com">armaturegames@gmail.com</a>
           </div>
       
-          <div class="social-title">Follow Us</div>
-          <div class="social-links">
-            <a href="https://www.youtube.com/channel/UC6KhgQm7oOCAuS6rbbC3QFw" target="_blank">
-              <img src="youtube-icon.png" alt="YouTube" class="no-save" />
-            </a>
-            <a href="https://x.com/ArmagTeam" target="_blank">
-              <img src="x-icon.png" alt="X (Twitter)" class="no-save" />
-            </a>
-            <a href="https://www.facebook.com/TicTacTwelveOclock/" target="_blank">
-              <img src="facebook-icon.png" alt="Facebook" class="no-save" />
-            </a>
+          <div class="contacts-social">
+            <div class="social-title">Follow Us</div>
+            <div class="social-links">
+              <a href="https://www.youtube.com/channel/UC6KhgQm7oOCAuS6rbbC3QFw" target="_blank">
+                <img src="youtube-icon.png" alt="YouTube" class="no-save" />
+              </a>
+              <a href="https://x.com/ArmagTeam" target="_blank">
+                <img src="x-icon.png" alt="X (Twitter)" class="no-save" />
+              </a>
+              <a href="https://www.facebook.com/TicTacTwelveOclock/" target="_blank">
+                <img src="facebook-icon.png" alt="Facebook" class="no-save" />
+              </a>
+            </div>
           </div>
         </div>
       
