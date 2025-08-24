@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Armature Games</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      scroll-behavior: smooth;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+    section {
+      height: 100vh;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+    .arrow {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+    }
+    .top-arrow {
+      top: 20px;
+      bottom: auto;
+      transform: translateX(-50%) rotate(180deg);
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-10px); }
+    }
+    img.logo {
+      width: 50%;
+      max-width: 500px;
+    }
+    h1, h2 {
+      text-shadow: 2px 2px 4px black;
+    }
+  </style>
+</head>
+<body>
+  <section id="home" style="background-image: url('video_BG_for_gif_site_04.gif');">
+    <img src="armag_logo_horizontal_white.png" alt="Armature Games" class="logo" />
+    <div class="arrow" onclick="document.getElementById('games').scrollIntoView()">&#x25BC;</div>
+  </section>
+
+  <section id="games" style="background-image: url('video_BG_for_gif_site_01.gif');">
+    <h1>Our Games</h1>
+    <div class="arrow" onclick="document.getElementById('about').scrollIntoView()">&#x25BC;</div>
+  </section>
+
+  <section id="about" style="background-image: url('video_BG_for_gif_site_02.gif');">
+    <h1>About</h1>
+    <div class="arrow" onclick="document.getElementById('contacts').scrollIntoView()">&#x25BC;</div>
+  </section>
+
+  <section id="contacts" style="background-image: url('video_BG_for_gif_site_03_v2.gif');">
+    <h1>Contacts</h1>
+    <div class="arrow top-arrow" onclick="document.getElementById('home').scrollIntoView()">&#x25B2;</div>
+  </section>
+</body>
+</html>
