@@ -26,31 +26,20 @@
         font-size: 0.95em;
         z-index: 1000;
         box-sizing: border-box;
-        gap: 12px;           /* уменьшил расстояние между словами */
-        flex-wrap: nowrap;   /* 🔥 запрет переноса */
-        white-space: nowrap; /* 🔥 весь текст в одну строку */
+        gap: 12px;
+        flex-wrap: nowrap;
+        white-space: nowrap;
       }
       
-      .navbar a {
-        color: white;
-        text-decoration: none;
-        transition: color 0.3s;
-      }
-
-      .navbar a:hover {
-        color: #ccc;
-      }
-
-      /* 🔴 активный пункт меню */
-      .navbar a.active {
-        color: #b33; /* можно заменить на #3e0808 для совпадения с плашкой */
-      }
+      .navbar a { color: white; text-decoration: none; transition: color 0.3s; }
+      .navbar a:hover { color: #ccc; }
+      .navbar a.active { color: #b33; }
 
       .scroll-container {
         height: 100vh;
         overflow-y: auto;
         scroll-snap-type: y mandatory;
-        scroll-behavior: smooth; /* ← добавлено для плавного скролла */
+        scroll-behavior: smooth; /* плавный скролл внутри контейнера */
       }
 
       section {
@@ -77,7 +66,7 @@
         align-items: center;
         font-size: 2em;
         font-weight: bold;
-        margin-top: 37px; /* было 37px */
+        margin-top: 37px;
       }
 
       .logo {
@@ -98,138 +87,62 @@
         text-rendering: optimizeLegibility;
         font-synthesis: none;
       }
-      .quote .line {
-        font-style: italic;
-        font-weight: 400;
-        display: inline-block;
-      }
-      .quote .line:last-child {
-        font-size: 0.85em;
-      }
+      .quote .line { font-style: italic; font-weight: 400; display: inline-block; }
+      .quote .line:last-child { font-size: 0.85em; }
 
-      @keyframes fadeIn {
-        to { opacity: 1; }
-      }
-      @keyframes pulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.03); }
-      }
+      @keyframes fadeIn { to { opacity: 1; } }
+      @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
 
-      /* === стили для блока OUR GAMES === */
-      .games-wrap {
-        width: min(1200px, 92%);
-        margin: 18px auto 0;
-        text-align: left;
-      }
-      .game-card {
-        display: flex;
-        gap: 32px;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        margin-top: 3%;
-      }
-      .game-cover {
-        width: 462px;
-        max-width: 100%;
-        border-radius: 6px;
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
-      }
-      .game-info {
-        flex: 1 1 420px;
-        line-height: 1.55;
-      }
-      .game-title {
-        font-size: 2.4rem;
-        margin: 0 0 10px;
-      }
-      .release {
-        font-size: 1.12rem;
-        opacity: 0.9;
-        margin-bottom: 18px;
-      }
-      .platforms{
-        display: grid;
-        grid-template-columns: repeat(2, minmax(200px, 1fr));
-        gap: 16px 28px;
-        align-items: center;
-        justify-items: center;
-        margin: 14px 0 18px;
-      }
+      /* === OUR GAMES === */
+      .games-wrap { width: min(1200px, 92%); margin: 18px auto 0; text-align: left; }
+      .game-card { display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap; margin-top: 3%; }
+      .game-cover { width: 462px; max-width: 100%; border-radius: 6px; box-shadow: 0 6px 18px rgba(0,0,0,.45); }
+      .game-info { flex: 1 1 420px; line-height: 1.55; }
+      .game-title { font-size: 2.4rem; margin: 0 0 10px; }
+      .release { font-size: 1.12rem; opacity: 0.9; margin-bottom: 18px; }
+      .platforms{ display: grid; grid-template-columns: repeat(2, minmax(200px, 1fr)); gap: 16px 28px; align-items: center; justify-items: center; margin: 14px 0 18px; }
       .platforms a{ display: inline-block; }
-      .platforms img{
-        height: 44px;
-        width: auto;
-        filter: drop-shadow(0 2px 6px rgba(0,0,0,.5));
-      }
-      .game-text {
-        font-size: 1.12rem;
-        opacity: 1.65;
-        white-space: pre-line;
-      }
-      .bullets {
-        margin: 14px 0 0 0;
-        padding-left: 18px;
-        font-size: 1.12rem;
-        opacity: 1.65;
-      }
+      .platforms img{ height: 44px; width: auto; filter: drop-shadow(0 2px 6px rgba(0,0,0,.5)); }
+      .game-text { font-size: 1.12rem; opacity: 1.65; white-space: pre-line; }
+      .bullets { margin: 14px 0 0 0; padding-left: 18px; font-size: 1.12rem; opacity: 1.65; }
 
-      /* --- левая колонка с вертикальными кнопками под обложкой --- */
-      .game-left{
-        display:flex;
-        flex-direction:column;
-        gap:18px;
-        width:340px;
-        max-width:100%;
-      }
-      .game-left .platforms{
-        display:flex;
-        flex-direction:column;
-        gap:16px;
-        margin:0;
-        justify-items:stretch;
-        align-items:stretch;
-      }
-      .game-left .platforms img{
-        width:100%;
-        height:auto;
-      }
-      /* --- конец добавленного --- */
+      .game-left{ display:flex; flex-direction:column; gap:18px; width:340px; max-width:100%; }
+      .game-left .platforms{ display:flex; flex-direction:column; gap:16px; margin:0; justify-items:stretch; align-items:stretch; }
+      .game-left .platforms img{ width:100%; height:auto; }
 
-      /* === защита картинок === */
-      .no-save {
-        -webkit-user-drag: none;
-        user-select: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        pointer-events: none;
-      }
-      body {
-        -webkit-touch-callout: none;
-      }
+      /* защита картинок */
+      .no-save { -webkit-user-drag:none; user-select:none; -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; pointer-events:none; }
+      body { -webkit-touch-callout:none; }
 
-      /* ▼ стрелки между секциями */
+      /* стрелки */
       .scroll-arrow{
         position:absolute; left:50%; bottom:14px; transform:translateX(-50%);
-        width:36px; height:36px; text-decoration:none; opacity:.85;
-        animation: arrowPulse 2s infinite;
+        width:36px; height:36px; text-decoration:none; opacity:.85; animation: arrowPulse 2s infinite;
       }
       .scroll-arrow::after{
         content:""; display:block; width:18px; height:18px; margin:auto;
         border-right:3px solid #fff; border-bottom:3px solid #fff; transform:rotate(45deg);
       }
       .scroll-arrow:hover{ opacity:1; }
-
       .scroll-arrow.up{ animation: arrowPulseUp 2s infinite; }
       .scroll-arrow.up::after{ transform:rotate(-135deg); }
+      @keyframes arrowPulse{ 0%,100%{ transform: translateX(-50%) translateY(0);} 50%{ transform: translateX(-50%) translateY(-6px);} }
+      @keyframes arrowPulseUp{ 0%,100%{ transform: translateX(-50%) translateY(0);} 50%{ transform: translateX(-50%) translateY(6px);} }
 
-      @keyframes arrowPulse{
-        0%,100%{ transform: translateX(-50%) translateY(0); }
-        50%    { transform: translateX(-50%) translateY(-6px); }
+      /* === ABOUT (только добавлено для наполнения) === */
+      .about-wrap{ width: min(1200px,92%); margin: 24px auto 0; text-align: left; }
+      .about-title{ font-size: 1.6rem; margin: 0 0 14px; }
+      .awards-bar{
+        margin-top: 22px;
+        background: rgba(62,8,8,0.65);  /* «плашка под награды» */
+        border-radius: 8px;
+        padding: 16px 18px;
       }
-      @keyframes arrowPulseUp{
-        0%,100%{ transform: translateX(-50%) translateY(0); }
-        50%    { transform: translateX(-50%) translateY(6px); }
+      .awards-bar img{
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
       }
     </style>
   </head>
@@ -248,14 +161,12 @@
           <span class="line">There is nothing more scary than a closed door.</span><br />
           <span class="line">Alfred Hitchcock</span>
         </div>
-        <!-- стрелка вниз к OUR GAMES -->
         <a class="scroll-arrow" href="#games" aria-label="Next section"></a>
       </section>
 
       <section id="games" style="background-image: url('video_BG_for_gif_site_01.gif')">
         <div class="separator">OUR GAMES</div>
 
-        <!-- ЛЕВАЯ КОЛОНКА: обложка + вертикальные кнопки; ПРАВАЯ — текст -->
         <div class="games-wrap">
           <div class="game-card">
             <div class="game-left">
@@ -301,24 +212,43 @@ Are you ready to challenge evil when 12 o'clock strikes?
           </div>
         </div>
 
-        <!-- стрелка вниз к ABOUT -->
         <a class="scroll-arrow" href="#about" aria-label="Next section"></a>
       </section>
 
       <section id="about" style="background-image: url('video_BG_for_gif_site_02.gif')">
         <div class="separator">ABOUT</div>
-        <!-- стрелка вниз к CONTACTS -->
+
+        <!-- ▼▼▼ НАПОЛНЕНИЕ ABOUT (добавлено) ▼▼▼ -->
+        <div class="about-wrap">
+          <h3 class="about-title">Armature Games</h3>
+          <div class="game-text">
+Armature Games is an independent studio focused on atmospheric, story‑driven horror.  
+We craft tight, suspenseful experiences with attention to pacing, sound and environmental storytelling.
+
+Our debut project, <strong>TIC‑TAC: Twelve o'clock</strong>, blends survival elements with puzzle mechanics and a retro‑horror aesthetic.
+          </div>
+
+          <div class="game-text" style="margin-top:14px;">
+We take part in festivals and community events and are grateful for the support from players and partners around the world.
+          </div>
+
+          <!-- Плашка c наградами/участиями -->
+          <div class="awards-bar">
+            <img src="badges_pack_all.png" alt="Awards & Festivals" class="no-save" />
+          </div>
+        </div>
+        <!-- ▲▲▲ КОНЕЦ наполнения ABOUT ▲▲▲ -->
+
         <a class="scroll-arrow" href="#contacts" aria-label="Next section"></a>
       </section>
 
       <section id="contacts" style="background-image: url('video_BG_for_gif_site_03_v2.gif')">
         <div class="separator">CONTACTS</div>
-        <!-- стрелка вверх к HOME -->
         <a class="scroll-arrow up" href="#home" aria-label="Back to top"></a>
       </section>
     </div>
 
-    <!-- === JS для блокировки правого клика и сохранения === -->
+    <!-- JS блокировки сохранения -->
     <script>
       (function () {
         const block = e => e.preventDefault();
@@ -332,7 +262,7 @@ Are you ready to challenge evil when 12 o'clock strikes?
       })();
     </script>
 
-    <!-- 🔴 Подсветка активного пункта меню -->
+    <!-- Подсветка активного пункта меню -->
     <script>
       (function () {
         const sc = document.querySelector('.scroll-container');
@@ -344,18 +274,14 @@ Are you ready to challenge evil when 12 o'clock strikes?
           const a = links.get(id);
           if (a) a.classList.add('active');
         }
-
-        // при клике
         links.forEach((a, id) => a && a.addEventListener('click', () => setActive(id)));
 
-        // при прокрутке
         const observer = new IntersectionObserver(entries => {
           entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); });
         }, { root: sc, threshold: 0.6 });
 
         ids.forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
 
-        // стартовое состояние
         setActive('home');
       })();
     </script>
