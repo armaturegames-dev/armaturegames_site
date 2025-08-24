@@ -206,6 +206,30 @@
       body {
         -webkit-touch-callout: none;
       }
+
+      /* ▼ стрелки между секциями */
+      .scroll-arrow{
+        position:absolute; left:50%; bottom:14px; transform:translateX(-50%);
+        width:36px; height:36px; text-decoration:none; opacity:.85;
+        animation: arrowPulse 2s infinite;
+      }
+      .scroll-arrow::after{
+        content:""; display:block; width:18px; height:18px; margin:auto;
+        border-right:3px solid #fff; border-bottom:3px solid #fff; transform:rotate(45deg);
+      }
+      .scroll-arrow:hover{ opacity:1; }
+
+      .scroll-arrow.up{ animation: arrowPulseUp 2s infinite; }
+      .scroll-arrow.up::after{ transform:rotate(-135deg); }
+
+      @keyframes arrowPulse{
+        0%,100%{ transform: translateX(-50%) translateY(0); }
+        50%    { transform: translateX(-50%) translateY(-6px); }
+      }
+      @keyframes arrowPulseUp{
+        0%,100%{ transform: translateX(-50%) translateY(0); }
+        50%    { transform: translateX(-50%) translateY(6px); }
+      }
     </style>
   </head>
   <body>
@@ -223,6 +247,8 @@
           <span class="line">There is nothing more scary than a closed door.</span><br />
           <span class="line">Alfred Hitchcock</span>
         </div>
+        <!-- стрелка вниз к OUR GAMES -->
+        <a class="scroll-arrow" href="#games" aria-label="Next section"></a>
       </section>
 
       <section id="games" style="background-image: url('video_BG_for_gif_site_01.gif')">
@@ -273,15 +299,21 @@ Are you ready to challenge evil when 12 o'clock strikes?
             </div>
           </div>
         </div>
-        <!-- === КОНЕЦ добавленного блока === -->
+
+        <!-- стрелка вниз к ABOUT -->
+        <a class="scroll-arrow" href="#about" aria-label="Next section"></a>
       </section>
 
       <section id="about" style="background-image: url('video_BG_for_gif_site_02.gif')">
         <div class="separator">ABOUT</div>
+        <!-- стрелка вниз к CONTACTS -->
+        <a class="scroll-arrow" href="#contacts" aria-label="Next section"></a>
       </section>
 
       <section id="contacts" style="background-image: url('video_BG_for_gif_site_03_v2.gif')">
         <div class="separator">CONTACTS</div>
+        <!-- стрелка вверх к HOME -->
+        <a class="scroll-arrow up" href="#home" aria-label="Back to top"></a>
       </section>
     </div>
 
