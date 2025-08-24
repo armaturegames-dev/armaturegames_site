@@ -174,27 +174,42 @@
         text-align: center;
         font-size: 1.12rem;   /* как в описании игры */
         line-height: 1.55;
+        max-width: 800px;     /* чтобы текст читался */
       }
-      .contact-item { margin-bottom: 20px; }
-      .contact-label { font-weight: bold; margin-right: 8px; }
-
+      .contacts-intro{
+        margin-bottom: 40px;  /* как абзац описания игры */
+      }
+      .contact-item { margin-bottom: 28px; }
+      
+      .contact-label{
+        font-weight: bold;
+        font-size: 1.3rem;    /* размер “заголовка” как просил */
+        display:block;        /* адрес на новой строке */
+        margin: 0 0 10px;     /* отступ под заголовком */
+      }
+      
       .contacts-wrap a{
         color:#fff;
         text-decoration:none;
         transition: color .3s;
       }
       .contacts-wrap a:hover{ color:#ccc; }
-
+      
+      .social-title{
+        font-weight: bold;
+        font-size: 1.3rem;    /* такой же, как у “Email” */
+        margin: 40px 0 20px;
+      }
+      
       .social-links{
-        margin-top:25px;
         display:flex;
         justify-content:center;
         gap:30px;
       }
-      .social-links a{ display:inline-block; }             /* чтобы было что ховерить */
+      .social-links a{ display:inline-block; }
       .social-links img{
         width:48px; height:48px;
-        transition: transform .2s ease, opacity .2s ease;  /* плавность оставляем на img */
+        transition: transform .2s ease, opacity .2s ease;
       }
       .social-links a:hover img{
         transform: scale(1.1);
@@ -303,13 +318,19 @@ We take part in festivals and community events and are grateful for the support 
       <!-- ▼▼▼ ОБНОВЛЁННЫЙ БЛОК CONTACTS ▼▼▼ -->
       <section id="contacts" style="background-image: url('video_BG_for_gif_site_03_v2.gif')">
         <div class="separator">CONTACTS</div>
-
+      
         <div class="contacts-wrap">
+          <div class="contacts-intro">
+            Are you interested in horror games, have interesting ideas, or something else - 
+            just contact us by email. We will be glad to talk to you.
+          </div>
+      
           <div class="contact-item">
-            <span class="contact-label">Email:</span>
+            <span class="contact-label">E-MAIL</span>
             <a href="mailto:armaturegames@gmail.com">armaturegames@gmail.com</a>
           </div>
-
+      
+          <div class="social-title">Follow Us</div>
           <div class="social-links">
             <a href="https://www.youtube.com/channel/UC6KhgQm7oOCAuS6rbbC3QFw" target="_blank">
               <img src="youtube-icon.png" alt="YouTube" class="no-save" />
@@ -322,7 +343,7 @@ We take part in festivals and community events and are grateful for the support 
             </a>
           </div>
         </div>
-
+      
         <a class="scroll-arrow up js-scroll" data-target="home" aria-label="Back to top"></a>
       </section>
       <!-- ▲▲▲ КОНЕЦ CONTACTS ▲▲▲ -->
