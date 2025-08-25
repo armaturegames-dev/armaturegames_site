@@ -253,42 +253,91 @@
         /* добавим «воздуха» снизу = высота .footer-bar + место для стрелки */
         padding-bottom: calc(6.5vh + 32px);
       }
+      /* ==== МОБИЛЬНАЯ ВЕРСИЯ (до 768px) ==== */
+      @media (max-width: 768px) {
+        /* Навбар */
+        .navbar{
+          justify-content: center;
+          padding: 8px 14px;
+          gap: 10px;
+          font-size: 0.9em;
+        }
       
-      /* ===== Мобильные правки (доп) ===== */
-      @media (max-width: 768px){
-        /* логотип и цитату чуть выше/компактнее */
-        .logo{ max-width: 68%; margin-top: 120px; }
-        .quote{ margin-bottom: 24px; font-size: 0.95em; }
+        /* Хиро / логотип */
+        .logo{
+          max-width: 80%;          /* логотип крупнее */
+          margin-top: 140px;
+        }
+        .quote{ margin-bottom: 28px; font-size: 0.95em; }
       
-        /* красная плашка-разделитель пониже и тоньше текста */
-        .separator{ height: 10vh; margin-top: 16px; font-size: 1.5em; }
+        /* Заголовочная плашка-сепаратор */
+        .separator{
+          height: 10vh;
+          margin-top: 16px;
+          font-size: 1.6em;
+        }
       
-        /* карточка игры: столбиком, обложка на всю ширину */
-        .game-card{ flex-direction: column; align-items: center; gap: 20px; margin-top: 24px; }
-        .game-left{ width: 100%; max-width: 520px; }
-        .game-cover{ width: 100%; }       /* масштабируется под экран */
-        .game-info{ text-align: center; }
+        /* === OUR GAMES === */
+        .games-wrap{ width: 92%; }
       
-        /* контакты: компактные вертикальные отступы */
-        #contacts .contacts-intro{  margin-top: 3vh; }
-        #contacts .contacts-email{  margin-top: 5vh; }
-        #contacts .contacts-social{ margin-top: 5vh; }
+        /* одна колонка на мобилках */
+        .game-card{
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+          margin-top: 24px;
+        }
+      
+        /* обложка сверху, на всю ширину контейнера */
+        .game-left{ width: 100%; max-width: 560px; }
+        .game-cover{ width: 100%; }
+      
+        /* кнопки платформ компактнее и по центру */
+        .game-left .platforms{ max-width: 380px; margin: 0 auto; }
+        .platforms img{ height: 40px; }
+      
+        /* текст – на всю ширину, читаемый, слева */
+        .game-info{
+          flex: 1 1 auto;
+          width: 100%;
+          text-align: left;
+          padding: 0 16px;
+        }
+        .game-title{ font-size: 2rem; }
+        .release{ font-size: 1rem; }
+        .game-text, .bullets{ font-size: 1rem; }
+        .bullets{ margin-top: 12px; padding-left: 20px; }
+      
+        /* === ABOUT === */
+        .about-wrap{ margin-top: 40px; padding: 0 14px; }
+        .about-title{ font-size: 1.5rem; }
+        .awards-bar{ margin-top: 40px; padding: 10px 0; }
+        .awards-bar img{ width: 100%; max-width: 100%; }
+      
+        /* === CONTACTS === */
+        .contacts-wrap{ margin-top: 30px; padding: 0 16px; }
+        #contacts .contacts-intro{ margin-top: 3vh; }
+        #contacts .contacts-email{ margin-top: 6vh; }
+        #contacts .contacts-social{ margin-top: 6vh; }
+      
         .social-links{ gap: 22px; }
-        .social-links img{ width: 52px; height: 52px; }
+        .social-links img{ width: 56px; height: 56px; } /* удобнее тапать */
       
-        /* стрелку чуть ниже */
+        /* Стрелки навигации немного меньше */
         .scroll-arrow{ bottom: 10px; width: 32px; height: 32px; }
         .scroll-arrow::after{ width: 16px; height: 16px; }
+        /* стрелка в contacts остаётся над красной плашкой — твоё правило уже учитывает это */
       }
       
-      /* очень узкие */
-      @media (max-width: 360px){
-        .logo{ margin-top: 110px; max-width: 76%; }
-        .navbar{ font-size: .85em; gap: 8px; }
-        .game-title{ font-size: 1.7rem; }
+      /* ==== Очень узкие экраны (до 360px) ==== */
+      @media (max-width: 360px) {
+        .logo{ max-width: 85%; margin-top: 120px; } /* ещё чуточку крупнее */
+        .navbar{ font-size: 0.9em; gap: 8px; }
+        .game-title{ font-size: 1.8rem; }
         .platforms img{ height: 36px; }
-        .social-links img{ width: 48px; height: 48px; }
+        .social-links img{ width: 52px; height: 52px; }
       }
+
     </style>
   </head>
   <body>
