@@ -349,6 +349,11 @@
           }
         }
       }
+      /* Скрыть верхнее меню на мобильных и убрать лишний отступ у плашки */
+        @media (max-width: 768px) {
+          .navbar { display: none; }
+          .separator { margin-top: 0; }
+        }
     </style>
   </head>
   <body>
@@ -503,6 +508,25 @@ We take part in festivals and community events and are grateful for the support 
       })();
     </script>
 
+    <script>
+        // Не восстанавливать прошлую прокрутку и не скроллить к hash-якорям
+        (function () {
+          try { history.scrollRestoration = 'manual'; } catch(e){}
+      
+          // Если зашли по ссылке с #home/#about и т.п. — убираем hash
+          if (location.hash) {
+            history.replaceState(null, '', location.pathname + location.search);
+          }
+      
+          // Гарантированно стартуем сверху контейнера
+          const sc = document.querySelector('.scroll-container');
+          requestAnimationFrame(() => {
+            if (sc) sc.scrollTop = 0;
+            window.scrollTo(0, 0);
+          });
+        })();
+      </script>
+    
     <!-- Подсветка активного пункта меню + плавный скролл без href -->
     <script>
       (function () {
