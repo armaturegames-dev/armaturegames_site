@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     
      <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
@@ -14,7 +16,8 @@
         margin: 0;
         padding: 0;
         overflow: hidden;
-        font-family: Arial, sans-serif;
+        font-family: 'Roboto Mono', monospace;
+/*         font-family: Arial, sans-serif; */
         scroll-behavior: smooth;
       }
 
@@ -90,6 +93,9 @@
         -webkit-font-smoothing: antialiased;
         text-rendering: optimizeLegibility;
         font-synthesis: none;
+      }
+      .quote {
+        font-family: Arial, sans-serif !important;
       }
       .quote .line { font-style: italic; font-weight: 400; display: inline-block; }
       .quote .line:last-child { font-size: 0.85em; }
