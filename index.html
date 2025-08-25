@@ -237,6 +237,66 @@
       #contacts .scroll-arrow.up{
         bottom: calc(6.5vh + 14px);
       }
+
+      /* ==== АДАПТАЦИЯ (до 768px) ==== */
+      @media (max-width: 768px) {
+        /* Навбар */
+        .navbar{
+          justify-content: center;
+          padding: 8px 14px;
+          gap: 10px;
+          font-size: 0.9em;
+        }
+      
+        /* Хэро */
+        .logo{ max-width: 70%; margin-top: 140px; }
+        .quote{ margin-bottom: 28px; font-size: 0.95em; }
+      
+        /* Сепаратор-плашка между секциями */
+        .separator{ height: 10vh; margin-top: 16px; font-size: 1.6em; }
+      
+        /* OUR GAMES */
+        .games-wrap{ width: 92%; }
+        .game-card{ flex-direction: column; align-items: center; gap: 20px; margin-top: 24px; }
+        .game-left{ width: 100%; max-width: 520px; }
+        .game-cover{ width: 100%; }
+        .game-left .platforms{ max-width: 360px; margin: 0 auto; }
+        .platforms img{ height: 40px; } /* кнопки платформ чуть меньше */
+      
+        .game-info{ text-align: center; flex: 1 1 auto; }
+        .game-title{ font-size: 1.9rem; }
+        .release{ font-size: 1rem; }
+        .game-text, .bullets{ font-size: 1rem; }
+        .bullets{ text-align: left; display: inline-block; margin-top: 12px; }
+      
+        /* ABOUT */
+        .about-wrap{ margin-top: 40px; padding: 0 12px; }
+        .about-title{ font-size: 1.4rem; }
+        .awards-bar{ margin-top: 40px; padding: 10px 0; }
+        .awards-bar img{ width: 100%; max-width: 100%; }
+      
+        /* CONTACTS */
+        .contacts-wrap{ margin-top: 30px; padding: 0 16px; }
+        #contacts .contacts-intro{ margin-top: 3vh; }
+        #contacts .contacts-email{ margin-top: 6vh; }
+        #contacts .contacts-social{ margin-top: 6vh; }
+        .social-links{ gap: 22px; }
+        .social-links img{ width: 52px; height: 52px; } /* крупнее тапы */
+      
+        /* Стрелки */
+        .scroll-arrow{ bottom: 10px; width: 32px; height: 32px; }
+        .scroll-arrow::after{ width: 16px; height: 16px; }
+        /* в контактах стрелка остаётся над красной плашкой — правило уже есть */
+      }
+      
+      /* ==== Очень узкие (до 360px) ==== */
+      @media (max-width: 360px) {
+        .logo{ margin-top: 120px; max-width: 78%; }
+        .navbar{ font-size: 0.85em; gap: 8px; }
+        .game-title{ font-size: 1.7rem; }
+        .platforms img{ height: 36px; }
+        .social-links img{ width: 48px; height: 48px; }
+      }
     </style>
   </head>
   <body>
