@@ -365,23 +365,21 @@
           }
         }
 
-      /* Центрирование логотипа и цитаты на мобильных */
+      /* ── Mobile fix: опускаем цитату, лого не трогаем ── */
         @media (max-width: 768px) {
-          #home {
-            display: flex;
-            flex-direction: column;
-            justify-content: center !important; /* центрируем блок */
-            align-items: center !important;
+          #home {                 /* убираем центрирование по вертикали у секции */
+            display: block !important;
             text-align: center;
           }
         
-          #home .logo {
-            margin: 0 0 20px 0 !important;
+          #home .logo {           /* фиксированное положение логотипа */
+            display: block;
+            margin: 22vh auto 12px !important;  /* лого остаётся на месте */
             max-width: 72%;
           }
         
-          #home .quote {
-            margin-top: 15vh !important; /* опускаем цитату на ~15% высоты экрана */
+          #home .quote {          /* опускаем цитату на ~15% высоты экрана */
+            margin: 30vh auto 28px !important;
             font-size: 1em;
           }
         }
