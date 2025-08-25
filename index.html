@@ -354,6 +354,16 @@
           .navbar { display: none; }
           .separator { margin-top: 0; }
         }
+      /* Скрыть верхнее меню на мобильных */
+        @media (max-width: 768px) {
+          .navbar {
+            display: none !important;
+          }
+          /* чтобы красная плашка-разделитель не отталкивалась вниз из‑за отсутствия navbar */
+          .separator {
+            margin-top: 0 !important;
+          }
+        }
     </style>
   </head>
   <body>
