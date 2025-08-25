@@ -364,6 +364,21 @@
             margin-top: 0 !important;
           }
         }
+
+      /* Центрирование логотипа на мобильных */
+        @media (max-width: 768px) {
+          #home {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* по вертикали по центру */
+            align-items: center;     /* по горизонтали по центру */
+          }
+          #home .logo {
+            margin-top: 0 !important;
+            margin-bottom: 20px;
+            max-width: 72%; /* можно поиграться, например 70–80% */
+          }
+        }
     </style>
   </head>
   <body>
