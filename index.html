@@ -579,6 +579,38 @@ We take part in festivals and community events and are grateful for the support 
           });
         })();
       </script>
+
+    <script>
+      (function () {
+        const sc = document.querySelector('.scroll-container');
+        if (!sc) return;
+    
+        // Колесо мыши: блокируем попытку уйти за верх/низ
+        sc.addEventListener('wheel', function(e){
+          const atTop  = sc.scrollTop <= 0;
+          const atBot  = sc.scrollTop + sc.clientHeight >= sc.scrollHeight - 1;
+          if ((atTop && e.deltaY < 0) || (atBot && e.deltaY > 0)) {
+            e.preventDefault();
+          }
+        }, { passive: false });
+    
+        // // Тач: то же самое для свайпов
+        // let startY = 0;
+        // sc.addEventListener('touchstart', function(e){
+        //   if (e.touches && e.touches.length) startY = e.touches[0].clientY;
+        // }, { passive: true });
+    
+        // sc.addEventListener('touchmove', function(e){
+        //   if (!e.touches || !e.touches.length) return;
+        //   const dy = e.touches[0].clientY - startY; // >0 — тянем вниз
+        //   const atTop = sc.scrollTop <= 0;
+        //   const atBot = sc.scrollTop + sc.clientHeight >= sc.scrollHeight - 1;
+        //   if ((atTop && dy > 0) || (atBot && dy < 0)) {
+        //     e.preventDefault();
+        //   }
+        // }, { passive: false });
+      })();
+    </script>
     
     <!-- Подсветка активного пункта меню + плавный скролл без href -->
     <script>
