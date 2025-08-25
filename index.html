@@ -48,6 +48,26 @@
         overscroll-behavior-y: contain; /* запрет скролла за пределы */
       }
 
+      /* === фикс снапа под "липкую" шапку без пустоты сверху === */
+        :root{
+          --nav-h: 44px;            /* фактическая высота твоей шапки (подгони при желании) */
+        }
+        
+        /* подсказка браузеру: при снапе/scrollIntoView учитывать высоту шапки */
+        .scroll-container{
+          scroll-padding-top: var(--nav-h);
+        }
+        
+        /* всем секциям, КРОМЕ первого экрана, даём компенсирующий отступ при прокрутке */
+        #games, #about, #contacts{
+          scroll-margin-top: var(--nav-h);
+        }
+        
+        /* у первого экрана отступа нет — он должен вставать в самый верх */
+        #home{
+          scroll-margin-top: 0;
+        }
+
       section {
         position: relative;
         height: 100vh;
