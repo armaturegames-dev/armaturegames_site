@@ -289,6 +289,51 @@
         .social-links img{ width: 48px; height: 48px; }
       }
 
+      /* Убираем стрелки на мобилках */
+      @media (max-width: 768px) {
+        .scroll-arrow {
+          display: none !important;
+        }
+      }
+      
+      /* Separator не должен зарезаться, снижаем отступ сверху */
+      .separator {
+        padding-top: 12px;
+        margin-top: 32px;
+      }
+      @media (max-width: 768px) {
+        .separator {
+          font-size: 1.35em;
+          margin-top: 20px;
+        }
+      }
+      
+      /* Навигация — скролл по горизонтали и уменьшение шрифта */
+      .navbar {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      @media (max-width: 768px) {
+        .navbar {
+          font-size: 0.85em;
+          padding: 8px 16px;
+          gap: 10px;
+        }
+      }
+      
+      /* Центрирование и боковые отступы */
+      @media (max-width: 768px) {
+        .game-info {
+          text-align: center;
+          padding: 0 10px;
+        }
+        .contacts-wrap {
+          padding: 0 12px;
+        }
+        .about-wrap {
+          padding: 0 10px;
+        }
+      }
     </style>
   </head>
   <body>
