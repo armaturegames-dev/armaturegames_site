@@ -249,6 +249,17 @@
         /* добавим «воздуха» снизу = высота .footer-bar + место для стрелки */
         padding-bottom: calc(6.5vh + 32px);
       }
+
+      /* убираем резиновый bounce у страницы */
+      html, body {
+        overscroll-behavior-y: none;
+      }
+      
+      /* контейнер не отдаёт скролл родителю */
+      .scroll-container{
+        overscroll-behavior-y: contain;
+      }
+      
            /* ===== Мобильные правки (доп) ===== */
       @media (max-width: 768px){
         /* логотип и цитату чуть выше/компактнее */
