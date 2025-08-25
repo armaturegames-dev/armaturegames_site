@@ -42,31 +42,9 @@
       .scroll-container {
         height: 100vh;
         overflow-y: auto;
-        scroll-snap-type: y proximity;
+        scroll-snap-type: y mandatory;
         scroll-behavior: smooth; /* плавный скролл внутри контейнера */
-
-        overscroll-behavior-y: contain; /* запрет скролла за пределы */
       }
-
-      /* === фикс снапа под "липкую" шапку без пустоты сверху === */
-        :root{
-          --nav-h: 44px;            /* фактическая высота твоей шапки (подгони при желании) */
-        }
-        
-        /* подсказка браузеру: при снапе/scrollIntoView учитывать высоту шапки */
-        .scroll-container{
-          scroll-padding-top: var(--nav-h);
-        }
-        
-        /* всем секциям, КРОМЕ первого экрана, даём компенсирующий отступ при прокрутке */
-        #games, #about, #contacts{
-          scroll-margin-top: var(--nav-h);
-        }
-        
-        /* у первого экрана отступа нет — он должен вставать в самый верх */
-        #home{
-          scroll-margin-top: 0;
-        }
 
       section {
         position: relative;
@@ -269,17 +247,6 @@
         /* добавим «воздуха» снизу = высота .footer-bar + место для стрелки */
         padding-bottom: calc(6.5vh + 32px);
       }
-
-      /* убираем резиновый bounce у страницы */
-      html, body {
-        overscroll-behavior-y: none;
-      }
-      
-      /* контейнер не отдаёт скролл родителю */
-      .scroll-container{
-        overscroll-behavior-y: contain;
-      }
-      
            /* ===== Мобильные правки (доп) ===== */
       @media (max-width: 768px){
         /* логотип и цитату чуть выше/компактнее */
@@ -421,25 +388,6 @@
             margin: 0 !important; /* убираем авто-отступы */
             font-size: 1em;
           }
-        }
-      @media (max-width: 768px) {
-        #home .quote {
-          display: none !important;
-        }
-      }
-
-      /* Фикс скролла — убираем серую зону сверху */
-        html, body {
-          height: 100%;
-          overflow: hidden !important;      /* убираем скролл у окна */
-          overscroll-behavior-y: none;
-        }
-        
-        .scroll-container {
-          position: fixed;                  /* контейнер теперь фиксирован */
-          top: 0; left: 0; right: 0; bottom: 0;
-          height: auto;                     /* высоту берём из границ */
-          overscroll-behavior-y: contain;   /* скролл остаётся внутри */
         }
     </style>
   </head>
@@ -613,7 +561,6 @@ We take part in festivals and community events and are grateful for the support 
           });
         })();
       </script>
-
     
     <!-- Подсветка активного пункта меню + плавный скролл без href -->
     <script>
