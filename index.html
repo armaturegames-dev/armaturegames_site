@@ -255,6 +255,18 @@
         /* добавим «воздуха» снизу = высота .footer-bar + место для стрелки */
         padding-bottom: calc(6.5vh + 32px);
       }
+      .footer-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+      }
+      
+      .footer-logo {
+        height: 24px;
+        width: auto;
+        filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
+      }
            /* ===== Мобильные правки (доп) ===== */
       @media (max-width: 768px){
         /* логотип и цитату чуть выше/компактнее */
@@ -538,7 +550,10 @@ We take part in festivals and community events and are grateful for the support 
         </div>
 
         <!-- ↓↓↓ ДОБАВЛЕННАЯ КРАСНАЯ ПЛАШКА (всегда внизу) ↓↓↓ -->
-        <div class="footer-bar">©2021 ARMAG. All rights reserved.</div>
+        <div class="footer-bar">
+          <img src="armag_logo_mini_white.png" alt="ARMAG Logo" class="footer-logo no-save" />
+          ©2021 ARMAG. All rights reserved.
+        </div>
         <!-- ↑↑↑ КОНЕЦ ПЛАШКИ ↑↑↑ -->
       
         <a class="scroll-arrow up js-scroll" data-target="home" aria-label="Back to top"></a>
