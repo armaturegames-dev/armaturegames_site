@@ -516,7 +516,7 @@ We take part in festivals and community events and are grateful for the support 
             just contact us by email. We will be glad to talk to you.
           </div>
       
-          <div class="contact-item contacts-email">
+          <div class="contact-item contacts-email" data-allow-copy>
             <span class="contact-label">E-MAIL</span>
             <a href="mailto:armaturegames@gmail.com">armaturegames@gmail.com</a>
           </div>
@@ -552,7 +552,14 @@ We take part in festivals and community events and are grateful for the support 
         const block = e => e.preventDefault();
         document.addEventListener('contextmenu', block, { capture: true });
         document.addEventListener('dragstart', block, { capture: true });
-        document.addEventListener('copy', block, { capture: true });
+        document.addEventListener('copy', e => {
+          let el = e.target;
+          while (el) {
+            if (el.dataset && el.dataset.allowCopy !== undefined) return; // разрешить копирование
+            el = el.parentElement;
+          }
+          e.preventDefault();
+        }, { capture: true });
         document.addEventListener('keydown', e => {
           const k = e.key.toLowerCase();
           if ((e.ctrlKey || e.metaKey) && ['s','p','u'].includes(k)) e.preventDefault();
