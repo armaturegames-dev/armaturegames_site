@@ -78,6 +78,17 @@
         margin-top: 37px;
       }
 
+      .separator {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      
+      .separator.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
       .logo {
         max-width: 40%;
         margin-top: 280px;
@@ -590,6 +601,23 @@ We take part in festivals and community events and are grateful for the support 
           if ((e.ctrlKey || e.metaKey) && ['s','p','u'].includes(k)) e.preventDefault();
         }, { capture: true });
       })();
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.6 });
+    
+        document.querySelectorAll('.separator').forEach(el => {
+          observer.observe(el);
+        });
+      });
     </script>
 
     <script>
