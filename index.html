@@ -80,13 +80,13 @@
 
       .separator {
         opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        filter: blur(6px);
+        transition: opacity 1.2s ease, filter 1.2s ease;
       }
       
       .separator.visible {
         opacity: 1;
-        transform: translateY(0);
+        filter: blur(0);
       }
 
       .logo {
