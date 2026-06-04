@@ -167,10 +167,6 @@
       .scroll-arrow:hover{ opacity:1; }
       .scroll-arrow.up{ animation: arrowPulseUp 2s infinite; }
       .scroll-arrow.up::after{ transform:rotate(-135deg); }
-      .scroll-arrow.up {
-        bottom: auto;
-        top: calc(13vh + 37px + 14px);
-      }
       @keyframes arrowPulse{ 0%,100%{ transform: translateX(-50%) translateY(0);} 50%{ transform: translateX(-50%) translateY(-6px);} }
       @keyframes arrowPulseUp{ 0%,100%{ transform: translateX(-50%) translateY(0);} 50%{ transform: translateX(-50%) translateY(6px);} }
 
@@ -476,8 +472,6 @@
       <section id="games" style="background-image: url('video_BG_for_gif_site_01.gif')">
         <div class="separator">OUR GAMES</div>
 
-        <a class="scroll-arrow up js-scroll" data-target="home" aria-label="Previous section"></a>
-
         <div class="games-wrap">
           <div class="game-card">
             <div class="game-left">
@@ -528,8 +522,6 @@ Are you ready to challenge evil when 12 o'clock strikes?
 
       <section id="about" style="background-image: url('video_BG_for_gif_site_02.gif')">
         <div class="separator">ABOUT</div>
-
-        <a class="scroll-arrow up js-scroll" data-target="games" aria-label="Previous section"></a>
 
         <!-- ▼▼▼ НАПОЛНЕНИЕ ABOUT (добавлено) ▼▼▼ -->
         <div class="about-wrap">
@@ -648,10 +640,9 @@ We take part in festivals and community events and are grateful for the support 
       
           // Гарантированно стартуем сверху контейнера
           const sc = document.querySelector('.scroll-container');
-          if (sc) sc.scrollTop = 0;
-          window.scrollTo(0, 0);
           requestAnimationFrame(() => {
             if (sc) sc.scrollTop = 0;
+            window.scrollTo(0, 0);
           });
         })();
       </script>
@@ -664,13 +655,9 @@ We take part in festivals and community events and are grateful for the support 
 
         // плавный переход по клику на .js-scroll
         function goto(id){
-        const el = document.getElementById(id);
-        if (el) {
-          const sc = document.querySelector('.scroll-container');
-          const navH = document.querySelector('.navbar')?.offsetHeight || 0;
-          sc.scrollTo({ top: el.offsetTop + navH, behavior: 'smooth' });
+          const el = document.getElementById(id);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-      }
         document.querySelectorAll('.js-scroll').forEach(a=>{
           a.addEventListener('click', e=>{
             e.preventDefault();
