@@ -711,7 +711,7 @@ We take part in festivals and community events and are grateful for the support 
           if (next !== current && next >= 0) {
             isScrolling = true;
             document.getElementById(ids[next]).scrollIntoView({ behavior: 'smooth', block: 'start' });
-            setTimeout(() => { isScrolling = false; }, 500);
+            setTimeout(() => { isScrolling = false; }, 400);
           }
         }, { passive: false });
       })();
