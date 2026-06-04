@@ -168,6 +168,12 @@
       .scroll-arrow:hover{ opacity:1; }
       .scroll-arrow.up{ animation: arrowPulseUp 2s infinite; }
       .scroll-arrow.up::after{ transform:rotate(-135deg); }
+
+      .scroll-arrow.up {
+        bottom: auto;
+        top: calc(13vh + 37px + 14px);
+      }
+      
       @keyframes arrowPulse{ 0%,100%{ transform: translateX(-50%) translateY(0);} 50%{ transform: translateX(-50%) translateY(-6px);} }
       @keyframes arrowPulseUp{ 0%,100%{ transform: translateX(-50%) translateY(0);} 50%{ transform: translateX(-50%) translateY(6px);} }
 
@@ -473,6 +479,8 @@
       <section id="games" style="background-image: url('video_BG_for_gif_site_01.gif')">
         <div class="separator">OUR GAMES</div>
 
+        <a class="scroll-arrow up js-scroll" data-target="home" aria-label="Previous section"></a>
+
         <div class="games-wrap">
           <div class="game-card">
             <div class="game-left">
@@ -524,6 +532,8 @@ Are you ready to challenge evil when 12 o'clock strikes?
       <section id="about" style="background-image: url('video_BG_for_gif_site_02.gif')">
         <div class="separator">ABOUT</div>
 
+        <a class="scroll-arrow up js-scroll" data-target="games" aria-label="Previous section"></a>
+
         <!-- ▼▼▼ НАПОЛНЕНИЕ ABOUT (добавлено) ▼▼▼ -->
         <div class="about-wrap">
           <h3 class="about-title">Story</h3>
@@ -551,6 +561,8 @@ We take part in festivals and community events and are grateful for the support 
       <!-- ▼▼▼ ОБНОВЛЁННЫЙ БЛОК CONTACTS ▼▼▼ -->
       <section id="contacts" style="background-image: url('video_BG_for_gif_site_03_v2.gif')">
         <div class="separator">CONTACTS</div>
+
+        <a class="scroll-arrow up js-scroll" data-target="about" aria-label="Previous section"></a>
       
         <div class="contacts-wrap">
           <div class="game-text contacts-intro">
