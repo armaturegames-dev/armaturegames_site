@@ -664,12 +664,13 @@ We take part in festivals and community events and are grateful for the support 
 
         // плавный переход по клику на .js-scroll
         function goto(id){
-          const el = document.getElementById(id);
-          if (el) {
-            const sc = document.querySelector('.scroll-container');
-            sc.scrollTo({ top: el.offsetTop, behavior: 'smooth' });
-          }
+        const el = document.getElementById(id);
+        if (el) {
+          const sc = document.querySelector('.scroll-container');
+          const navH = document.querySelector('.navbar')?.offsetHeight || 0;
+          sc.scrollTo({ top: el.offsetTop + navH, behavior: 'smooth' });
         }
+      }
         document.querySelectorAll('.js-scroll').forEach(a=>{
           a.addEventListener('click', e=>{
             e.preventDefault();
