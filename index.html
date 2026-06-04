@@ -667,8 +667,7 @@ We take part in festivals and community events and are grateful for the support 
           const el = document.getElementById(id);
           if (el) {
             const sc = document.querySelector('.scroll-container');
-            const navH = document.querySelector('.navbar')?.offsetHeight || 0;
-            sc.scrollTo({ top: el.offsetTop - navH, behavior: 'smooth' });
+            sc.scrollTo({ top: el.offsetTop, behavior: 'smooth' });
           }
         }
         document.querySelectorAll('.js-scroll').forEach(a=>{
