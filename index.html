@@ -648,10 +648,11 @@ We take part in festivals and community events and are grateful for the support 
       
           // Гарантированно стартуем сверху контейнера
           const sc = document.querySelector('.scroll-container');
-          if (sc) sc.scrollTop = 0;
-          window.scrollTo(0, 0);
+          const navH = document.querySelector('.navbar')?.offsetHeight || 0;
+          if (sc) sc.scrollTop = navH;
           requestAnimationFrame(() => {
-            if (sc) sc.scrollTop = 0;
+            if (sc) sc.scrollTop = navH;
+          });
           });
         })();
       </script>
@@ -665,7 +666,11 @@ We take part in festivals and community events and are grateful for the support 
         // плавный переход по клику на .js-scroll
         function goto(id){
           const el = document.getElementById(id);
-          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (el) {
+            const sc = document.querySelector('.scroll-container');
+            const navH = document.querySelector('.navbar')?.offsetHeight || 0;
+            sc.scrollTo({ top: el.offsetTop - navH, behavior: 'smooth' });
+          }
         }
         document.querySelectorAll('.js-scroll').forEach(a=>{
           a.addEventListener('click', e=>{
