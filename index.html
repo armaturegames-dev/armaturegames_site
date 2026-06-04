@@ -649,6 +649,7 @@ We take part in festivals and community events and are grateful for the support 
           // Гарантированно стартуем сверху контейнера
           const sc = document.querySelector('.scroll-container');
           const navH = document.querySelector('.navbar')?.offsetHeight || 0;
+          if (sc) sc.scrollTop = navH;
           requestAnimationFrame(() => {
             if (sc) sc.scrollTop = navH;
           });
