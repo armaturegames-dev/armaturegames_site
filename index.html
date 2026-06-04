@@ -167,6 +167,10 @@
       .scroll-arrow:hover{ opacity:1; }
       .scroll-arrow.up{ animation: arrowPulseUp 2s infinite; }
       .scroll-arrow.up::after{ transform:rotate(-135deg); }
+      .scroll-arrow.up {
+        bottom: auto;
+        top: 14px;
+      }
       @keyframes arrowPulse{ 0%,100%{ transform: translateX(-50%) translateY(0);} 50%{ transform: translateX(-50%) translateY(-6px);} }
       @keyframes arrowPulseUp{ 0%,100%{ transform: translateX(-50%) translateY(0);} 50%{ transform: translateX(-50%) translateY(6px);} }
 
@@ -518,6 +522,7 @@ Are you ready to challenge evil when 12 o'clock strikes?
         </div>
 
         <a class="scroll-arrow js-scroll" data-target="about" aria-label="Next section"></a>
+        <a class="scroll-arrow up js-scroll" data-target="home" aria-label="Previous section"></a>
       </section>
 
       <section id="about" style="background-image: url('video_BG_for_gif_site_02.gif')">
@@ -545,6 +550,7 @@ We take part in festivals and community events and are grateful for the support 
         <!-- ▲▲▲ КОНЕЦ наполнения ABOUT ▲▲▲ -->
 
         <a class="scroll-arrow js-scroll" data-target="contacts" aria-label="Next section"></a>
+        <a class="scroll-arrow up js-scroll" data-target="games" aria-label="Previous section"></a>
       </section>
 
       <!-- ▼▼▼ ОБНОВЛЁННЫЙ БЛОК CONTACTS ▼▼▼ -->
