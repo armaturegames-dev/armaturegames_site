@@ -6,750 +6,1579 @@
   <meta name="theme-color" content="#070707">
 
   <title>ARMAG — Independent Game Studio</title>
-  <meta name="description" content="ARMAG is an independent game studio creating atmospheric, story-driven horror games.">
+
+  <meta
+    name="description"
+    content="ARMAG is an independent game studio creating atmospheric, story-driven horror games."
+  >
+
   <meta property="og:title" content="ARMAG — Independent Game Studio">
-  <meta property="og:description" content="Atmospheric, story-driven horror games by ARMAG.">
+  <meta
+    property="og:description"
+    content="Atmospheric, story-driven horror games by ARMAG."
+  >
   <meta property="og:image" content="preview-image.png">
   <meta property="og:type" content="website">
 
   <link rel="icon" href="favicon.png">
 
   <style>
-    :root{
-      --bg:#070707;
-      --fg:#f3f1ec;
-      --muted:#9a9994;
-      --line:rgba(255,255,255,.14);
-      --accent:#7d1717;
-      --pad:clamp(22px,5.2vw,84px);
-      --header-h:84px;
+    :root {
+      --bg: #070707;
+      --fg: #f3f1ec;
+      --muted: #9a9994;
+      --line: rgba(255,255,255,.14);
+      --pad: clamp(22px, 5.2vw, 84px);
+      --header-h: 84px;
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;background:var(--bg)}
-    body{
-      margin:0;
-      color:var(--fg);
-      background:var(--bg);
-      font-family:Arial,Helvetica,sans-serif;
-      -webkit-font-smoothing:antialiased;
-      overflow-x:hidden;
+    * {
+      box-sizing: border-box;
     }
 
-    img{display:block;max-width:100%}
-    a{color:inherit;text-decoration:none}
-    button{font:inherit}
-
-    .site-header{
-      position:fixed;
-      top:0;left:0;right:0;
-      height:var(--header-h);
-      padding:0 var(--pad);
-      z-index:100;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      background:linear-gradient(to bottom,rgba(0,0,0,.72),rgba(0,0,0,0));
-      transition:background .3s ease,backdrop-filter .3s ease;
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
     }
 
-    .site-header.scrolled{
-      background:rgba(7,7,7,.84);
-      backdrop-filter:blur(12px);
+    body {
+      margin: 0;
+      color: var(--fg);
+      background: var(--bg);
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
-    .brand img{
-      width:clamp(136px,12vw,200px);
-      height:auto;
+    img {
+      display: block;
+      max-width: 100%;
     }
 
-    .nav{
-      display:flex;
-      gap:34px;
-      align-items:center;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .nav a{
-      position:relative;
-      font-size:11px;
-      font-weight:700;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      padding:10px 0;
+    button {
+      font: inherit;
     }
 
-    .nav a::after{
-      content:"";
-      position:absolute;
-      left:0;right:0;bottom:4px;
-      height:1px;
-      background:#fff;
-      transform:scaleX(0);
-      transform-origin:right;
-      transition:transform .35s ease;
+    /* HEADER */
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      height: var(--header-h);
+
+      padding: 0 var(--pad);
+
+      z-index: 100;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0,0,0,.72),
+          rgba(0,0,0,0)
+        );
+
+      transition:
+        background .3s ease,
+        backdrop-filter .3s ease;
+    }
+
+    .site-header.scrolled {
+      background: rgba(7,7,7,.84);
+      backdrop-filter: blur(12px);
+    }
+
+    .brand img {
+      width: clamp(130px, 11vw, 190px);
+      height: auto;
+    }
+
+    .nav {
+      display: flex;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .nav a {
+      position: relative;
+
+      font-size: 11px;
+      font-weight: 700;
+
+      letter-spacing: .18em;
+
+      text-transform: uppercase;
+
+      padding: 10px 0;
+    }
+
+    .nav a::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: 4px;
+
+      height: 1px;
+
+      background: #fff;
+
+      transform: scaleX(0);
+      transform-origin: right;
+
+      transition: transform .35s ease;
     }
 
     .nav a:hover::after,
-    .nav a.active::after{
-      transform:scaleX(1);
-      transform-origin:left;
+    .nav a.active::after {
+      transform: scaleX(1);
+      transform-origin: left;
     }
 
-    .menu-btn{
-      display:none;
-      width:42px;
-      height:42px;
-      border:0;
-      background:transparent;
-      color:white;
-      position:relative;
-      z-index:102;
-      cursor:pointer;
+    .menu-btn {
+      display: none;
+
+      width: 42px;
+      height: 42px;
+
+      border: 0;
+
+      background: transparent;
+      color: white;
+
+      position: relative;
+
+      z-index: 102;
+
+      cursor: pointer;
     }
 
-    .menu-btn span{
-      position:absolute;
-      left:9px;
-      width:24px;
-      height:1px;
-      background:currentColor;
-      transition:.3s ease;
+    .menu-btn span {
+      position: absolute;
+
+      left: 9px;
+
+      width: 24px;
+      height: 1px;
+
+      background: currentColor;
+
+      transition: .3s ease;
     }
 
-    .menu-btn span:first-child{top:16px}
-    .menu-btn span:last-child{top:25px}
-    .menu-btn.open span:first-child{top:20px;transform:rotate(45deg)}
-    .menu-btn.open span:last-child{top:20px;transform:rotate(-45deg)}
-
-    .hero{
-      position:relative;
-      min-height:100svh;
-      display:flex;
-      align-items:flex-end;
-      overflow:hidden;
-      isolation:isolate;
-      padding:calc(var(--header-h) + 40px) var(--pad) clamp(74px,10vh,118px);
-      background:#0b0b0b;
+    .menu-btn span:first-child {
+      top: 16px;
     }
 
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      z-index:-3;
+    .menu-btn span:last-child {
+      top: 25px;
+    }
+
+    .menu-btn.open span:first-child {
+      top: 20px;
+      transform: rotate(45deg);
+    }
+
+    .menu-btn.open span:last-child {
+      top: 20px;
+      transform: rotate(-45deg);
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+
+      min-height: 100svh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+      isolation: isolate;
+
+      padding:
+        var(--header-h)
+        var(--pad)
+        0;
+
+      background: #0b0b0b;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      z-index: -3;
+
       background:
-        linear-gradient(90deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.55) 37%,rgba(0,0,0,.2) 67%,rgba(0,0,0,.55) 100%),
-        linear-gradient(to top,rgba(0,0,0,.9),transparent 48%),
-        url("preview-image.png") center/cover no-repeat;
-      transform:scale(1.015);
+        linear-gradient(
+          to bottom,
+          rgba(0,0,0,.30),
+          rgba(0,0,0,.18) 42%,
+          rgba(0,0,0,.66)
+        ),
+        url("preview-image.png")
+        center / cover
+        no-repeat;
+
+      transform: scale(1.02);
     }
 
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      z-index:-2;
-      background:radial-gradient(circle at 72% 42%,transparent 0 20%,rgba(0,0,0,.18) 48%,rgba(0,0,0,.55) 100%);
-    }
+    .hero::after {
+      content: "";
 
-    .hero-copy{
-      width:min(1050px,100%);
-    }
+      position: absolute;
+      inset: 0;
 
-    .kicker{
-      margin:0 0 22px;
-      color:rgba(255,255,255,.62);
-      font-size:10px;
-      font-weight:700;
-      letter-spacing:.28em;
-      text-transform:uppercase;
-    }
+      z-index: -2;
 
-    .hero h1,
-    .game-copy h2,
-    .about h2,
-    .contact h2{
-      margin:0;
-      text-transform:uppercase;
-      letter-spacing:-.055em;
-      line-height:.88;
-      font-weight:800;
-    }
-
-    .hero h1{
-      font-size:clamp(62px,9vw,150px);
-      max-width:1000px;
-    }
-
-    .hero h1 span{
-      font-weight:300;
-    }
-
-    .hero-sub{
-      margin:28px 0 0;
-      max-width:600px;
-      color:rgba(255,255,255,.72);
-      font-size:clamp(15px,1.2vw,19px);
-      line-height:1.55;
-    }
-
-    .hero-actions,
-    .game-actions{
-      display:flex;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:28px;
-      margin-top:34px;
-    }
-
-    .link-arrow{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding-bottom:8px;
-      border-bottom:1px solid rgba(255,255,255,.52);
-      font-size:11px;
-      font-weight:700;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-    }
-
-    .link-arrow span{transition:transform .25s ease}
-    .link-arrow:hover span{transform:translate(4px,-4px)}
-
-    .platform-word{
-      font-size:11px;
-      font-weight:700;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      color:rgba(255,255,255,.58);
-    }
-
-    .scroll-note{
-      position:absolute;
-      right:var(--pad);
-      bottom:36px;
-      display:flex;
-      gap:12px;
-      align-items:center;
-      font-size:9px;
-      letter-spacing:.22em;
-      text-transform:uppercase;
-      color:rgba(255,255,255,.48);
-    }
-
-    .scroll-note::before{
-      content:"";
-      width:44px;
-      height:1px;
-      background:currentColor;
-    }
-
-    .section{
-      position:relative;
-      border-top:1px solid var(--line);
-    }
-
-    .game-section{
-      min-height:100svh;
-      display:grid;
-      grid-template-columns:minmax(0,1.1fr) minmax(390px,.9fr);
-      align-items:stretch;
-      background:#0a0a0a;
-    }
-
-    .game-visual{
-      position:relative;
-      min-height:720px;
-      overflow:hidden;
-      background:#111;
-    }
-
-    .game-visual img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center;
-      transform:scale(1.02);
-      transition:transform 1.2s cubic-bezier(.2,.7,.2,1);
-    }
-
-    .game-visual::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(90deg,transparent 62%,rgba(10,10,10,.92));
-      pointer-events:none;
-    }
-
-    .game-section:hover .game-visual img{
-      transform:scale(1.055);
-    }
-
-    .game-copy{
-      padding:clamp(90px,10vh,130px) var(--pad) 90px clamp(46px,5vw,90px);
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      background:#0a0a0a;
-    }
-
-    .game-copy h2{
-      font-size:clamp(52px,6.5vw,108px);
-    }
-
-    .game-copy h2 span{
-      display:block;
-      font-weight:300;
-    }
-
-    .game-desc{
-      margin:34px 0 0;
-      max-width:610px;
-      color:var(--muted);
-      font-size:clamp(15px,1.2vw,18px);
-      line-height:1.7;
-    }
-
-    .platforms{
-      display:flex;
-      flex-wrap:wrap;
-      gap:16px;
-      align-items:center;
-      margin-top:42px;
-    }
-
-    .platforms a{
-      height:46px;
-      min-width:62px;
-      padding:8px 12px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      border:1px solid var(--line);
-      transition:border-color .25s ease,background .25s ease,transform .25s ease;
-    }
-
-    .platforms a:hover{
-      border-color:rgba(255,255,255,.42);
-      background:rgba(255,255,255,.05);
-      transform:translateY(-2px);
-    }
-
-    .platforms img{
-      width:auto;
-      max-width:78px;
-      max-height:28px;
-      object-fit:contain;
-    }
-
-    .about{
-      min-height:88svh;
-      padding:clamp(110px,13vh,170px) var(--pad);
-      display:grid;
-      grid-template-columns:minmax(100px,.35fr) minmax(0,1.65fr);
-      gap:8vw;
-      align-items:start;
-      background:#080808;
-    }
-
-    .section-id{
-      color:rgba(255,255,255,.28);
-      font-size:10px;
-      letter-spacing:.24em;
-      text-transform:uppercase;
-    }
-
-    .about h2{
-      font-size:clamp(46px,6.4vw,108px);
-      max-width:1100px;
-      text-transform:none;
-      line-height:.96;
-    }
-
-    .about-text{
-      max-width:720px;
-      margin:48px 0 0;
-      color:var(--muted);
-      font-size:clamp(16px,1.3vw,20px);
-      line-height:1.7;
-    }
-
-    .awards{
-      max-width:760px;
-      margin-top:56px;
-      padding-top:30px;
-      border-top:1px solid var(--line);
-    }
-
-    .awards img{
-      max-height:130px;
-      width:auto;
-      max-width:100%;
-      object-fit:contain;
-      object-position:left center;
-    }
-
-    .contact{
-      min-height:74svh;
-      padding:clamp(110px,14vh,180px) var(--pad);
       background:
-        radial-gradient(circle at 77% 50%,rgba(125,23,23,.14),transparent 25%),
+        radial-gradient(
+          circle at center,
+          transparent 0,
+          rgba(0,0,0,.05) 42%,
+          rgba(0,0,0,.48) 100%
+        );
+    }
+
+    .hero-copy {
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+    }
+
+    .hero-logo {
+      width: clamp(240px, 28vw, 520px);
+      height: auto;
+
+      margin-bottom: 30px;
+    }
+
+    .hero-studio {
+      margin: 0;
+
+      font-size: 11px;
+      font-weight: 700;
+
+      letter-spacing: .32em;
+
+      text-transform: uppercase;
+
+      color: rgba(255,255,255,.92);
+    }
+
+    .hero-description {
+      margin: 13px 0 0;
+
+      font-size: 14px;
+
+      letter-spacing: .06em;
+
+      color: rgba(255,255,255,.58);
+    }
+
+    .hero-scroll {
+      margin-top: 54px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      gap: 13px;
+
+      font-size: 9px;
+      font-weight: 700;
+
+      letter-spacing: .25em;
+
+      text-transform: uppercase;
+
+      color: rgba(255,255,255,.65);
+    }
+
+    .hero-scroll span {
+      font-size: 18px;
+
+      transition: transform .3s ease;
+    }
+
+    .hero-scroll:hover span {
+      transform: translateY(6px);
+    }
+
+    /* GENERAL SECTION */
+
+    .section {
+      position: relative;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .kicker {
+      margin: 0 0 22px;
+
+      color: rgba(255,255,255,.62);
+
+      font-size: 10px;
+      font-weight: 700;
+
+      letter-spacing: .28em;
+
+      text-transform: uppercase;
+    }
+
+    /* GAME SECTION */
+
+    .game-section {
+      min-height: 100svh;
+
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1.1fr)
+        minmax(390px, .9fr);
+
+      align-items: stretch;
+
+      background: #0a0a0a;
+    }
+
+    .game-visual {
+      position: relative;
+
+      min-height: 720px;
+
+      overflow: hidden;
+
+      background: #111;
+    }
+
+    .game-visual img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: center;
+
+      transform: scale(1.02);
+
+      transition:
+        transform 1.2s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .game-visual::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent 62%,
+          rgba(10,10,10,.92)
+        );
+
+      pointer-events: none;
+    }
+
+    .game-section:hover .game-visual img {
+      transform: scale(1.055);
+    }
+
+    .game-copy {
+      padding:
+        clamp(90px,10vh,130px)
+        var(--pad)
+        90px
+        clamp(46px,5vw,90px);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      background: #0a0a0a;
+    }
+
+    .game-copy h2 {
+      margin: 0;
+
+      font-size: clamp(52px, 6.5vw, 108px);
+
+      line-height: .88;
+
+      letter-spacing: -.055em;
+
+      text-transform: uppercase;
+
+      font-weight: 800;
+    }
+
+    .game-copy h2 span {
+      display: block;
+
+      font-weight: 300;
+    }
+
+    .game-desc {
+      margin: 34px 0 0;
+
+      max-width: 610px;
+
+      color: var(--muted);
+
+      font-size: clamp(15px,1.2vw,18px);
+
+      line-height: 1.7;
+    }
+
+    .game-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+
+      gap: 28px;
+
+      margin-top: 34px;
+    }
+
+    .link-arrow {
+      display: inline-flex;
+      align-items: center;
+
+      gap: 10px;
+
+      padding-bottom: 8px;
+
+      border-bottom:
+        1px solid
+        rgba(255,255,255,.52);
+
+      font-size: 11px;
+      font-weight: 700;
+
+      letter-spacing: .18em;
+
+      text-transform: uppercase;
+    }
+
+    .link-arrow span {
+      transition: transform .25s ease;
+    }
+
+    .link-arrow:hover span {
+      transform:
+        translate(4px,-4px);
+    }
+
+    /* PLATFORMS */
+
+    .platforms {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+
+      gap: 16px;
+
+      margin-top: 42px;
+    }
+
+    .platforms a {
+      height: 46px;
+      min-width: 62px;
+
+      padding: 8px 12px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border:
+        1px solid
+        var(--line);
+
+      transition:
+        border-color .25s ease,
+        background .25s ease,
+        transform .25s ease;
+    }
+
+    .platforms a:hover {
+      border-color:
+        rgba(255,255,255,.42);
+
+      background:
+        rgba(255,255,255,.05);
+
+      transform:
+        translateY(-2px);
+    }
+
+    .platforms img {
+      width: auto;
+
+      max-width: 78px;
+      max-height: 28px;
+
+      object-fit: contain;
+    }
+
+    /* ABOUT */
+
+    .about {
+      min-height: 88svh;
+
+      padding:
+        clamp(110px,13vh,170px)
+        var(--pad);
+
+      display: grid;
+
+      grid-template-columns:
+        minmax(100px,.35fr)
+        minmax(0,1.65fr);
+
+      gap: 8vw;
+
+      align-items: start;
+
+      background: #080808;
+    }
+
+    .section-id {
+      color:
+        rgba(255,255,255,.28);
+
+      font-size: 10px;
+
+      letter-spacing: .24em;
+
+      text-transform: uppercase;
+    }
+
+    .about h2 {
+      margin: 0;
+
+      max-width: 1100px;
+
+      font-size:
+        clamp(46px,6.4vw,108px);
+
+      line-height: .96;
+
+      letter-spacing: -.055em;
+
+      font-weight: 800;
+    }
+
+    .about-text {
+      max-width: 720px;
+
+      margin: 48px 0 0;
+
+      color: var(--muted);
+
+      font-size:
+        clamp(16px,1.3vw,20px);
+
+      line-height: 1.7;
+    }
+
+    .awards {
+      max-width: 760px;
+
+      margin-top: 56px;
+
+      padding-top: 30px;
+
+      border-top:
+        1px solid
+        var(--line);
+    }
+
+    .awards img {
+      max-height: 130px;
+
+      width: auto;
+      max-width: 100%;
+
+      object-fit: contain;
+      object-position: left center;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      min-height: 74svh;
+
+      padding:
+        clamp(110px,14vh,180px)
+        var(--pad);
+
+      background:
+        radial-gradient(
+          circle at 77% 50%,
+          rgba(125,23,23,.14),
+          transparent 25%
+        ),
         #070707;
-      display:flex;
-      align-items:center;
+
+      display: flex;
+      align-items: center;
     }
 
-    .contact-inner{
-      width:min(1100px,100%);
+    .contact-inner {
+      width: min(1100px,100%);
     }
 
-    .contact h2{
-      font-size:clamp(50px,7vw,116px);
-      line-height:.92;
-      text-transform:none;
+    .contact h2 {
+      margin: 0;
+
+      font-size:
+        clamp(50px,7vw,116px);
+
+      line-height: .92;
+
+      letter-spacing: -.055em;
+
+      font-weight: 800;
     }
 
-    .mail{
-      display:inline-block;
-      margin-top:50px;
-      padding-bottom:8px;
-      border-bottom:1px solid rgba(255,255,255,.38);
-      font-size:clamp(17px,1.4vw,22px);
+    .mail {
+      display: inline-block;
+
+      margin-top: 50px;
+
+      padding-bottom: 8px;
+
+      border-bottom:
+        1px solid
+        rgba(255,255,255,.38);
+
+      font-size:
+        clamp(17px,1.4vw,22px);
     }
 
-    .social{
-      display:flex;
-      gap:14px;
-      margin-top:46px;
+    .social {
+      display: flex;
+
+      gap: 14px;
+
+      margin-top: 46px;
     }
 
-    .social a{
-      width:48px;
-      height:48px;
-      border:1px solid var(--line);
-      display:grid;
-      place-items:center;
-      transition:.25s ease;
+    .social a {
+      width: 48px;
+      height: 48px;
+
+      border:
+        1px solid
+        var(--line);
+
+      display: grid;
+      place-items: center;
+
+      transition: .25s ease;
     }
 
-    .social a:hover{
-      background:rgba(255,255,255,.06);
-      border-color:rgba(255,255,255,.38);
-      transform:translateY(-2px);
+    .social a:hover {
+      background:
+        rgba(255,255,255,.06);
+
+      border-color:
+        rgba(255,255,255,.38);
+
+      transform:
+        translateY(-2px);
     }
 
-    .social img{
-      width:22px;
-      height:22px;
-      object-fit:contain;
+    .social img {
+      width: 22px;
+      height: 22px;
+
+      object-fit: contain;
     }
 
-    footer{
-      min-height:88px;
-      padding:24px var(--pad);
-      border-top:1px solid var(--line);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:30px;
-      color:rgba(255,255,255,.4);
-      font-size:9px;
-      letter-spacing:.16em;
-      text-transform:uppercase;
+    /* FOOTER */
+
+    footer {
+      min-height: 88px;
+
+      padding:
+        24px
+        var(--pad);
+
+      border-top:
+        1px solid
+        var(--line);
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 30px;
+
+      color:
+        rgba(255,255,255,.4);
+
+      font-size: 9px;
+
+      letter-spacing: .16em;
+
+      text-transform: uppercase;
     }
 
-    footer img{
-      width:78px;
-      height:auto;
-      opacity:.72;
+    footer img {
+      width: 78px;
+      height: auto;
+
+      opacity: .72;
     }
 
-    .reveal{
-      opacity:0;
-      transform:translateY(30px);
-      transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);
+    /* REVEAL */
+
+    .reveal {
+      opacity: 0;
+
+      transform:
+        translateY(30px);
+
+      transition:
+        opacity .8s cubic-bezier(.2,.7,.2,1),
+        transform .8s cubic-bezier(.2,.7,.2,1);
     }
 
-    .reveal.visible{
-      opacity:1;
-      transform:none;
+    .reveal.visible {
+      opacity: 1;
+
+      transform: none;
     }
 
-    @media(max-width:900px){
-      :root{--header-h:72px}
+    /* TABLET + MOBILE */
 
-      .menu-btn{display:block}
+    @media (max-width: 900px) {
 
-      .nav{
-        position:fixed;
-        inset:0;
-        z-index:101;
-        background:#080808;
-        flex-direction:column;
-        align-items:center;
-        justify-content:center;
-        gap:28px;
-        opacity:0;
-        visibility:hidden;
-        pointer-events:none;
-        transition:.3s ease;
+      :root {
+        --header-h: 72px;
       }
 
-      .nav.open{
-        opacity:1;
-        visibility:visible;
-        pointer-events:auto;
+      .menu-btn {
+        display: block;
       }
 
-      .nav a{
-        font-size:18px;
-        letter-spacing:.14em;
+      .nav {
+        position: fixed;
+
+        inset: 0;
+
+        z-index: 101;
+
+        background: #080808;
+
+        flex-direction: column;
+
+        align-items: center;
+        justify-content: center;
+
+        gap: 28px;
+
+        opacity: 0;
+        visibility: hidden;
+
+        pointer-events: none;
+
+        transition: .3s ease;
       }
 
-      .hero{
-        min-height:94svh;
-        padding-bottom:72px;
+      .nav.open {
+        opacity: 1;
+        visibility: visible;
+
+        pointer-events: auto;
       }
 
-      .hero::before{
+      .nav a {
+        font-size: 18px;
+
+        letter-spacing: .14em;
+      }
+
+      /* HERO MOBILE */
+
+      .hero {
+        min-height: 100svh;
+
+        padding:
+          var(--header-h)
+          22px
+          0;
+      }
+
+      .hero::before {
         background:
-          linear-gradient(to top,rgba(0,0,0,.92) 5%,rgba(0,0,0,.28) 55%,rgba(0,0,0,.52) 100%),
-          url("preview-image.png") 62% center/cover no-repeat;
+          linear-gradient(
+            to bottom,
+            rgba(0,0,0,.34),
+            rgba(0,0,0,.16) 42%,
+            rgba(0,0,0,.70)
+          ),
+          url("preview-image.png")
+          62% center / cover
+          no-repeat;
       }
 
-      .hero h1{
-        font-size:clamp(54px,15vw,92px);
+      .hero-logo {
+        width: min(72vw, 380px);
+
+        margin-bottom: 26px;
       }
 
-      .scroll-note{display:none}
+      .hero-studio {
+        font-size: 9px;
 
-      .game-section{
-        min-height:auto;
-        grid-template-columns:1fr;
+        letter-spacing: .28em;
       }
 
-      .game-visual{
-        min-height:56svh;
+      .hero-description {
+        font-size: 13px;
+
+        max-width: 290px;
+
+        line-height: 1.5;
       }
 
-      .game-visual::after{
-        background:linear-gradient(to top,#0a0a0a 0%,transparent 34%);
+      .hero-scroll {
+        margin-top: 44px;
       }
 
-      .game-copy{
-        margin-top:-2px;
-        padding:56px var(--pad) 100px;
+      /* GAME MOBILE */
+
+      .game-section {
+        min-height: auto;
+
+        grid-template-columns: 1fr;
       }
 
-      .game-copy h2{
-        font-size:clamp(50px,13vw,84px);
+      .game-visual {
+        min-height: 56svh;
       }
 
-      .about{
-        min-height:auto;
-        grid-template-columns:1fr;
-        gap:70px;
-        padding-top:110px;
-        padding-bottom:120px;
+      .game-visual::after {
+        background:
+          linear-gradient(
+            to top,
+            #0a0a0a 0%,
+            transparent 34%
+          );
+      }
+
+      .game-copy {
+        margin-top: -2px;
+
+        padding:
+          56px
+          var(--pad)
+          100px;
+      }
+
+      .game-copy h2 {
+        font-size:
+          clamp(50px,13vw,84px);
+      }
+
+      /* ABOUT MOBILE */
+
+      .about {
+        min-height: auto;
+
+        grid-template-columns: 1fr;
+
+        gap: 70px;
+
+        padding-top: 110px;
+        padding-bottom: 120px;
       }
 
       .about h2,
-      .contact h2{
-        font-size:clamp(44px,11.8vw,76px);
+      .contact h2 {
+        font-size:
+          clamp(44px,11.8vw,76px);
       }
 
-      .awards img{
-        max-height:none;
+      .awards img {
+        max-height: none;
       }
 
-      footer{
-        flex-direction:column;
-        align-items:flex-start;
+      footer {
+        flex-direction: column;
+
+        align-items: flex-start;
       }
     }
 
-    @media(max-width:520px){
-      .hero-actions{gap:20px}
-      .platforms a{height:42px;padding:7px 10px}
-      .platforms img{max-height:24px;max-width:68px}
-      .game-visual{min-height:46svh}
+    @media (max-width: 520px) {
+
+      .platforms a {
+        height: 42px;
+
+        padding: 7px 10px;
+      }
+
+      .platforms img {
+        max-height: 24px;
+        max-width: 68px;
+      }
+
+      .game-visual {
+        min-height: 46svh;
+      }
     }
 
-    @media(prefers-reduced-motion:reduce){
-      html{scroll-behavior:auto}
-      *,*::before,*::after{
-        transition-duration:.01ms!important;
-        animation-duration:.01ms!important;
-        animation-iteration-count:1!important;
+    /* ACCESSIBILITY */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
       }
     }
   </style>
 </head>
 
 <body>
-  <header class="site-header" id="siteHeader">
-    <a class="brand" href="#home" aria-label="ARMAG home">
-      <img src="armag_logo_horizontal_white.png" alt="ARMAG">
+
+  <!-- HEADER -->
+
+  <header
+    class="site-header"
+    id="siteHeader"
+  >
+
+    <a
+      class="brand"
+      href="#home"
+      aria-label="ARMAG home"
+    >
+      <img
+        src="armag_logo_horizontal_white.png"
+        alt="ARMAG"
+      >
     </a>
 
-    <nav class="nav" id="nav">
-      <a href="#home">Home</a>
-      <a href="#games">Games</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+    <nav
+      class="nav"
+      id="nav"
+    >
+
+      <a href="#home">
+        Home
+      </a>
+
+      <a href="#games">
+        Games
+      </a>
+
+      <a href="#about">
+        About
+      </a>
+
+      <a href="#contact">
+        Contact
+      </a>
+
     </nav>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span>
+    <button
+      class="menu-btn"
+      id="menuBtn"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
+
+      <span></span>
+      <span></span>
+
     </button>
+
   </header>
 
   <main>
-    <section class="hero" id="home">
-      <div class="hero-copy reveal">
-        <p class="kicker">Independent game studio</p>
-        <h1>We create<br><span>the unsettling.</span></h1>
-        <p class="hero-sub">
-          Atmospheric worlds, suspense, mystery and story-driven horror.
-        </p>
-        <div class="hero-actions">
-          <a class="link-arrow" href="#games">Explore our games <span>↘</span></a>
-          <a class="platform-word" href="https://store.steampowered.com/app/1490020/TICTAC_Twelve_oclock/" target="_blank" rel="noopener">Steam ↗</a>
-        </div>
-      </div>
 
-      <div class="scroll-note">Scroll</div>
-    </section>
+    <!-- HERO -->
 
-    <section class="section game-section" id="games">
-      <div class="game-visual">
-        <img src="header_image_616x353.png" alt="TIC-TAC: Twelve o'clock" loading="eager" decoding="async">
-      </div>
+    <section
+      class="hero"
+      id="home"
+    >
 
-      <div class="game-copy reveal">
-        <p class="kicker">Our game</p>
-        <h2>TIC-TAC:<span>Twelve o'clock</span></h2>
+      <div
+        class="hero-copy reveal"
+      >
 
-        <p class="game-desc">
-          A story-driven survival horror adventure set inside the abandoned Bluebird Middle School.
-          Explore, solve puzzles, survive unpredictable events and uncover what happened when midnight strikes.
+        <img
+          class="hero-logo"
+          src="armag_logo_horizontal_white.png"
+          alt="ARMAG"
+        >
+
+        <p
+          class="hero-studio"
+        >
+          Independent Game Studio
         </p>
 
-        <div class="game-actions">
-          <a class="link-arrow" href="https://store.steampowered.com/app/1490020/TICTAC_Twelve_oclock/" target="_blank" rel="noopener">View game <span>↗</span></a>
-        </div>
+        <p
+          class="hero-description"
+        >
+          Atmospheric story-driven games
+        </p>
 
-        <div class="platforms" aria-label="Available platforms">
-          <a href="https://store.steampowered.com/app/1490020/TICTAC_Twelve_oclock/" target="_blank" rel="noopener" aria-label="Steam">
-            <img src="steam.png" alt="Steam" loading="lazy">
-          </a>
-          <a href="https://store.playstation.com/en-us/concept/10014052" target="_blank" rel="noopener" aria-label="PlayStation">
-            <img src="ps.png" alt="PlayStation" loading="lazy">
-          </a>
-          <a href="https://www.nintendo.com/en-gb/Games/Nintendo-Switch-download-software/TIC-TAC-Twelve-o-clock-2817441.html" target="_blank" rel="noopener" aria-label="Nintendo Switch">
-            <img src="switch.png" alt="Nintendo Switch" loading="lazy">
-          </a>
-          <a href="https://www.xbox.com/en-us/games/store/tic-tac-twelve-oclock/9pm8nq8d4phb" target="_blank" rel="noopener" aria-label="Xbox">
-            <img src="xbox.png" alt="Xbox" loading="lazy">
-          </a>
-        </div>
+        <a
+          class="hero-scroll"
+          href="#games"
+        >
+          Explore our games
+
+          <span>
+            ↓
+          </span>
+
+        </a>
+
       </div>
+
     </section>
 
-    <section class="section about" id="about">
-      <div class="section-id">01 / Studio</div>
+    <!-- GAME -->
 
-      <div class="reveal">
-        <p class="kicker">About ARMAG</p>
-        <h2>Stories that stay with you after the screen goes dark.</h2>
+    <section
+      class="section game-section"
+      id="games"
+    >
 
-        <div class="about-text">
-          ARMAG is an independent studio focused on atmospheric, story-driven horror.
-          We create suspenseful experiences with attention to pacing, sound, environment and mystery.
-          Our debut project, <strong>TIC-TAC: Twelve o'clock</strong>, combines survival elements,
-          puzzle mechanics and a retro-horror atmosphere.
-        </div>
+      <div
+        class="game-visual"
+      >
 
-        <div class="awards">
-          <img src="badges_pack_all.png" alt="Awards and festival selections" loading="lazy">
-        </div>
+        <img
+          src="header_image_616x353.png"
+          alt="TIC-TAC: Twelve o'clock"
+          loading="eager"
+          decoding="async"
+        >
+
       </div>
+
+      <div
+        class="game-copy reveal"
+      >
+
+        <p
+          class="kicker"
+        >
+          Our game
+        </p>
+
+        <h2>
+          TIC-TAC:
+          <span>
+            Twelve o'clock
+          </span>
+        </h2>
+
+        <p
+          class="game-desc"
+        >
+          A story-driven survival horror adventure set inside
+          the abandoned Bluebird Middle School.
+
+          Explore, solve puzzles, survive unpredictable events
+          and uncover what happened when midnight strikes.
+        </p>
+
+        <div
+          class="game-actions"
+        >
+
+          <a
+            class="link-arrow"
+            href="https://store.steampowered.com/app/1490020/TICTAC_Twelve_oclock/"
+            target="_blank"
+            rel="noopener"
+          >
+            View game
+
+            <span>
+              ↗
+            </span>
+
+          </a>
+
+        </div>
+
+        <div
+          class="platforms"
+          aria-label="Available platforms"
+        >
+
+          <a
+            href="https://store.steampowered.com/app/1490020/TICTAC_Twelve_oclock/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Steam"
+          >
+
+            <img
+              src="steam.png"
+              alt="Steam"
+              loading="lazy"
+            >
+
+          </a>
+
+          <a
+            href="https://store.playstation.com/en-us/concept/10014052"
+            target="_blank"
+            rel="noopener"
+            aria-label="PlayStation"
+          >
+
+            <img
+              src="ps.png"
+              alt="PlayStation"
+              loading="lazy"
+            >
+
+          </a>
+
+          <a
+            href="https://www.nintendo.com/en-gb/Games/Nintendo-Switch-download-software/TIC-TAC-Twelve-o-clock-2817441.html"
+            target="_blank"
+            rel="noopener"
+            aria-label="Nintendo Switch"
+          >
+
+            <img
+              src="switch.png"
+              alt="Nintendo Switch"
+              loading="lazy"
+            >
+
+          </a>
+
+          <a
+            href="https://www.xbox.com/en-us/games/store/tic-tac-twelve-oclock/9pm8nq8d4phb"
+            target="_blank"
+            rel="noopener"
+            aria-label="Xbox"
+          >
+
+            <img
+              src="xbox.png"
+              alt="Xbox"
+              loading="lazy"
+            >
+
+          </a>
+
+        </div>
+
+      </div>
+
     </section>
 
-    <section class="section contact" id="contact">
-      <div class="contact-inner reveal">
-        <p class="kicker">Contact</p>
-        <h2>Have something<br>to talk about?</h2>
+    <!-- ABOUT -->
 
-        <a class="mail" href="mailto:armaturegames@gmail.com">armaturegames@gmail.com ↗</a>
+    <section
+      class="section about"
+      id="about"
+    >
 
-        <div class="social" aria-label="Social links">
-          <a href="https://www.youtube.com/channel/UC6KhgQm7oOCAuS6rbbC3QFw" target="_blank" rel="noopener" aria-label="YouTube">
-            <img src="youtube-icon.png" alt="">
-          </a>
-          <a href="https://x.com/ArmagTeam" target="_blank" rel="noopener" aria-label="X">
-            <img src="x-icon.png" alt="">
-          </a>
-          <a href="https://www.facebook.com/TicTacTwelveOclock/" target="_blank" rel="noopener" aria-label="Facebook">
-            <img src="facebook-icon.png" alt="">
-          </a>
-        </div>
+      <div
+        class="section-id"
+      >
+        01 / Studio
       </div>
+
+      <div
+        class="reveal"
+      >
+
+        <p
+          class="kicker"
+        >
+          About ARMAG
+        </p>
+
+        <h2>
+          Stories that stay with you
+          after the screen goes dark.
+        </h2>
+
+        <div
+          class="about-text"
+        >
+
+          ARMAG is an independent studio focused on
+          atmospheric, story-driven horror.
+
+          We create suspenseful experiences with attention
+          to pacing, sound, environment and mystery.
+
+          Our debut project,
+          <strong>TIC-TAC: Twelve o'clock</strong>,
+          combines survival elements, puzzle mechanics
+          and a retro-horror atmosphere.
+
+        </div>
+
+        <div
+          class="awards"
+        >
+
+          <img
+            src="badges_pack_all.png"
+            alt="Awards and festival selections"
+            loading="lazy"
+          >
+
+        </div>
+
+      </div>
+
     </section>
+
+    <!-- CONTACT -->
+
+    <section
+      class="section contact"
+      id="contact"
+    >
+
+      <div
+        class="contact-inner reveal"
+      >
+
+        <p
+          class="kicker"
+        >
+          Contact
+        </p>
+
+        <h2>
+          Have something
+          <br>
+          to talk about?
+        </h2>
+
+        <a
+          class="mail"
+          href="mailto:armaturegames@gmail.com"
+        >
+          armaturegames@gmail.com ↗
+        </a>
+
+        <div
+          class="social"
+          aria-label="Social links"
+        >
+
+          <a
+            href="https://www.youtube.com/channel/UC6KhgQm7oOCAuS6rbbC3QFw"
+            target="_blank"
+            rel="noopener"
+            aria-label="YouTube"
+          >
+
+            <img
+              src="youtube-icon.png"
+              alt=""
+            >
+
+          </a>
+
+          <a
+            href="https://x.com/ArmagTeam"
+            target="_blank"
+            rel="noopener"
+            aria-label="X"
+          >
+
+            <img
+              src="x-icon.png"
+              alt=""
+            >
+
+          </a>
+
+          <a
+            href="https://www.facebook.com/TicTacTwelveOclock/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Facebook"
+          >
+
+            <img
+              src="facebook-icon.png"
+              alt=""
+            >
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
   </main>
 
+  <!-- FOOTER -->
+
   <footer>
-    <img src="logo_mini.png" alt="ARMAG">
-    <span>© 2026 ARMAG. All rights reserved.</span>
+
+    <img
+      src="logo_mini.png"
+      alt="ARMAG"
+    >
+
+    <span>
+      © 2026 ARMAG. All rights reserved.
+    </span>
+
   </footer>
 
   <script>
-    const header = document.getElementById('siteHeader');
-    const menuBtn = document.getElementById('menuBtn');
-    const nav = document.getElementById('nav');
-    const navLinks = [...nav.querySelectorAll('a')];
 
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 20);
-    }, {passive:true});
+    const header =
+      document.getElementById('siteHeader');
 
-    menuBtn.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('open');
-      menuBtn.classList.toggle('open', isOpen);
-      menuBtn.setAttribute('aria-expanded', String(isOpen));
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
+    const menuBtn =
+      document.getElementById('menuBtn');
 
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('open');
-        menuBtn.classList.remove('open');
-        menuBtn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
-    });
+    const nav =
+      document.getElementById('nav');
 
-    const revealObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
+    const navLinks =
+      [...nav.querySelectorAll('a')];
+
+
+    /* HEADER BACKGROUND */
+
+    window.addEventListener(
+      'scroll',
+      () => {
+
+        header.classList.toggle(
+          'scrolled',
+          window.scrollY > 20
+        );
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    /* MOBILE MENU */
+
+    menuBtn.addEventListener(
+      'click',
+      () => {
+
+        const isOpen =
+          nav.classList.toggle('open');
+
+        menuBtn.classList.toggle(
+          'open',
+          isOpen
+        );
+
+        menuBtn.setAttribute(
+          'aria-expanded',
+          String(isOpen)
+        );
+
+        document.body.style.overflow =
+          isOpen
+            ? 'hidden'
+            : '';
+
+      }
+    );
+
+
+    navLinks.forEach(
+      link => {
+
+        link.addEventListener(
+          'click',
+          () => {
+
+            nav.classList.remove(
+              'open'
+            );
+
+            menuBtn.classList.remove(
+              'open'
+            );
+
+            menuBtn.setAttribute(
+              'aria-expanded',
+              'false'
+            );
+
+            document.body.style.overflow =
+              '';
+
+          }
+        );
+
+      }
+    );
+
+
+    /* REVEAL ANIMATION */
+
+    const revealObserver =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(
+            entry => {
+
+              if (
+                entry.isIntersecting
+              ) {
+
+                entry.target.classList.add(
+                  'visible'
+                );
+
+                revealObserver.unobserve(
+                  entry.target
+                );
+
+              }
+
+            }
+          );
+
+        },
+        {
+          threshold: .12
         }
-      });
-    }, {threshold:.12});
+      );
 
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    const sections = [...document.querySelectorAll('main section[id]')];
-    const sectionObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
-      });
-    }, {rootMargin:'-40% 0px -50% 0px'});
+    document
+      .querySelectorAll(
+        '.reveal'
+      )
+      .forEach(
+        el => {
 
-    sections.forEach(section => sectionObserver.observe(section));
+          revealObserver.observe(
+            el
+          );
+
+        }
+      );
+
+
+    /* NAV ACTIVE SECTION */
+
+    const sections =
+      [
+        ...document.querySelectorAll(
+          'main section[id]'
+        )
+      ];
+
+
+    const sectionObserver =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(
+            entry => {
+
+              if (
+                !entry.isIntersecting
+              ) {
+                return;
+              }
+
+              navLinks.forEach(
+                link => {
+
+                  link.classList.toggle(
+                    'active',
+
+                    link.getAttribute(
+                      'href'
+                    )
+                    ===
+                    '#' +
+                    entry.target.id
+                  );
+
+                }
+              );
+
+            }
+          );
+
+        },
+        {
+          rootMargin:
+            '-40% 0px -50% 0px'
+        }
+      );
+
+
+    sections.forEach(
+      section => {
+
+        sectionObserver.observe(
+          section
+        );
+
+      }
+    );
+
   </script>
+
 </body>
 </html>
