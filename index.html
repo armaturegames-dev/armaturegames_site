@@ -23,7 +23,6 @@
   <link rel="icon" href="favicon.png">
 
   <style>
-
     :root {
       --bg: #070707;
       --fg: #f3f1ec;
@@ -95,10 +94,17 @@
     .site-header.scrolled {
       background: rgba(7,7,7,.84);
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .brand img {
-      width: clamp(130px, 11vw, 190px);
+      width: 58px;
       height: auto;
     }
 
@@ -159,7 +165,7 @@
 
       position: relative;
 
-      z-index: 102;
+      z-index: 103;
 
       cursor: pointer;
     }
@@ -174,7 +180,9 @@
 
       background: currentColor;
 
-      transition: .3s ease;
+      transition:
+        top .3s ease,
+        transform .3s ease;
     }
 
     .menu-btn span:first-child {
@@ -248,7 +256,6 @@
     }
 
     @keyframes logoPulse {
-
       0%,
       100% {
         transform: scale(1);
@@ -257,7 +264,6 @@
       50% {
         transform: scale(1.025);
       }
-
     }
 
     .hero-studio {
@@ -319,7 +325,6 @@
 
     .section {
       position: relative;
-
       border-top: 1px solid var(--line);
     }
 
@@ -431,7 +436,6 @@
 
     .game-copy h2 span {
       display: block;
-
       font-weight: 300;
     }
 
@@ -756,7 +760,6 @@
     footer img {
       width: 78px;
       height: auto;
-
       opacity: .72;
     }
 
@@ -782,7 +785,6 @@
 
     .reveal.visible {
       opacity: 1;
-
       transform: none;
     }
 
@@ -797,6 +799,21 @@
         --header-h: 72px;
       }
 
+      .site-header {
+        padding: 0 18px;
+      }
+
+      .site-header.scrolled {
+        background: rgba(7,7,7,.94);
+
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+
+      .brand img {
+        width: 46px;
+      }
+
       .menu-btn {
         display: block;
       }
@@ -804,12 +821,17 @@
       .nav {
         position: fixed;
 
-        inset: 0;
+        top: 0;
+        left: 0;
+
+        width: 100vw;
+        height: 100dvh;
 
         z-index: 101;
 
         background: #080808;
 
+        display: flex;
         flex-direction: column;
 
         align-items: center;
@@ -817,12 +839,17 @@
 
         gap: 28px;
 
+        margin: 0;
+        padding: 0;
+
         opacity: 0;
         visibility: hidden;
 
         pointer-events: none;
 
-        transition: .3s ease;
+        transition:
+          opacity .35s ease,
+          visibility .35s ease;
       }
 
       .nav.open {
@@ -833,9 +860,38 @@
       }
 
       .nav a {
-        font-size: 18px;
+        font-size: 20px;
 
         letter-spacing: .14em;
+
+        opacity: 0;
+
+        transform: translateY(18px);
+
+        transition:
+          opacity .45s ease,
+          transform .45s ease;
+      }
+
+      .nav.open a {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .nav.open a:nth-child(1) {
+        transition-delay: .08s;
+      }
+
+      .nav.open a:nth-child(2) {
+        transition-delay: .14s;
+      }
+
+      .nav.open a:nth-child(3) {
+        transition-delay: .20s;
+      }
+
+      .nav.open a:nth-child(4) {
+        transition-delay: .26s;
       }
 
       .hero {
@@ -929,14 +985,16 @@
 
       footer {
         flex-direction: column;
-
         align-items: flex-start;
       }
-
     }
 
 
     @media (max-width: 520px) {
+
+      .brand img {
+        width: 42px;
+      }
 
       .platforms a {
         height: 42px;
@@ -952,7 +1010,6 @@
       .game-visual {
         min-height: 46svh;
       }
-
     }
 
 
@@ -969,16 +1026,10 @@
       *,
       *::before,
       *::after {
-        transition-duration:
-          .01ms !important;
-
-        animation-duration:
-          .01ms !important;
-
-        animation-iteration-count:
-          1 !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
       }
-
     }
 
   </style>
@@ -1000,20 +1051,16 @@
       href="#home"
       aria-label="ARMAG home"
     >
-
       <img
-        src="armag_logo_horizontal_white.png"
+        src="logo_mini.png"
         alt="ARMAG"
       >
-
     </a>
-
 
     <nav
       class="nav"
       id="nav"
     >
-
       <a href="#home">
         Home
       </a>
@@ -1029,9 +1076,7 @@
       <a href="#contact">
         Contact
       </a>
-
     </nav>
-
 
     <button
       class="menu-btn"
@@ -1039,10 +1084,8 @@
       aria-label="Open menu"
       aria-expanded="false"
     >
-
       <span></span>
       <span></span>
-
     </button>
 
   </header>
@@ -1086,11 +1129,7 @@
           href="#games"
         >
           Explore our games
-
-          <span>
-            ↓
-          </span>
-
+          <span>↓</span>
         </a>
 
       </div>
@@ -1159,10 +1198,7 @@
             rel="noopener"
           >
             View game
-
-            <span>
-              ↗
-            </span>
+            <span>↗</span>
           </a>
 
         </div>
@@ -1179,13 +1215,11 @@
             rel="noopener"
             aria-label="Steam"
           >
-
             <img
               src="steam.png"
               alt="Steam"
               loading="lazy"
             >
-
           </a>
 
 
@@ -1195,13 +1229,11 @@
             rel="noopener"
             aria-label="PlayStation"
           >
-
             <img
               src="ps.png"
               alt="PlayStation"
               loading="lazy"
             >
-
           </a>
 
 
@@ -1211,13 +1243,11 @@
             rel="noopener"
             aria-label="Nintendo Switch"
           >
-
             <img
               src="switch.png"
               alt="Nintendo Switch"
               loading="lazy"
             >
-
           </a>
 
 
@@ -1227,13 +1257,11 @@
             rel="noopener"
             aria-label="Xbox"
           >
-
             <img
               src="xbox.png"
               alt="Xbox"
               loading="lazy"
             >
-
           </a>
 
         </div>
@@ -1277,7 +1305,6 @@
         <div
           class="about-text"
         >
-
           ARMAG is an independent studio focused on
           atmospheric, story-driven horror.
 
@@ -1288,7 +1315,6 @@
           <strong>TIC-TAC: Twelve o'clock</strong>,
           combines survival elements, puzzle mechanics
           and a retro-horror atmosphere.
-
         </div>
 
 
@@ -1353,12 +1379,10 @@
             rel="noopener"
             aria-label="YouTube"
           >
-
             <img
               src="youtube-icon.png"
               alt=""
             >
-
           </a>
 
 
@@ -1368,12 +1392,10 @@
             rel="noopener"
             aria-label="X"
           >
-
             <img
               src="x-icon.png"
               alt=""
             >
-
           </a>
 
 
@@ -1383,12 +1405,10 @@
             rel="noopener"
             aria-label="Facebook"
           >
-
             <img
               src="facebook-icon.png"
               alt=""
             >
-
           </a>
 
         </div>
@@ -1432,48 +1452,84 @@
     const navLinks =
       [...nav.querySelectorAll('a')];
 
+    let menuOpen = false;
 
-    /* HEADER */
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    function updateHeader() {
+      header.classList.toggle(
+        'scrolled',
+        window.scrollY > 20
+      );
+    }
+
+    updateHeader();
 
     window.addEventListener(
       'scroll',
-      () => {
-
-        header.classList.toggle(
-          'scrolled',
-          window.scrollY > 20
-        );
-
-      },
+      updateHeader,
       {
         passive: true
       }
     );
 
 
-    /* MOBILE MENU */
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    function openMenu() {
+
+      menuOpen = true;
+
+      nav.classList.add('open');
+      menuBtn.classList.add('open');
+
+      menuBtn.setAttribute(
+        'aria-expanded',
+        'true'
+      );
+
+      document.documentElement.style.overflow =
+        'hidden';
+
+      document.body.style.overflow =
+        'hidden';
+    }
+
+
+    function closeMenu() {
+
+      menuOpen = false;
+
+      nav.classList.remove('open');
+      menuBtn.classList.remove('open');
+
+      menuBtn.setAttribute(
+        'aria-expanded',
+        'false'
+      );
+
+      document.documentElement.style.overflow =
+        '';
+
+      document.body.style.overflow =
+        '';
+    }
+
 
     menuBtn.addEventListener(
       'click',
       () => {
 
-        const isOpen =
-          nav.classList.toggle('open');
-
-        menuBtn.classList.toggle(
-          'open',
-          isOpen
-        );
-
-        menuBtn.setAttribute(
-          'aria-expanded',
-          String(isOpen)
-        );
-
-        document.body.style.overflow =
-          isOpen
-            ? 'hidden'
-            : '';
+        if (menuOpen) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
 
       }
     );
@@ -1486,21 +1542,7 @@
           'click',
           () => {
 
-            nav.classList.remove(
-              'open'
-            );
-
-            menuBtn.classList.remove(
-              'open'
-            );
-
-            menuBtn.setAttribute(
-              'aria-expanded',
-              'false'
-            );
-
-            document.body.style.overflow =
-              '';
+            closeMenu();
 
           }
         );
@@ -1509,7 +1551,24 @@
     );
 
 
-    /* REVEAL */
+    window.addEventListener(
+      'resize',
+      () => {
+
+        if (
+          window.innerWidth > 900 &&
+          menuOpen
+        ) {
+          closeMenu();
+        }
+
+      }
+    );
+
+
+    /* =========================
+       REVEAL
+    ========================= */
 
     const revealObserver =
       new IntersectionObserver(
@@ -1546,14 +1605,14 @@
       .querySelectorAll('.reveal')
       .forEach(
         el => {
-
           revealObserver.observe(el);
-
         }
       );
 
 
-    /* NAV ACTIVE */
+    /* =========================
+       ACTIVE NAV
+    ========================= */
 
     const sections =
       [
@@ -1606,11 +1665,7 @@
 
     sections.forEach(
       section => {
-
-        sectionObserver.observe(
-          section
-        );
-
+        sectionObserver.observe(section);
       }
     );
 
