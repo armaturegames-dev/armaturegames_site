@@ -23,6 +23,7 @@
   <link rel="icon" href="favicon.png">
 
   <style>
+
     :root {
       --bg: #070707;
       --fg: #f3f1ec;
@@ -63,6 +64,7 @@
     button {
       font: inherit;
     }
+
 
     /* =========================
        HEADER
@@ -256,6 +258,7 @@
     }
 
     @keyframes logoPulse {
+
       0%,
       100% {
         transform: scale(1);
@@ -264,6 +267,7 @@
       50% {
         transform: scale(1.025);
       }
+
     }
 
     .hero-studio {
@@ -325,6 +329,7 @@
 
     .section {
       position: relative;
+
       border-top: 1px solid var(--line);
     }
 
@@ -556,28 +561,16 @@
         clamp(110px,13vh,170px)
         var(--pad);
 
-      display: grid;
-
-      grid-template-columns:
-        minmax(100px,.35fr)
-        minmax(0,1.65fr);
-
-      gap: 8vw;
-
-      align-items: start;
+      display: block;
 
       background: #080808;
     }
 
-    .section-id {
-      color:
-        rgba(255,255,255,.28);
+    .about > .reveal {
+      width: 100%;
+      max-width: 1200px;
 
-      font-size: 10px;
-
-      letter-spacing: .24em;
-
-      text-transform: uppercase;
+      margin: 0 auto;
     }
 
     .about h2 {
@@ -731,6 +724,8 @@
     ========================= */
 
     footer {
+      position: relative;
+
       min-height: 88px;
 
       padding:
@@ -743,9 +738,6 @@
 
       display: flex;
       align-items: center;
-      justify-content: space-between;
-
-      gap: 30px;
 
       color:
         rgba(255,255,255,.4);
@@ -758,9 +750,22 @@
     }
 
     footer img {
-      width: 78px;
+      width: 40px;
       height: auto;
+
       opacity: .72;
+    }
+
+    footer span {
+      position: absolute;
+
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      white-space: nowrap;
+
+      text-align: center;
     }
 
 
@@ -785,6 +790,7 @@
 
     .reveal.visible {
       opacity: 1;
+
       transform: none;
     }
 
@@ -811,7 +817,7 @@
       }
 
       .brand img {
-        width: 46px;
+        width: 40px;
       }
 
       .menu-btn {
@@ -875,6 +881,7 @@
 
       .nav.open a {
         opacity: 1;
+
         transform: translateY(0);
       }
 
@@ -965,12 +972,14 @@
       .about {
         min-height: auto;
 
-        grid-template-columns: 1fr;
-
-        gap: 70px;
-
         padding-top: 110px;
         padding-bottom: 120px;
+      }
+
+      .about > .reveal {
+        max-width: none;
+
+        margin: 0;
       }
 
       .about h2,
@@ -983,17 +992,13 @@
         max-height: none;
       }
 
-      footer {
-        flex-direction: column;
-        align-items: flex-start;
-      }
     }
 
 
     @media (max-width: 520px) {
 
       .brand img {
-        width: 42px;
+        width: 40px;
       }
 
       .platforms a {
@@ -1010,6 +1015,34 @@
       .game-visual {
         min-height: 46svh;
       }
+
+      footer {
+        min-height: 82px;
+
+        justify-content: center;
+
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      footer img {
+        display: none;
+      }
+
+      footer span {
+        position: static;
+
+        transform: none;
+
+        white-space: normal;
+
+        width: 100%;
+
+        text-align: center;
+
+        line-height: 1.6;
+      }
+
     }
 
 
@@ -1026,16 +1059,23 @@
       *,
       *::before,
       *::after {
-        transition-duration: .01ms !important;
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
+        transition-duration:
+          .01ms !important;
+
+        animation-duration:
+          .01ms !important;
+
+        animation-iteration-count:
+          1 !important;
       }
+
     }
 
   </style>
 </head>
 
 <body>
+
 
   <!-- =========================
        HEADER
@@ -1051,16 +1091,20 @@
       href="#home"
       aria-label="ARMAG home"
     >
+
       <img
         src="logo_mini.png"
         alt="ARMAG"
       >
+
     </a>
+
 
     <nav
       class="nav"
       id="nav"
     >
+
       <a href="#home">
         Home
       </a>
@@ -1076,7 +1120,9 @@
       <a href="#contact">
         Contact
       </a>
+
     </nav>
+
 
     <button
       class="menu-btn"
@@ -1084,14 +1130,17 @@
       aria-label="Open menu"
       aria-expanded="false"
     >
+
       <span></span>
       <span></span>
+
     </button>
 
   </header>
 
 
   <main>
+
 
     <!-- =========================
          HERO
@@ -1129,7 +1178,11 @@
           href="#games"
         >
           Explore our games
-          <span>↓</span>
+
+          <span>
+            ↓
+          </span>
+
         </a>
 
       </div>
@@ -1172,6 +1225,7 @@
 
         <h2>
           TIC-TAC:
+
           <span>
             Twelve o'clock
           </span>
@@ -1198,7 +1252,10 @@
             rel="noopener"
           >
             View game
-            <span>↗</span>
+
+            <span>
+              ↗
+            </span>
           </a>
 
         </div>
@@ -1215,11 +1272,13 @@
             rel="noopener"
             aria-label="Steam"
           >
+
             <img
               src="steam.png"
               alt="Steam"
               loading="lazy"
             >
+
           </a>
 
 
@@ -1229,11 +1288,13 @@
             rel="noopener"
             aria-label="PlayStation"
           >
+
             <img
               src="ps.png"
               alt="PlayStation"
               loading="lazy"
             >
+
           </a>
 
 
@@ -1243,11 +1304,13 @@
             rel="noopener"
             aria-label="Nintendo Switch"
           >
+
             <img
               src="switch.png"
               alt="Nintendo Switch"
               loading="lazy"
             >
+
           </a>
 
 
@@ -1257,11 +1320,13 @@
             rel="noopener"
             aria-label="Xbox"
           >
+
             <img
               src="xbox.png"
               alt="Xbox"
               loading="lazy"
             >
+
           </a>
 
         </div>
@@ -1279,13 +1344,6 @@
       class="section about"
       id="about"
     >
-
-      <!-- <div
-        class="section-id"
-      >
-        01 / Studio
-      </div> -->
-
 
       <div
         class="reveal"
@@ -1379,10 +1437,12 @@
             rel="noopener"
             aria-label="YouTube"
           >
+
             <img
               src="youtube-icon.png"
               alt=""
             >
+
           </a>
 
 
@@ -1392,10 +1452,12 @@
             rel="noopener"
             aria-label="X"
           >
+
             <img
               src="x-icon.png"
               alt=""
             >
+
           </a>
 
 
@@ -1405,10 +1467,12 @@
             rel="noopener"
             aria-label="Facebook"
           >
+
             <img
               src="facebook-icon.png"
               alt=""
             >
+
           </a>
 
         </div>
@@ -1460,10 +1524,12 @@
     ========================= */
 
     function updateHeader() {
+
       header.classList.toggle(
         'scrolled',
         window.scrollY > 20
       );
+
     }
 
     updateHeader();
@@ -1486,6 +1552,7 @@
       menuOpen = true;
 
       nav.classList.add('open');
+
       menuBtn.classList.add('open');
 
       menuBtn.setAttribute(
@@ -1498,6 +1565,7 @@
 
       document.body.style.overflow =
         'hidden';
+
     }
 
 
@@ -1506,6 +1574,7 @@
       menuOpen = false;
 
       nav.classList.remove('open');
+
       menuBtn.classList.remove('open');
 
       menuBtn.setAttribute(
@@ -1518,6 +1587,7 @@
 
       document.body.style.overflow =
         '';
+
     }
 
 
@@ -1526,9 +1596,13 @@
       () => {
 
         if (menuOpen) {
+
           closeMenu();
+
         } else {
+
           openMenu();
+
         }
 
       }
@@ -1559,7 +1633,9 @@
           window.innerWidth > 900 &&
           menuOpen
         ) {
+
           closeMenu();
+
         }
 
       }
@@ -1605,7 +1681,9 @@
       .querySelectorAll('.reveal')
       .forEach(
         el => {
+
           revealObserver.observe(el);
+
         }
       );
 
@@ -1665,7 +1743,11 @@
 
     sections.forEach(
       section => {
-        sectionObserver.observe(section);
+
+        sectionObserver.observe(
+          section
+        );
+
       }
     );
 
