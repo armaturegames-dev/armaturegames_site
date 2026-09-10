@@ -23,6 +23,7 @@
   <link rel="icon" href="favicon.png">
 
   <style>
+
     :root {
       --bg: #070707;
       --fg: #f3f1ec;
@@ -64,7 +65,9 @@
       font: inherit;
     }
 
-    /* HEADER */
+    /* =========================
+       HEADER
+    ========================= */
 
     .site-header {
       position: fixed;
@@ -82,12 +85,7 @@
       align-items: center;
       justify-content: space-between;
 
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(0,0,0,.72),
-          rgba(0,0,0,0)
-        );
+      background: transparent;
 
       transition:
         background .3s ease,
@@ -197,7 +195,10 @@
       transform: rotate(-45deg);
     }
 
-    /* HERO */
+
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
       position: relative;
@@ -209,53 +210,13 @@
       justify-content: center;
 
       overflow: hidden;
-      isolation: isolate;
 
       padding:
         var(--header-h)
         var(--pad)
         0;
 
-      background: #0b0b0b;
-    }
-
-    .hero::before {
-      content: "";
-
-      position: absolute;
-      inset: 0;
-
-      z-index: -3;
-
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(0,0,0,.30),
-          rgba(0,0,0,.18) 42%,
-          rgba(0,0,0,.66)
-        ),
-        url("preview-image.png")
-        center / cover
-        no-repeat;
-
-      transform: scale(1.02);
-    }
-
-    .hero::after {
-      content: "";
-
-      position: absolute;
-      inset: 0;
-
-      z-index: -2;
-
-      background:
-        radial-gradient(
-          circle at center,
-          transparent 0,
-          rgba(0,0,0,.05) 42%,
-          rgba(0,0,0,.48) 100%
-        );
+      background: #070707;
     }
 
     .hero-copy {
@@ -267,13 +228,36 @@
       justify-content: center;
 
       text-align: center;
+
+      transform: translateY(-10px);
     }
 
     .hero-logo {
-      width: clamp(240px, 28vw, 520px);
+      width: clamp(360px, 42vw, 780px);
       height: auto;
 
-      margin-bottom: 30px;
+      margin-bottom: 34px;
+
+      animation:
+        logoPulse
+        4s
+        ease-in-out
+        infinite;
+
+      will-change: transform;
+    }
+
+    @keyframes logoPulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.025);
+      }
+
     }
 
     .hero-studio {
@@ -296,11 +280,11 @@
 
       letter-spacing: .06em;
 
-      color: rgba(255,255,255,.58);
+      color: rgba(255,255,255,.52);
     }
 
     .hero-scroll {
-      margin-top: 54px;
+      margin-top: 58px;
 
       display: flex;
       flex-direction: column;
@@ -315,7 +299,7 @@
 
       text-transform: uppercase;
 
-      color: rgba(255,255,255,.65);
+      color: rgba(255,255,255,.55);
     }
 
     .hero-scroll span {
@@ -328,7 +312,10 @@
       transform: translateY(6px);
     }
 
-    /* GENERAL SECTION */
+
+    /* =========================
+       GENERAL
+    ========================= */
 
     .section {
       position: relative;
@@ -349,7 +336,10 @@
       text-transform: uppercase;
     }
 
-    /* GAME SECTION */
+
+    /* =========================
+       GAME
+    ========================= */
 
     .game-section {
       min-height: 100svh;
@@ -385,7 +375,9 @@
       transform: scale(1.02);
 
       transition:
-        transform 1.2s cubic-bezier(.2,.7,.2,1);
+        transform
+        1.2s
+        cubic-bezier(.2,.7,.2,1);
     }
 
     .game-visual::after {
@@ -425,7 +417,8 @@
     .game-copy h2 {
       margin: 0;
 
-      font-size: clamp(52px, 6.5vw, 108px);
+      font-size:
+        clamp(52px, 6.5vw, 108px);
 
       line-height: .88;
 
@@ -449,7 +442,8 @@
 
       color: var(--muted);
 
-      font-size: clamp(15px,1.2vw,18px);
+      font-size:
+        clamp(15px,1.2vw,18px);
 
       line-height: 1.7;
     }
@@ -489,11 +483,13 @@
     }
 
     .link-arrow:hover span {
-      transform:
-        translate(4px,-4px);
+      transform: translate(4px,-4px);
     }
 
-    /* PLATFORMS */
+
+    /* =========================
+       PLATFORMS
+    ========================= */
 
     .platforms {
       display: flex;
@@ -532,8 +528,7 @@
       background:
         rgba(255,255,255,.05);
 
-      transform:
-        translateY(-2px);
+      transform: translateY(-2px);
     }
 
     .platforms img {
@@ -545,7 +540,10 @@
       object-fit: contain;
     }
 
-    /* ABOUT */
+
+    /* =========================
+       ABOUT
+    ========================= */
 
     .about {
       min-height: 88svh;
@@ -628,7 +626,10 @@
       object-position: left center;
     }
 
-    /* CONTACT */
+
+    /* =========================
+       CONTACT
+    ========================= */
 
     .contact {
       min-height: 74svh;
@@ -710,8 +711,7 @@
       border-color:
         rgba(255,255,255,.38);
 
-      transform:
-        translateY(-2px);
+      transform: translateY(-2px);
     }
 
     .social img {
@@ -721,7 +721,10 @@
       object-fit: contain;
     }
 
-    /* FOOTER */
+
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
       min-height: 88px;
@@ -757,17 +760,24 @@
       opacity: .72;
     }
 
-    /* REVEAL */
+
+    /* =========================
+       REVEAL
+    ========================= */
 
     .reveal {
       opacity: 0;
 
-      transform:
-        translateY(30px);
+      transform: translateY(30px);
 
       transition:
-        opacity .8s cubic-bezier(.2,.7,.2,1),
-        transform .8s cubic-bezier(.2,.7,.2,1);
+        opacity
+        .8s
+        cubic-bezier(.2,.7,.2,1),
+
+        transform
+        .8s
+        cubic-bezier(.2,.7,.2,1);
     }
 
     .reveal.visible {
@@ -776,7 +786,10 @@
       transform: none;
     }
 
-    /* TABLET + MOBILE */
+
+    /* =========================
+       TABLET / MOBILE
+    ========================= */
 
     @media (max-width: 900px) {
 
@@ -825,8 +838,6 @@
         letter-spacing: .14em;
       }
 
-      /* HERO MOBILE */
-
       .hero {
         min-height: 100svh;
 
@@ -834,25 +845,14 @@
           var(--header-h)
           22px
           0;
-      }
 
-      .hero::before {
-        background:
-          linear-gradient(
-            to bottom,
-            rgba(0,0,0,.34),
-            rgba(0,0,0,.16) 42%,
-            rgba(0,0,0,.70)
-          ),
-          url("preview-image.png")
-          62% center / cover
-          no-repeat;
+        background: #070707;
       }
 
       .hero-logo {
-        width: min(72vw, 380px);
+        width: min(88vw, 560px);
 
-        margin-bottom: 26px;
+        margin-bottom: 28px;
       }
 
       .hero-studio {
@@ -872,8 +872,6 @@
       .hero-scroll {
         margin-top: 44px;
       }
-
-      /* GAME MOBILE */
 
       .game-section {
         min-height: auto;
@@ -908,8 +906,6 @@
           clamp(50px,13vw,84px);
       }
 
-      /* ABOUT MOBILE */
-
       .about {
         min-height: auto;
 
@@ -936,7 +932,9 @@
 
         align-items: flex-start;
       }
+
     }
+
 
     @media (max-width: 520px) {
 
@@ -954,9 +952,13 @@
       .game-visual {
         min-height: 46svh;
       }
+
     }
 
-    /* ACCESSIBILITY */
+
+    /* =========================
+       ACCESSIBILITY
+    ========================= */
 
     @media (prefers-reduced-motion: reduce) {
 
@@ -967,17 +969,26 @@
       *,
       *::before,
       *::after {
-        transition-duration: .01ms !important;
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
+        transition-duration:
+          .01ms !important;
+
+        animation-duration:
+          .01ms !important;
+
+        animation-iteration-count:
+          1 !important;
       }
+
     }
+
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
+  <!-- =========================
+       HEADER
+  ========================= -->
 
   <header
     class="site-header"
@@ -989,11 +1000,14 @@
       href="#home"
       aria-label="ARMAG home"
     >
+
       <img
         src="armag_logo_horizontal_white.png"
         alt="ARMAG"
       >
+
     </a>
+
 
     <nav
       class="nav"
@@ -1018,6 +1032,7 @@
 
     </nav>
 
+
     <button
       class="menu-btn"
       id="menuBtn"
@@ -1032,9 +1047,12 @@
 
   </header>
 
+
   <main>
 
-    <!-- HERO -->
+    <!-- =========================
+         HERO
+    ========================= -->
 
     <section
       class="hero"
@@ -1079,7 +1097,10 @@
 
     </section>
 
-    <!-- GAME -->
+
+    <!-- =========================
+         GAME
+    ========================= -->
 
     <section
       class="section game-section"
@@ -1098,6 +1119,7 @@
         >
 
       </div>
+
 
       <div
         class="game-copy reveal"
@@ -1141,10 +1163,10 @@
             <span>
               ↗
             </span>
-
           </a>
 
         </div>
+
 
         <div
           class="platforms"
@@ -1166,6 +1188,7 @@
 
           </a>
 
+
           <a
             href="https://store.playstation.com/en-us/concept/10014052"
             target="_blank"
@@ -1181,6 +1204,7 @@
 
           </a>
 
+
           <a
             href="https://www.nintendo.com/en-gb/Games/Nintendo-Switch-download-software/TIC-TAC-Twelve-o-clock-2817441.html"
             target="_blank"
@@ -1195,6 +1219,7 @@
             >
 
           </a>
+
 
           <a
             href="https://www.xbox.com/en-us/games/store/tic-tac-twelve-oclock/9pm8nq8d4phb"
@@ -1217,7 +1242,10 @@
 
     </section>
 
-    <!-- ABOUT -->
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
 
     <section
       class="section about"
@@ -1229,6 +1257,7 @@
       >
         01 / Studio
       </div>
+
 
       <div
         class="reveal"
@@ -1262,6 +1291,7 @@
 
         </div>
 
+
         <div
           class="awards"
         >
@@ -1278,7 +1308,10 @@
 
     </section>
 
-    <!-- CONTACT -->
+
+    <!-- =========================
+         CONTACT
+    ========================= -->
 
     <section
       class="section contact"
@@ -1308,6 +1341,7 @@
           armaturegames@gmail.com ↗
         </a>
 
+
         <div
           class="social"
           aria-label="Social links"
@@ -1327,6 +1361,7 @@
 
           </a>
 
+
           <a
             href="https://x.com/ArmagTeam"
             target="_blank"
@@ -1340,6 +1375,7 @@
             >
 
           </a>
+
 
           <a
             href="https://www.facebook.com/TicTacTwelveOclock/"
@@ -1363,7 +1399,10 @@
 
   </main>
 
-  <!-- FOOTER -->
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
 
   <footer>
 
@@ -1377,6 +1416,7 @@
     </span>
 
   </footer>
+
 
   <script>
 
@@ -1393,7 +1433,7 @@
       [...nav.querySelectorAll('a')];
 
 
-    /* HEADER BACKGROUND */
+    /* HEADER */
 
     window.addEventListener(
       'scroll',
@@ -1469,7 +1509,7 @@
     );
 
 
-    /* REVEAL ANIMATION */
+    /* REVEAL */
 
     const revealObserver =
       new IntersectionObserver(
@@ -1503,21 +1543,17 @@
 
 
     document
-      .querySelectorAll(
-        '.reveal'
-      )
+      .querySelectorAll('.reveal')
       .forEach(
         el => {
 
-          revealObserver.observe(
-            el
-          );
+          revealObserver.observe(el);
 
         }
       );
 
 
-    /* NAV ACTIVE SECTION */
+    /* NAV ACTIVE */
 
     const sections =
       [
