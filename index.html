@@ -13,14 +13,17 @@
   >
 
   <meta property="og:title" content="ARMAG — Independent Game Studio">
+
   <meta
     property="og:description"
     content="Atmospheric, story-driven horror games by ARMAG."
   >
+
   <meta property="og:image" content="preview-image.png">
   <meta property="og:type" content="website">
 
   <link rel="icon" href="favicon.png">
+
 
   <style>
 
@@ -29,105 +32,154 @@
       --fg: #f3f1ec;
       --muted: #9a9994;
       --line: rgba(255,255,255,.14);
+
       --pad: clamp(22px, 5.2vw, 84px);
+
       --header-h: 84px;
     }
+
 
     * {
       box-sizing: border-box;
     }
 
+
     html {
       scroll-behavior: smooth;
+
       background: var(--bg);
     }
+
 
     body {
       margin: 0;
+
       color: var(--fg);
+
       background: var(--bg);
-      font-family: Arial, Helvetica, sans-serif;
-      -webkit-font-smoothing: antialiased;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      -webkit-font-smoothing:
+        antialiased;
+
       overflow-x: hidden;
     }
 
+
     img {
       display: block;
+
       max-width: 100%;
     }
 
+
     a {
       color: inherit;
+
       text-decoration: none;
     }
+
 
     button {
       font: inherit;
     }
 
 
+
     /* =========================
        HEADER
     ========================= */
 
+
     .site-header {
       position: fixed;
+
       top: 0;
       left: 0;
       right: 0;
 
       height: var(--header-h);
 
-      padding: 0 var(--pad);
+      padding:
+        0
+        var(--pad);
 
       z-index: 100;
 
       display: flex;
-      align-items: center;
-      justify-content: space-between;
 
-      background: transparent;
+      align-items: center;
+
+      justify-content:
+        space-between;
+
+      background:
+        transparent;
 
       transition:
         background .3s ease,
         backdrop-filter .3s ease;
     }
 
+
     .site-header.scrolled {
-      background: rgba(7,7,7,.84);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background:
+        rgba(7,7,7,.84);
+
+      backdrop-filter:
+        blur(12px);
+
+      -webkit-backdrop-filter:
+        blur(12px);
     }
+
 
     .brand {
       display: flex;
+
       align-items: center;
+
       justify-content: center;
     }
 
+
     .brand img {
       width: 40px;
+
       height: auto;
     }
 
+
     .nav {
       display: flex;
+
       gap: 34px;
+
       align-items: center;
     }
+
 
     .nav a {
       position: relative;
 
+      padding:
+        10px
+        0;
+
       font-size: 11px;
+
       font-weight: 700;
 
       letter-spacing: .18em;
 
-      text-transform: uppercase;
-
-      padding: 10px 0;
+      text-transform:
+        uppercase;
     }
+
 
     .nav a::after {
       content: "";
@@ -136,23 +188,33 @@
 
       left: 0;
       right: 0;
+
       bottom: 4px;
 
       height: 1px;
 
       background: #fff;
 
-      transform: scaleX(0);
-      transform-origin: right;
+      transform:
+        scaleX(0);
 
-      transition: transform .35s ease;
+      transform-origin:
+        right;
+
+      transition:
+        transform .35s ease;
     }
+
 
     .nav a:hover::after,
     .nav a.active::after {
-      transform: scaleX(1);
-      transform-origin: left;
+      transform:
+        scaleX(1);
+
+      transform-origin:
+        left;
     }
+
 
     .menu-btn {
       display: none;
@@ -162,7 +224,9 @@
 
       border: 0;
 
-      background: transparent;
+      background:
+        transparent;
+
       color: white;
 
       position: relative;
@@ -172,6 +236,7 @@
       cursor: pointer;
     }
 
+
     .menu-btn span {
       position: absolute;
 
@@ -180,35 +245,46 @@
       width: 24px;
       height: 1px;
 
-      background: currentColor;
+      background:
+        currentColor;
 
       transition:
         top .3s ease,
         transform .3s ease;
     }
 
+
     .menu-btn span:first-child {
       top: 16px;
     }
+
 
     .menu-btn span:last-child {
       top: 25px;
     }
 
+
     .menu-btn.open span:first-child {
       top: 20px;
-      transform: rotate(45deg);
+
+      transform:
+        rotate(45deg);
     }
+
 
     .menu-btn.open span:last-child {
       top: 20px;
-      transform: rotate(-45deg);
+
+      transform:
+        rotate(-45deg);
     }
+
 
 
     /* =========================
        HERO
     ========================= */
+
 
     .hero {
       position: relative;
@@ -216,7 +292,9 @@
       min-height: 100svh;
 
       display: flex;
+
       align-items: center;
+
       justify-content: center;
 
       overflow: hidden;
@@ -226,24 +304,37 @@
         var(--pad)
         0;
 
-      background: #070707;
+      background:
+        #070707;
     }
+
 
     .hero-copy {
       width: 100%;
 
       display: flex;
+
       flex-direction: column;
+
       align-items: center;
+
       justify-content: center;
 
       text-align: center;
 
-      transform: translateY(-10px);
+      transform:
+        translateY(-10px);
     }
 
+
     .hero-logo {
-      width: clamp(360px, 42vw, 780px);
+      width:
+        clamp(
+          360px,
+          42vw,
+          780px
+        );
+
       height: auto;
 
       margin-bottom: 34px;
@@ -254,102 +345,138 @@
         ease-in-out
         infinite;
 
-      will-change: transform;
+      will-change:
+        transform;
     }
+
 
     @keyframes logoPulse {
 
       0%,
       100% {
-        transform: scale(1);
+        transform:
+          scale(1);
       }
 
       50% {
-        transform: scale(1.025);
+        transform:
+          scale(1.025);
       }
 
     }
+
 
     .hero-studio {
       margin: 0;
 
       font-size: 11px;
+
       font-weight: 700;
 
       letter-spacing: .32em;
 
-      text-transform: uppercase;
+      text-transform:
+        uppercase;
 
-      color: rgba(255,255,255,.92);
+      color:
+        rgba(255,255,255,.92);
     }
 
+
     .hero-description {
-      margin: 13px 0 0;
+      margin:
+        13px
+        0
+        0;
 
       font-size: 14px;
 
       letter-spacing: .06em;
 
-      color: rgba(255,255,255,.52);
+      color:
+        rgba(255,255,255,.52);
     }
+
 
     .hero-scroll {
       margin-top: 58px;
 
       display: flex;
+
       flex-direction: column;
+
       align-items: center;
 
       gap: 13px;
 
       font-size: 9px;
+
       font-weight: 700;
 
       letter-spacing: .25em;
 
-      text-transform: uppercase;
+      text-transform:
+        uppercase;
 
-      color: rgba(255,255,255,.55);
+      color:
+        rgba(255,255,255,.55);
     }
+
 
     .hero-scroll span {
       font-size: 18px;
 
-      transition: transform .3s ease;
+      transition:
+        transform .3s ease;
     }
 
+
     .hero-scroll:hover span {
-      transform: translateY(6px);
+      transform:
+        translateY(6px);
     }
+
 
 
     /* =========================
        GENERAL
     ========================= */
 
+
     .section {
       position: relative;
 
-      border-top: 1px solid var(--line);
+      border-top:
+        1px solid
+        var(--line);
     }
 
-    .kicker {
-      margin: 0 0 22px;
 
-      color: rgba(255,255,255,.62);
+    .kicker {
+      margin:
+        0
+        0
+        22px;
+
+      color:
+        rgba(255,255,255,.62);
 
       font-size: 10px;
+
       font-weight: 700;
 
       letter-spacing: .28em;
 
-      text-transform: uppercase;
+      text-transform:
+        uppercase;
     }
+
 
 
     /* =========================
        GAME
     ========================= */
+
 
     .game-section {
       min-height: 100svh;
@@ -360,10 +487,13 @@
         minmax(0, 1.1fr)
         minmax(390px, .9fr);
 
-      align-items: stretch;
+      align-items:
+        stretch;
 
-      background: #0a0a0a;
+      background:
+        #0a0a0a;
     }
+
 
     .game-visual {
       position: relative;
@@ -372,17 +502,22 @@
 
       overflow: hidden;
 
-      background: #111;
+      background:
+        #111;
     }
+
 
     .game-visual img {
       width: 100%;
+
       height: 100%;
 
       object-fit: cover;
+
       object-position: center;
 
-      transform: scale(1.02);
+      transform:
+        scale(1.02);
 
       transition:
         transform
@@ -390,10 +525,12 @@
         cubic-bezier(.2,.7,.2,1);
     }
 
+
     .game-visual::after {
       content: "";
 
       position: absolute;
+
       inset: 0;
 
       background:
@@ -406,9 +543,13 @@
       pointer-events: none;
     }
 
-    .game-section:hover .game-visual img {
-      transform: scale(1.055);
+
+    .game-section:hover
+    .game-visual img {
+      transform:
+        scale(1.055);
     }
+
 
     .game-copy {
       padding:
@@ -418,48 +559,71 @@
         clamp(46px,5vw,90px);
 
       display: flex;
+
       flex-direction: column;
+
       justify-content: center;
 
-      background: #0a0a0a;
+      background:
+        #0a0a0a;
     }
+
 
     .game-copy h2 {
       margin: 0;
 
       font-size:
-        clamp(52px, 6.5vw, 108px);
+        clamp(
+          52px,
+          6.5vw,
+          108px
+        );
 
       line-height: .88;
 
       letter-spacing: -.055em;
 
-      text-transform: uppercase;
+      text-transform:
+        uppercase;
 
       font-weight: 800;
     }
 
+
     .game-copy h2 span {
       display: block;
+
       font-weight: 300;
     }
 
+
     .game-desc {
-      margin: 34px 0 0;
+      margin:
+        34px
+        0
+        0;
 
       max-width: 610px;
 
-      color: var(--muted);
+      color:
+        var(--muted);
 
       font-size:
-        clamp(15px,1.2vw,18px);
+        clamp(
+          15px,
+          1.2vw,
+          18px
+        );
 
       line-height: 1.7;
     }
 
+
     .game-actions {
       display: flex;
+
       align-items: center;
+
       flex-wrap: wrap;
 
       gap: 28px;
@@ -467,8 +631,10 @@
       margin-top: 34px;
     }
 
+
     .link-arrow {
       display: inline-flex;
+
       align-items: center;
 
       gap: 10px;
@@ -480,45 +646,63 @@
         rgba(255,255,255,.52);
 
       font-size: 11px;
+
       font-weight: 700;
 
       letter-spacing: .18em;
 
-      text-transform: uppercase;
+      text-transform:
+        uppercase;
     }
+
 
     .link-arrow span {
-      transition: transform .25s ease;
+      transition:
+        transform .25s ease;
     }
 
+
     .link-arrow:hover span {
-      transform: translate(4px,-4px);
+      transform:
+        translate(4px,-4px);
     }
+
 
 
     /* =========================
        PLATFORMS
     ========================= */
 
+
     .platforms {
       display: flex;
+
       flex-wrap: wrap;
+
       align-items: center;
 
-      gap: 16px;
+      gap: 12px;
 
       margin-top: 42px;
     }
 
-    .platforms a {
-      height: 46px;
-      min-width: 62px;
 
-      padding: 8px 12px;
+    .platforms a {
+      width: 92px;
+
+      height: 58px;
+
+      padding:
+        7px
+        10px;
 
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
+      overflow: hidden;
 
       border:
         1px solid
@@ -530,6 +714,7 @@
         transform .25s ease;
     }
 
+
     .platforms a:hover {
       border-color:
         rgba(255,255,255,.42);
@@ -537,22 +722,67 @@
       background:
         rgba(255,255,255,.05);
 
-      transform: translateY(-2px);
+      transform:
+        translateY(-2px);
     }
 
+
     .platforms img {
+      display: block;
+
       width: auto;
 
-      max-width: 78px;
-      max-height: 28px;
+      height: auto;
+
+      max-width: 100%;
+
+      max-height: 40px;
 
       object-fit: contain;
     }
 
 
+    .platforms
+    a[aria-label="Steam"]
+    img {
+      max-width: 74px;
+
+      max-height: 36px;
+    }
+
+
+    .platforms
+    a[aria-label="PlayStation"]
+    img {
+      max-width: 72px;
+
+      max-height: 40px;
+    }
+
+
+    .platforms
+    a[aria-label="Nintendo Switch"]
+    img {
+      max-width: 72px;
+
+      max-height: 40px;
+    }
+
+
+    .platforms
+    a[aria-label="Xbox"]
+    img {
+      max-width: 72px;
+
+      max-height: 38px;
+    }
+
+
+
     /* =========================
        ABOUT
     ========================= */
+
 
     .about {
       min-height: 88svh;
@@ -561,50 +791,90 @@
         clamp(110px,13vh,170px)
         var(--pad);
 
-      display: block;
+      display: flex;
 
-      background: #080808;
+      align-items: center;
+
+      justify-content: center;
+
+      text-align: center;
+
+      background:
+        #080808;
     }
+
 
     .about > .reveal {
       width: 100%;
-      max-width: 1200px;
 
-      margin: 0 auto;
+      max-width: 1150px;
+
+      margin:
+        0
+        auto;
     }
 
+
+    .about .kicker {
+      text-align: center;
+    }
+
+
     .about h2 {
-      margin: 0;
+      margin:
+        0
+        auto;
 
       max-width: 1100px;
 
       font-size:
-        clamp(46px,6.4vw,108px);
+        clamp(
+          46px,
+          6.4vw,
+          108px
+        );
 
       line-height: .96;
 
       letter-spacing: -.055em;
 
       font-weight: 800;
+
+      text-align: center;
     }
+
 
     .about-text {
       max-width: 720px;
 
-      margin: 48px 0 0;
+      margin:
+        48px
+        auto
+        0;
 
-      color: var(--muted);
+      color:
+        var(--muted);
 
       font-size:
-        clamp(16px,1.3vw,20px);
+        clamp(
+          16px,
+          1.3vw,
+          20px
+        );
 
       line-height: 1.7;
+
+      text-align: center;
     }
+
 
     .awards {
       max-width: 760px;
 
-      margin-top: 56px;
+      margin:
+        56px
+        auto
+        0;
 
       padding-top: 30px;
 
@@ -613,20 +883,30 @@
         var(--line);
     }
 
-    .awards img {
-      max-height: 130px;
 
+    .awards img {
       width: auto;
+
       max-width: 100%;
 
+      max-height: 130px;
+
+      margin:
+        0
+        auto;
+
       object-fit: contain;
-      object-position: left center;
+
+      object-position:
+        center;
     }
+
 
 
     /* =========================
        CONTACT
     ========================= */
+
 
     .contact {
       min-height: 74svh;
@@ -636,33 +916,66 @@
         var(--pad);
 
       background:
+
         radial-gradient(
-          circle at 77% 50%,
+          circle at 50% 50%,
           rgba(125,23,23,.14),
-          transparent 25%
+          transparent 28%
         ),
+
         #070707;
 
       display: flex;
+
       align-items: center;
+
+      justify-content: center;
+
+      text-align: center;
     }
+
 
     .contact-inner {
-      width: min(1100px,100%);
+      width:
+        min(
+          1100px,
+          100%
+        );
+
+      margin:
+        0
+        auto;
+
+      text-align: center;
     }
 
+
+    .contact .kicker {
+      text-align: center;
+    }
+
+
     .contact h2 {
-      margin: 0;
+      margin:
+        0
+        auto;
 
       font-size:
-        clamp(50px,7vw,116px);
+        clamp(
+          50px,
+          7vw,
+          116px
+        );
 
       line-height: .92;
 
       letter-spacing: -.055em;
 
       font-weight: 800;
+
+      text-align: center;
     }
+
 
     .mail {
       display: inline-block;
@@ -676,19 +989,30 @@
         rgba(255,255,255,.38);
 
       font-size:
-        clamp(17px,1.4vw,22px);
+        clamp(
+          17px,
+          1.4vw,
+          22px
+        );
     }
+
 
     .social {
       display: flex;
+
+      justify-content: center;
+
+      align-items: center;
 
       gap: 14px;
 
       margin-top: 46px;
     }
 
+
     .social a {
       width: 48px;
+
       height: 48px;
 
       border:
@@ -696,10 +1020,13 @@
         var(--line);
 
       display: grid;
+
       place-items: center;
 
-      transition: .25s ease;
+      transition:
+        .25s ease;
     }
+
 
     .social a:hover {
       background:
@@ -708,20 +1035,25 @@
       border-color:
         rgba(255,255,255,.38);
 
-      transform: translateY(-2px);
+      transform:
+        translateY(-2px);
     }
+
 
     .social img {
       width: 22px;
+
       height: 22px;
 
       object-fit: contain;
     }
 
 
+
     /* =========================
        FOOTER
     ========================= */
+
 
     footer {
       position: relative;
@@ -737,6 +1069,7 @@
         var(--line);
 
       display: flex;
+
       align-items: center;
 
       color:
@@ -746,22 +1079,27 @@
 
       letter-spacing: .16em;
 
-      text-transform: uppercase;
+      text-transform:
+        uppercase;
     }
+
 
     footer img {
       width: 40px;
+
       height: auto;
 
       opacity: .72;
     }
+
 
     footer span {
       position: absolute;
 
       left: 50%;
 
-      transform: translateX(-50%);
+      transform:
+        translateX(-50%);
 
       white-space: nowrap;
 
@@ -769,16 +1107,20 @@
     }
 
 
+
     /* =========================
        REVEAL
     ========================= */
 
+
     .reveal {
       opacity: 0;
 
-      transform: translateY(30px);
+      transform:
+        translateY(30px);
 
       transition:
+
         opacity
         .8s
         cubic-bezier(.2,.7,.2,1),
@@ -788,6 +1130,7 @@
         cubic-bezier(.2,.7,.2,1);
     }
 
+
     .reveal.visible {
       opacity: 1;
 
@@ -795,34 +1138,47 @@
     }
 
 
+
     /* =========================
        TABLET / MOBILE
     ========================= */
 
+
     @media (max-width: 900px) {
+
 
       :root {
         --header-h: 72px;
       }
 
+
       .site-header {
-        padding: 0 18px;
+        padding:
+          0
+          18px;
       }
+
 
       .site-header.scrolled {
-        background: rgba(7,7,7,.94);
+        background:
+          rgba(7,7,7,.94);
 
         backdrop-filter: none;
-        -webkit-backdrop-filter: none;
+
+        -webkit-backdrop-filter:
+          none;
       }
+
 
       .brand img {
         width: 40px;
       }
 
+
       .menu-btn {
         display: block;
       }
+
 
       .nav {
         position: fixed;
@@ -831,39 +1187,52 @@
         left: 0;
 
         width: 100vw;
+
         height: 100dvh;
+
+        min-height: 100vh;
 
         z-index: 101;
 
-        background: #080808;
+        background:
+          #080808;
 
         display: flex;
+
         flex-direction: column;
 
         align-items: center;
+
         justify-content: center;
 
         gap: 28px;
 
         margin: 0;
+
         padding: 0;
 
         opacity: 0;
+
         visibility: hidden;
 
         pointer-events: none;
 
         transition:
+
           opacity .35s ease,
+
           visibility .35s ease;
       }
 
+
       .nav.open {
         opacity: 1;
+
         visibility: visible;
 
         pointer-events: auto;
       }
+
 
       .nav a {
         font-size: 20px;
@@ -872,34 +1241,54 @@
 
         opacity: 0;
 
-        transform: translateY(18px);
+        transform:
+          translateY(18px);
 
         transition:
           opacity .45s ease,
           transform .45s ease;
       }
 
+
       .nav.open a {
         opacity: 1;
 
-        transform: translateY(0);
+        transform:
+          translateY(0);
       }
 
-      .nav.open a:nth-child(1) {
-        transition-delay: .08s;
+
+      .nav.open
+      a:nth-child(1) {
+        transition-delay:
+          .08s;
       }
 
-      .nav.open a:nth-child(2) {
-        transition-delay: .14s;
+
+      .nav.open
+      a:nth-child(2) {
+        transition-delay:
+          .14s;
       }
 
-      .nav.open a:nth-child(3) {
-        transition-delay: .20s;
+
+      .nav.open
+      a:nth-child(3) {
+        transition-delay:
+          .20s;
       }
 
-      .nav.open a:nth-child(4) {
-        transition-delay: .26s;
+
+      .nav.open
+      a:nth-child(4) {
+        transition-delay:
+          .26s;
       }
+
+
+
+      /* HERO MOBILE */
+
 
       .hero {
         min-height: 100svh;
@@ -909,20 +1298,28 @@
           22px
           0;
 
-        background: #070707;
+        background:
+          #070707;
       }
 
+
       .hero-logo {
-        width: min(88vw, 560px);
+        width:
+          min(
+            88vw,
+            560px
+          );
 
         margin-bottom: 28px;
       }
+
 
       .hero-studio {
         font-size: 9px;
 
         letter-spacing: .28em;
       }
+
 
       .hero-description {
         font-size: 13px;
@@ -932,28 +1329,39 @@
         line-height: 1.5;
       }
 
+
       .hero-scroll {
         margin-top: 44px;
       }
 
+
+
+      /* GAME MOBILE */
+
+
       .game-section {
         min-height: auto;
 
-        grid-template-columns: 1fr;
+        grid-template-columns:
+          1fr;
       }
+
 
       .game-visual {
         min-height: 56svh;
       }
 
+
       .game-visual::after {
         background:
+
           linear-gradient(
             to top,
             #0a0a0a 0%,
             transparent 34%
           );
       }
+
 
       .game-copy {
         margin-top: -2px;
@@ -964,101 +1372,274 @@
           100px;
       }
 
+
       .game-copy h2 {
         font-size:
-          clamp(50px,13vw,84px);
+          clamp(
+            50px,
+            13vw,
+            84px
+          );
       }
+
+
+
+      /* PLATFORM MOBILE */
+
+
+      .platforms {
+        gap: 10px;
+      }
+
+
+      .platforms a {
+        width: 84px;
+
+        height: 54px;
+      }
+
+
+      .platforms img {
+        max-height: 36px;
+      }
+
+
+
+      /* ABOUT MOBILE */
+
 
       .about {
         min-height: auto;
 
         padding-top: 110px;
+
         padding-bottom: 120px;
+
+        text-align: center;
       }
+
 
       .about > .reveal {
         max-width: none;
 
-        margin: 0;
+        margin:
+          0
+          auto;
       }
+
 
       .about h2,
       .contact h2 {
         font-size:
-          clamp(44px,11.8vw,76px);
+          clamp(
+            44px,
+            11.8vw,
+            76px
+          );
       }
+
+
+      .about-text {
+        margin-top: 36px;
+      }
+
+
+      .awards {
+        margin-top: 46px;
+      }
+
 
       .awards img {
         max-height: none;
       }
 
+
+
+      /* CONTACT MOBILE */
+
+
+      .contact {
+        min-height: auto;
+
+        text-align: center;
+      }
+
+
+      .contact-inner {
+        text-align: center;
+      }
+
+
+      .social {
+        justify-content: center;
+      }
+
+
     }
 
 
+
     @media (max-width: 520px) {
+
 
       .brand img {
         width: 40px;
       }
 
-      .platforms a {
-        height: 42px;
 
-        padding: 7px 10px;
+
+      /* HERO */
+
+
+      .hero-logo {
+        width:
+          min(
+            90vw,
+            500px
+          );
       }
 
-      .platforms img {
-        max-height: 24px;
-        max-width: 68px;
-      }
+
+
+      /* GAME */
+
 
       .game-visual {
         min-height: 46svh;
       }
+
+
+
+      /* PLATFORMS */
+
+
+      .platforms {
+        gap: 8px;
+      }
+
+
+      .platforms a {
+        width: 72px;
+
+        height: 50px;
+
+        padding:
+          6px
+          8px;
+      }
+
+
+      .platforms
+      a[aria-label="Steam"]
+      img {
+        max-width: 60px;
+      }
+
+
+      .platforms
+      a[aria-label="PlayStation"]
+      img {
+        max-width: 58px;
+      }
+
+
+      .platforms
+      a[aria-label="Nintendo Switch"]
+      img {
+        max-width: 58px;
+      }
+
+
+      .platforms
+      a[aria-label="Xbox"]
+      img {
+        max-width: 58px;
+      }
+
+
+
+      /* ABOUT */
+
+
+      .about {
+        padding-left: 22px;
+
+        padding-right: 22px;
+      }
+
+
+
+      /* CONTACT */
+
+
+      .contact {
+        padding-left: 22px;
+
+        padding-right: 22px;
+      }
+
+
+      .mail {
+        font-size: 15px;
+      }
+
+
+
+      /* FOOTER */
+
 
       footer {
         min-height: 82px;
 
         justify-content: center;
 
-        padding-left: 20px;
-        padding-right: 20px;
+        padding:
+          20px;
       }
+
 
       footer img {
         display: none;
       }
+
 
       footer span {
         position: static;
 
         transform: none;
 
-        white-space: normal;
-
         width: 100%;
+
+        white-space: normal;
 
         text-align: center;
 
         line-height: 1.6;
       }
 
+
     }
+
 
 
     /* =========================
        ACCESSIBILITY
     ========================= */
 
-    @media (prefers-reduced-motion: reduce) {
+
+    @media
+    (prefers-reduced-motion: reduce) {
+
 
       html {
         scroll-behavior: auto;
       }
 
+
       *,
       *::before,
       *::after {
+
         transition-duration:
           .01ms !important;
 
@@ -1069,22 +1650,27 @@
           1 !important;
       }
 
+
     }
 
   </style>
 </head>
 
+
 <body>
+
 
 
   <!-- =========================
        HEADER
   ========================= -->
 
+
   <header
     class="site-header"
     id="siteHeader"
   >
+
 
     <a
       class="brand"
@@ -1100,28 +1686,35 @@
     </a>
 
 
+
     <nav
       class="nav"
       id="nav"
     >
 
+
       <a href="#home">
         Home
       </a>
+
 
       <a href="#games">
         Games
       </a>
 
+
       <a href="#about">
         About
       </a>
+
 
       <a href="#contact">
         Contact
       </a>
 
+
     </nav>
+
 
 
     <button
@@ -1132,28 +1725,36 @@
     >
 
       <span></span>
+
       <span></span>
 
     </button>
 
+
   </header>
 
 
+
+
   <main>
+
 
 
     <!-- =========================
          HERO
     ========================= -->
 
+
     <section
       class="hero"
       id="home"
     >
 
+
       <div
         class="hero-copy reveal"
       >
+
 
         <img
           class="hero-logo"
@@ -1161,11 +1762,13 @@
           alt="ARMAG"
         >
 
+
         <p
           class="hero-studio"
         >
           Independent Game Studio
         </p>
+
 
         <p
           class="hero-description"
@@ -1173,10 +1776,12 @@
           Atmospheric story-driven games
         </p>
 
+
         <a
           class="hero-scroll"
           href="#games"
         >
+
           Explore our games
 
           <span>
@@ -1185,23 +1790,31 @@
 
         </a>
 
+
       </div>
 
+
     </section>
+
+
+
 
 
     <!-- =========================
          GAME
     ========================= -->
 
+
     <section
       class="section game-section"
       id="games"
     >
 
+
       <div
         class="game-visual"
       >
+
 
         <img
           src="header_image_616x353.png"
@@ -1210,12 +1823,16 @@
           decoding="async"
         >
 
+
       </div>
+
+
 
 
       <div
         class="game-copy reveal"
       >
+
 
         <p
           class="kicker"
@@ -1223,13 +1840,19 @@
           Our game
         </p>
 
+
+
         <h2>
+
           TIC-TAC:
 
           <span>
             Twelve o'clock
           </span>
+
         </h2>
+
+
 
         <p
           class="game-desc"
@@ -1241,113 +1864,178 @@
           and uncover what happened when midnight strikes.
         </p>
 
+
+
         <div
           class="game-actions"
         >
 
+
           <a
             class="link-arrow"
+
             href="https://store.steampowered.com/app/1490020/TICTAC_Twelve_oclock/"
+
             target="_blank"
+
             rel="noopener"
           >
+
             View game
 
             <span>
               ↗
             </span>
+
           </a>
 
+
         </div>
+
+
 
 
         <div
           class="platforms"
+
           aria-label="Available platforms"
         >
 
+
+
           <a
+
             href="https://store.steampowered.com/app/1490020/TICTAC_Twelve_oclock/"
+
             target="_blank"
+
             rel="noopener"
+
             aria-label="Steam"
           >
 
+
             <img
+
               src="steam.png"
+
               alt="Steam"
+
               loading="lazy"
             >
+
 
           </a>
 
 
+
+
           <a
+
             href="https://store.playstation.com/en-us/concept/10014052"
+
             target="_blank"
+
             rel="noopener"
+
             aria-label="PlayStation"
           >
 
+
             <img
+
               src="ps.png"
+
               alt="PlayStation"
+
               loading="lazy"
             >
+
 
           </a>
 
 
+
+
           <a
+
             href="https://www.nintendo.com/en-gb/Games/Nintendo-Switch-download-software/TIC-TAC-Twelve-o-clock-2817441.html"
+
             target="_blank"
+
             rel="noopener"
+
             aria-label="Nintendo Switch"
           >
 
+
             <img
+
               src="switch.png"
+
               alt="Nintendo Switch"
+
               loading="lazy"
             >
 
+
           </a>
+
+
 
 
           <a
+
             href="https://www.xbox.com/en-us/games/store/tic-tac-twelve-oclock/9pm8nq8d4phb"
+
             target="_blank"
+
             rel="noopener"
+
             aria-label="Xbox"
           >
 
+
             <img
+
               src="xbox.png"
+
               alt="Xbox"
+
               loading="lazy"
             >
 
+
           </a>
+
 
         </div>
 
+
       </div>
 
+
     </section>
+
+
+
 
 
     <!-- =========================
          ABOUT
     ========================= -->
 
+
     <section
       class="section about"
       id="about"
     >
 
+
       <div
         class="reveal"
       >
+
 
         <p
           class="kicker"
@@ -1355,14 +2043,19 @@
           About ARMAG
         </p>
 
+
+
         <h2>
           Stories that stay with you
           after the screen goes dark.
         </h2>
 
+
+
         <div
           class="about-text"
         >
+
           ARMAG is an independent studio focused on
           atmospheric, story-driven horror.
 
@@ -1373,38 +2066,54 @@
           <strong>TIC-TAC: Twelve o'clock</strong>,
           combines survival elements, puzzle mechanics
           and a retro-horror atmosphere.
+
         </div>
+
+
 
 
         <div
           class="awards"
         >
 
+
           <img
+
             src="badges_pack_all.png"
+
             alt="Awards and festival selections"
+
             loading="lazy"
           >
 
+
         </div>
+
 
       </div>
 
+
     </section>
+
+
+
 
 
     <!-- =========================
          CONTACT
     ========================= -->
 
+
     <section
       class="section contact"
       id="contact"
     >
 
+
       <div
         class="contact-inner reveal"
       >
+
 
         <p
           class="kicker"
@@ -1412,346 +2121,595 @@
           Contact
         </p>
 
+
+
         <h2>
+
           Have something
+
           <br>
+
           to talk about?
+
         </h2>
 
+
+
         <a
+
           class="mail"
+
           href="mailto:armaturegames@gmail.com"
+
         >
+
           armaturegames@gmail.com ↗
+
         </a>
+
+
 
 
         <div
           class="social"
+
           aria-label="Social links"
         >
 
+
+
           <a
+
             href="https://www.youtube.com/channel/UC6KhgQm7oOCAuS6rbbC3QFw"
+
             target="_blank"
+
             rel="noopener"
+
             aria-label="YouTube"
           >
 
+
             <img
+
               src="youtube-icon.png"
+
               alt=""
             >
+
 
           </a>
 
 
+
+
           <a
+
             href="https://x.com/ArmagTeam"
+
             target="_blank"
+
             rel="noopener"
+
             aria-label="X"
           >
 
+
             <img
+
               src="x-icon.png"
+
               alt=""
             >
 
+
           </a>
+
+
 
 
           <a
+
             href="https://www.facebook.com/TicTacTwelveOclock/"
+
             target="_blank"
+
             rel="noopener"
+
             aria-label="Facebook"
           >
 
+
             <img
+
               src="facebook-icon.png"
+
               alt=""
             >
 
+
           </a>
+
 
         </div>
 
+
       </div>
+
 
     </section>
 
+
   </main>
+
+
+
 
 
   <!-- =========================
        FOOTER
   ========================= -->
 
+
   <footer>
 
+
     <img
+
       src="logo_mini.png"
+
       alt="ARMAG"
     >
+
 
     <span>
       © 2026 ARMAG. All rights reserved.
     </span>
 
+
   </footer>
+
+
+
 
 
   <script>
 
+
     const header =
-      document.getElementById('siteHeader');
+      document.getElementById(
+        'siteHeader'
+      );
+
 
     const menuBtn =
-      document.getElementById('menuBtn');
+      document.getElementById(
+        'menuBtn'
+      );
+
 
     const nav =
-      document.getElementById('nav');
+      document.getElementById(
+        'nav'
+      );
+
 
     const navLinks =
-      [...nav.querySelectorAll('a')];
+      [
+        ...nav.querySelectorAll(
+          'a'
+        )
+      ];
 
-    let menuOpen = false;
+
+    let menuOpen =
+      false;
+
+
 
 
     /* =========================
        HEADER
     ========================= */
 
+
     function updateHeader() {
 
+
       header.classList.toggle(
+
         'scrolled',
+
         window.scrollY > 20
+
       );
+
 
     }
 
+
+
     updateHeader();
 
+
+
     window.addEventListener(
+
       'scroll',
+
       updateHeader,
+
       {
         passive: true
       }
+
     );
+
+
 
 
     /* =========================
        MOBILE MENU
     ========================= */
 
+
     function openMenu() {
 
-      menuOpen = true;
 
-      nav.classList.add('open');
+      menuOpen =
+        true;
 
-      menuBtn.classList.add('open');
 
-      menuBtn.setAttribute(
-        'aria-expanded',
-        'true'
+      nav.classList.add(
+        'open'
       );
 
-      document.documentElement.style.overflow =
+
+      menuBtn.classList.add(
+        'open'
+      );
+
+
+      menuBtn.setAttribute(
+
+        'aria-expanded',
+
+        'true'
+
+      );
+
+
+      document
+        .documentElement
+        .style
+        .overflow =
         'hidden';
 
-      document.body.style.overflow =
+
+      document
+        .body
+        .style
+        .overflow =
         'hidden';
+
 
     }
+
+
 
 
     function closeMenu() {
 
-      menuOpen = false;
 
-      nav.classList.remove('open');
+      menuOpen =
+        false;
 
-      menuBtn.classList.remove('open');
 
-      menuBtn.setAttribute(
-        'aria-expanded',
-        'false'
+      nav.classList.remove(
+        'open'
       );
 
-      document.documentElement.style.overflow =
+
+      menuBtn.classList.remove(
+        'open'
+      );
+
+
+      menuBtn.setAttribute(
+
+        'aria-expanded',
+
+        'false'
+
+      );
+
+
+      document
+        .documentElement
+        .style
+        .overflow =
         '';
 
-      document.body.style.overflow =
+
+      document
+        .body
+        .style
+        .overflow =
         '';
+
 
     }
 
 
+
+
     menuBtn.addEventListener(
+
       'click',
+
       () => {
+
 
         if (menuOpen) {
 
+
           closeMenu();
+
 
         } else {
 
+
           openMenu();
+
 
         }
 
+
       }
+
     );
+
+
 
 
     navLinks.forEach(
+
       link => {
 
+
         link.addEventListener(
+
           'click',
+
           () => {
+
 
             closeMenu();
 
+
           }
+
         );
 
+
       }
+
     );
+
+
 
 
     window.addEventListener(
+
       'resize',
+
       () => {
 
+
         if (
+
           window.innerWidth > 900 &&
+
           menuOpen
+
         ) {
+
 
           closeMenu();
 
+
         }
 
+
       }
+
     );
+
+
 
 
     /* =========================
        REVEAL
     ========================= */
 
+
     const revealObserver =
+
       new IntersectionObserver(
+
         entries => {
 
+
           entries.forEach(
+
             entry => {
+
 
               if (
                 entry.isIntersecting
               ) {
 
-                entry.target.classList.add(
-                  'visible'
-                );
 
-                revealObserver.unobserve(
-                  entry.target
-                );
+                entry
+                  .target
+                  .classList
+                  .add(
+                    'visible'
+                  );
+
+
+                revealObserver
+                  .unobserve(
+                    entry.target
+                  );
+
 
               }
 
+
             }
+
           );
 
+
         },
+
         {
-          threshold: .12
+
+          threshold:
+            .12
+
         }
+
       );
+
+
 
 
     document
-      .querySelectorAll('.reveal')
+
+      .querySelectorAll(
+        '.reveal'
+      )
+
       .forEach(
+
         el => {
 
-          revealObserver.observe(el);
+
+          revealObserver
+            .observe(
+              el
+            );
+
 
         }
+
       );
+
+
 
 
     /* =========================
        ACTIVE NAV
     ========================= */
 
-    const sections =
-      [
-        ...document.querySelectorAll(
-          'main section[id]'
-        )
-      ];
+
+    const sections = [
+
+      ...document.querySelectorAll(
+        'main section[id]'
+      )
+
+    ];
+
+
 
 
     const sectionObserver =
+
       new IntersectionObserver(
+
         entries => {
 
+
           entries.forEach(
+
             entry => {
+
 
               if (
                 !entry.isIntersecting
               ) {
+
                 return;
+
               }
 
+
               navLinks.forEach(
+
                 link => {
 
+
                   link.classList.toggle(
+
                     'active',
 
                     link.getAttribute(
                       'href'
                     )
+
                     ===
+
                     '#' +
                     entry.target.id
+
                   );
 
+
                 }
+
               );
 
+
             }
+
           );
 
+
         },
+
         {
+
           rootMargin:
             '-40% 0px -50% 0px'
+
         }
+
       );
 
 
+
+
     sections.forEach(
+
       section => {
 
-        sectionObserver.observe(
-          section
-        );
+
+        sectionObserver
+          .observe(
+            section
+          );
+
 
       }
+
     );
 
+
   </script>
+
 
 </body>
 </html>
