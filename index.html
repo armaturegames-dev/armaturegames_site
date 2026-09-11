@@ -13,10 +13,12 @@
   >
 
   <meta property="og:title" content="ARMAG — Independent Game Studio">
+
   <meta
     property="og:description"
     content="Atmospheric, story-driven horror games by ARMAG."
   >
+
   <meta property="og:image" content="preview-image.png">
   <meta property="og:type" content="website">
 
@@ -53,6 +55,7 @@
         sans-serif;
 
       -webkit-font-smoothing: antialiased;
+
       overflow-x: hidden;
     }
 
@@ -159,6 +162,7 @@
       background: #fff;
 
       transform: scaleX(0);
+
       transform-origin: right;
 
       transition:
@@ -460,14 +464,14 @@
       min-height: 100svh;
 
       padding:
-        clamp(110px, 13vh, 160px)
+        clamp(110px,13vh,160px)
         var(--pad);
 
       display: grid;
 
       grid-template-columns:
-        minmax(0, 1.25fr)
-        minmax(360px, .75fr);
+        minmax(0,1.25fr)
+        minmax(360px,.75fr);
 
       align-items: center;
 
@@ -488,7 +492,7 @@
     }
 
 
-    /* GAME IMAGE FRAME */
+    /* GAME IMAGE */
 
     .game-visual {
       position: relative;
@@ -507,7 +511,6 @@
       isolation: isolate;
     }
 
-
     .game-visual::before {
       content: "";
 
@@ -523,7 +526,6 @@
 
       pointer-events: none;
     }
-
 
     .game-visual::after {
       content: "";
@@ -544,7 +546,6 @@
       pointer-events: none;
     }
 
-
     .game-visual img {
       width: 100%;
       height: 100%;
@@ -559,15 +560,10 @@
       transition:
         transform
         1.2s
-        cubic-bezier(.2,.7,.2,1),
-        filter
-        1.2s
         cubic-bezier(.2,.7,.2,1);
 
-      will-change:
-        transform;
+      will-change: transform;
     }
-
 
     .game-visual:hover img {
       transform:
@@ -575,7 +571,7 @@
     }
 
 
-    /* GAME COPY */
+    /* GAME TEXT */
 
     .game-copy {
       display: flex;
@@ -588,7 +584,6 @@
 
       background: transparent;
     }
-
 
     .game-copy h2 {
       margin: 0;
@@ -609,7 +604,6 @@
       font-weight: 800;
     }
 
-
     .game-copy h2 span {
       display: block;
 
@@ -617,7 +611,6 @@
 
       font-weight: 300;
     }
-
 
     .game-desc {
       margin:
@@ -640,7 +633,6 @@
       line-height: 1.7;
     }
 
-
     .game-actions {
       display: flex;
 
@@ -652,7 +644,6 @@
 
       margin-top: 34px;
     }
-
 
     .link-arrow {
       display: inline-flex;
@@ -675,12 +666,10 @@
       text-transform: uppercase;
     }
 
-
     .link-arrow span {
       transition:
         transform .25s ease;
     }
-
 
     .link-arrow:hover span {
       transform:
@@ -704,14 +693,13 @@
       margin-top: 42px;
     }
 
-
     .platforms a {
-      width: 92px;
+      width: 104px;
       height: 58px;
 
       padding:
-        7px
-        10px;
+        8px
+        7px;
 
       display: flex;
 
@@ -730,7 +718,6 @@
         transform .25s ease;
     }
 
-
     .platforms a:hover {
       border-color:
         rgba(255,255,255,.42);
@@ -742,49 +729,21 @@
         translateY(-2px);
     }
 
+    /*
+      Все platform PNG = 488x145.
+      Поэтому масштабируем их по ширине.
+    */
 
     .platforms img {
       display: block;
 
-      width: auto;
+      width: 100%;
       height: auto;
 
-      max-width: 100%;
-      max-height: 40px;
+      max-width: none;
+      max-height: none;
 
       object-fit: contain;
-    }
-
-
-    .platforms
-    a[aria-label="Steam"]
-    img {
-      max-width: 74px;
-      max-height: 36px;
-    }
-
-
-    .platforms
-    a[aria-label="PlayStation"]
-    img {
-      max-width: 72px;
-      max-height: 40px;
-    }
-
-
-    .platforms
-    a[aria-label="Nintendo Switch"]
-    img {
-      max-width: 72px;
-      max-height: 40px;
-    }
-
-
-    .platforms
-    a[aria-label="Xbox"]
-    img {
-      max-width: 72px;
-      max-height: 38px;
     }
 
 
@@ -809,7 +768,6 @@
       background: #080808;
     }
 
-
     .about > .reveal {
       width: 100%;
 
@@ -820,11 +778,9 @@
         auto;
     }
 
-
     .about .kicker {
       text-align: center;
     }
-
 
     .about h2 {
       margin:
@@ -849,7 +805,6 @@
       text-align: center;
     }
 
-
     .about-text {
       max-width: 720px;
 
@@ -858,8 +813,7 @@
         auto
         0;
 
-      color:
-        var(--muted);
+      color: var(--muted);
 
       font-size:
         clamp(
@@ -872,7 +826,6 @@
 
       text-align: center;
     }
-
 
     .awards {
       max-width: 760px;
@@ -888,7 +841,6 @@
         1px solid
         var(--line);
     }
-
 
     .awards img {
       width: auto;
@@ -935,7 +887,6 @@
       text-align: center;
     }
 
-
     .contact-inner {
       width:
         min(
@@ -950,11 +901,9 @@
       text-align: center;
     }
 
-
     .contact .kicker {
       text-align: center;
     }
-
 
     .contact h2 {
       margin:
@@ -977,7 +926,6 @@
       text-align: center;
     }
 
-
     .mail {
       display: inline-block;
 
@@ -997,7 +945,6 @@
         );
     }
 
-
     .social {
       display: flex;
 
@@ -1008,7 +955,6 @@
 
       margin-top: 46px;
     }
-
 
     .social a {
       width: 48px;
@@ -1026,7 +972,6 @@
         .25s ease;
     }
 
-
     .social a:hover {
       background:
         rgba(255,255,255,.06);
@@ -1037,7 +982,6 @@
       transform:
         translateY(-2px);
     }
-
 
     .social img {
       width: 22px;
@@ -1078,7 +1022,6 @@
       text-transform: uppercase;
     }
 
-
     footer img {
       width: 40px;
 
@@ -1086,7 +1029,6 @@
 
       opacity: .72;
     }
-
 
     footer span {
       position: absolute;
@@ -1123,7 +1065,6 @@
         cubic-bezier(.2,.7,.2,1);
     }
 
-
     .reveal.visible {
       opacity: 1;
 
@@ -1132,15 +1073,15 @@
 
 
     /* =========================
-       TABLET / MOBILE
+       SMALL DESKTOP
     ========================= */
 
     @media (max-width: 1100px) {
 
       .game-section {
         grid-template-columns:
-          minmax(0, 1.1fr)
-          minmax(330px, .9fr);
+          minmax(0,1.1fr)
+          minmax(330px,.9fr);
 
         gap: 46px;
       }
@@ -1157,19 +1098,21 @@
     }
 
 
+    /* =========================
+       TABLET / MOBILE
+    ========================= */
+
     @media (max-width: 900px) {
 
       :root {
         --header-h: 72px;
       }
 
-
       .site-header {
         padding:
           0
           18px;
       }
-
 
       .site-header.scrolled {
         background:
@@ -1181,16 +1124,13 @@
           none;
       }
 
-
       .brand img {
         width: 40px;
       }
 
-
       .menu-btn {
         display: block;
       }
-
 
       .nav {
         position: fixed;
@@ -1206,8 +1146,7 @@
 
         z-index: 101;
 
-        background:
-          #080808;
+        background: #080808;
 
         display: flex;
 
@@ -1233,7 +1172,6 @@
           visibility .35s ease;
       }
 
-
       .nav.open {
         opacity: 1;
 
@@ -1241,7 +1179,6 @@
 
         pointer-events: auto;
       }
-
 
       .nav a {
         font-size: 20px;
@@ -1258,7 +1195,6 @@
           transform .45s ease;
       }
 
-
       .nav.open a {
         opacity: 1;
 
@@ -1266,32 +1202,24 @@
           translateY(0);
       }
 
-
       .nav.open
       a:nth-child(1) {
-        transition-delay:
-          .08s;
+        transition-delay: .08s;
       }
-
 
       .nav.open
       a:nth-child(2) {
-        transition-delay:
-          .14s;
+        transition-delay: .14s;
       }
-
 
       .nav.open
       a:nth-child(3) {
-        transition-delay:
-          .20s;
+        transition-delay: .20s;
       }
-
 
       .nav.open
       a:nth-child(4) {
-        transition-delay:
-          .26s;
+        transition-delay: .26s;
       }
 
 
@@ -1305,15 +1233,12 @@
           22px
           0;
 
-        background:
-          #070707;
+        background: #070707;
       }
-
 
       .hero-video video {
         object-fit: cover;
       }
-
 
       .hero-video::after {
         background:
@@ -1325,7 +1250,6 @@
           );
       }
 
-
       .hero-logo {
         width:
           min(
@@ -1336,13 +1260,11 @@
         margin-bottom: 28px;
       }
 
-
       .hero-studio {
         font-size: 9px;
 
         letter-spacing: .28em;
       }
-
 
       .hero-description {
         font-size: 13px;
@@ -1351,7 +1273,6 @@
 
         line-height: 1.5;
       }
-
 
       .hero-scroll {
         margin-top: 44px;
@@ -1371,7 +1292,6 @@
           110px;
       }
 
-
       .game-visual {
         width: 100%;
 
@@ -1380,13 +1300,11 @@
         min-height: 0;
       }
 
-
       .game-copy {
         margin-top: 54px;
 
         padding: 0;
       }
-
 
       .game-copy h2 {
         font-size:
@@ -1396,7 +1314,6 @@
             84px
           );
       }
-
 
       .game-desc {
         max-width: 650px;
@@ -1409,16 +1326,21 @@
         gap: 10px;
       }
 
-
       .platforms a {
-        width: 84px;
+        width: 100px;
+        height: 56px;
 
-        height: 54px;
+        padding:
+          8px
+          7px;
       }
 
-
       .platforms img {
-        max-height: 36px;
+        width: 100%;
+        height: auto;
+
+        max-width: none;
+        max-height: none;
       }
 
 
@@ -1428,12 +1350,10 @@
         min-height: auto;
 
         padding-top: 110px;
-
         padding-bottom: 120px;
 
         text-align: center;
       }
-
 
       .about > .reveal {
         max-width: none;
@@ -1442,7 +1362,6 @@
           0
           auto;
       }
-
 
       .about h2,
       .contact h2 {
@@ -1454,16 +1373,13 @@
           );
       }
 
-
       .about-text {
         margin-top: 36px;
       }
 
-
       .awards {
         margin-top: 46px;
       }
-
 
       .awards img {
         max-height: none;
@@ -1478,11 +1394,9 @@
         text-align: center;
       }
 
-
       .contact-inner {
         text-align: center;
       }
-
 
       .social {
         justify-content: center;
@@ -1490,6 +1404,10 @@
 
     }
 
+
+    /* =========================
+       PHONE
+    ========================= */
 
     @media (max-width: 520px) {
 
@@ -1518,11 +1436,9 @@
           90px;
       }
 
-
       .game-copy {
         margin-top: 42px;
       }
-
 
       .game-copy h2 {
         font-size:
@@ -1532,7 +1448,6 @@
             70px
           );
       }
-
 
       .game-desc {
         margin-top: 28px;
@@ -1549,43 +1464,21 @@
         margin-top: 34px;
       }
 
-
       .platforms a {
-        width: 72px;
-
+        width: 88px;
         height: 50px;
 
         padding:
-          6px
-          8px;
+          7px
+          6px;
       }
 
+      .platforms img {
+        width: 100%;
+        height: auto;
 
-      .platforms
-      a[aria-label="Steam"]
-      img {
-        max-width: 60px;
-      }
-
-
-      .platforms
-      a[aria-label="PlayStation"]
-      img {
-        max-width: 58px;
-      }
-
-
-      .platforms
-      a[aria-label="Nintendo Switch"]
-      img {
-        max-width: 58px;
-      }
-
-
-      .platforms
-      a[aria-label="Xbox"]
-      img {
-        max-width: 58px;
+        max-width: none;
+        max-height: none;
       }
 
 
@@ -1606,7 +1499,6 @@
         padding-right: 22px;
       }
 
-
       .mail {
         font-size: 15px;
       }
@@ -1619,15 +1511,12 @@
 
         justify-content: center;
 
-        padding:
-          20px;
+        padding: 20px;
       }
-
 
       footer img {
         display: none;
       }
-
 
       footer span {
         position: static;
@@ -1656,7 +1545,6 @@
       html {
         scroll-behavior: auto;
       }
-
 
       *,
       *::before,
@@ -1736,6 +1624,7 @@
     >
 
       <span></span>
+
       <span></span>
 
     </button>
