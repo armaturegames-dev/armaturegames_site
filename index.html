@@ -24,7 +24,6 @@
 
   <link rel="icon" href="favicon.png">
 
-
   <style>
 
     :root {
@@ -32,30 +31,22 @@
       --fg: #f3f1ec;
       --muted: #9a9994;
       --line: rgba(255,255,255,.14);
-
       --pad: clamp(22px, 5.2vw, 84px);
-
       --header-h: 84px;
     }
-
 
     * {
       box-sizing: border-box;
     }
 
-
     html {
       scroll-behavior: smooth;
-
       background: var(--bg);
     }
 
-
     body {
       margin: 0;
-
       color: var(--fg);
-
       background: var(--bg);
 
       font-family:
@@ -63,37 +54,29 @@
         Helvetica,
         sans-serif;
 
-      -webkit-font-smoothing:
-        antialiased;
+      -webkit-font-smoothing: antialiased;
 
       overflow-x: hidden;
     }
 
-
     img {
       display: block;
-
       max-width: 100%;
     }
 
-
     a {
       color: inherit;
-
       text-decoration: none;
     }
-
 
     button {
       font: inherit;
     }
 
 
-
     /* =========================
        HEADER
     ========================= */
-
 
     .site-header {
       position: fixed;
@@ -111,20 +94,15 @@
       z-index: 100;
 
       display: flex;
-
       align-items: center;
+      justify-content: space-between;
 
-      justify-content:
-        space-between;
-
-      background:
-        transparent;
+      background: transparent;
 
       transition:
         background .3s ease,
         backdrop-filter .3s ease;
     }
-
 
     .site-header.scrolled {
       background:
@@ -137,31 +115,22 @@
         blur(12px);
     }
 
-
     .brand {
       display: flex;
-
       align-items: center;
-
       justify-content: center;
     }
 
-
     .brand img {
       width: 40px;
-
       height: auto;
     }
 
-
     .nav {
       display: flex;
-
       gap: 34px;
-
       align-items: center;
     }
-
 
     .nav a {
       position: relative;
@@ -171,15 +140,12 @@
         0;
 
       font-size: 11px;
-
       font-weight: 700;
 
       letter-spacing: .18em;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
-
 
     .nav a::after {
       content: "";
@@ -195,26 +161,19 @@
 
       background: #fff;
 
-      transform:
-        scaleX(0);
+      transform: scaleX(0);
 
-      transform-origin:
-        right;
+      transform-origin: right;
 
       transition:
         transform .35s ease;
     }
 
-
     .nav a:hover::after,
     .nav a.active::after {
-      transform:
-        scaleX(1);
-
-      transform-origin:
-        left;
+      transform: scaleX(1);
+      transform-origin: left;
     }
-
 
     .menu-btn {
       display: none;
@@ -224,8 +183,7 @@
 
       border: 0;
 
-      background:
-        transparent;
+      background: transparent;
 
       color: white;
 
@@ -236,7 +194,6 @@
       cursor: pointer;
     }
 
-
     .menu-btn span {
       position: absolute;
 
@@ -245,46 +202,35 @@
       width: 24px;
       height: 1px;
 
-      background:
-        currentColor;
+      background: currentColor;
 
       transition:
         top .3s ease,
         transform .3s ease;
     }
 
-
     .menu-btn span:first-child {
       top: 16px;
     }
-
 
     .menu-btn span:last-child {
       top: 25px;
     }
 
-
     .menu-btn.open span:first-child {
       top: 20px;
-
-      transform:
-        rotate(45deg);
+      transform: rotate(45deg);
     }
-
 
     .menu-btn.open span:last-child {
       top: 20px;
-
-      transform:
-        rotate(-45deg);
+      transform: rotate(-45deg);
     }
-
 
 
     /* =========================
        HERO
     ========================= */
-
 
     .hero {
       position: relative;
@@ -292,9 +238,7 @@
       min-height: 100svh;
 
       display: flex;
-
       align-items: center;
-
       justify-content: center;
 
       overflow: hidden;
@@ -304,20 +248,81 @@
         var(--pad)
         0;
 
-      background:
-        #070707;
+      background: #070707;
     }
 
 
+    /* HERO VIDEO */
+
+    .hero-video {
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 0;
+
+      overflow: hidden;
+
+      background: #070707;
+    }
+
+    .hero-video video {
+      position: absolute;
+
+      top: 50%;
+      left: 50%;
+
+      width: 100%;
+      height: 100%;
+
+      min-width: 100%;
+      min-height: 100%;
+
+      object-fit: cover;
+
+      transform:
+        translate(-50%, -50%);
+
+      pointer-events: none;
+    }
+
+
+    /* Затемнение поверх видео */
+
+    .hero-video::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 1;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0,0,0,.18) 0%,
+          rgba(0,0,0,.24) 55%,
+          rgba(0,0,0,.48) 100%
+        );
+
+      pointer-events: none;
+    }
+
+
+    /* HERO CONTENT */
+
     .hero-copy {
+      position: relative;
+
+      z-index: 2;
+
       width: 100%;
 
       display: flex;
-
       flex-direction: column;
 
       align-items: center;
-
       justify-content: center;
 
       text-align: center;
@@ -325,7 +330,6 @@
       transform:
         translateY(-10px);
     }
-
 
     .hero-logo {
       width:
@@ -345,10 +349,8 @@
         ease-in-out
         infinite;
 
-      will-change:
-        transform;
+      will-change: transform;
     }
-
 
     @keyframes logoPulse {
 
@@ -365,23 +367,19 @@
 
     }
 
-
     .hero-studio {
       margin: 0;
 
       font-size: 11px;
-
       font-weight: 700;
 
       letter-spacing: .32em;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
 
       color:
         rgba(255,255,255,.92);
     }
-
 
     .hero-description {
       margin:
@@ -397,12 +395,10 @@
         rgba(255,255,255,.52);
     }
 
-
     .hero-scroll {
       margin-top: 58px;
 
       display: flex;
-
       flex-direction: column;
 
       align-items: center;
@@ -410,18 +406,15 @@
       gap: 13px;
 
       font-size: 9px;
-
       font-weight: 700;
 
       letter-spacing: .25em;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
 
       color:
         rgba(255,255,255,.55);
     }
-
 
     .hero-scroll span {
       font-size: 18px;
@@ -430,18 +423,15 @@
         transform .3s ease;
     }
 
-
     .hero-scroll:hover span {
       transform:
         translateY(6px);
     }
 
 
-
     /* =========================
        GENERAL
     ========================= */
-
 
     .section {
       position: relative;
@@ -450,7 +440,6 @@
         1px solid
         var(--line);
     }
-
 
     .kicker {
       margin:
@@ -462,21 +451,17 @@
         rgba(255,255,255,.62);
 
       font-size: 10px;
-
       font-weight: 700;
 
       letter-spacing: .28em;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
-
 
 
     /* =========================
        GAME
     ========================= */
-
 
     .game-section {
       min-height: 100svh;
@@ -487,13 +472,10 @@
         minmax(0, 1.1fr)
         minmax(390px, .9fr);
 
-      align-items:
-        stretch;
+      align-items: stretch;
 
-      background:
-        #0a0a0a;
+      background: #0a0a0a;
     }
-
 
     .game-visual {
       position: relative;
@@ -502,18 +484,14 @@
 
       overflow: hidden;
 
-      background:
-        #111;
+      background: #111;
     }
-
 
     .game-visual img {
       width: 100%;
-
       height: 100%;
 
       object-fit: cover;
-
       object-position: center;
 
       transform:
@@ -524,7 +502,6 @@
         1.2s
         cubic-bezier(.2,.7,.2,1);
     }
-
 
     .game-visual::after {
       content: "";
@@ -543,13 +520,11 @@
       pointer-events: none;
     }
 
-
     .game-section:hover
     .game-visual img {
       transform:
         scale(1.055);
     }
-
 
     .game-copy {
       padding:
@@ -564,10 +539,8 @@
 
       justify-content: center;
 
-      background:
-        #0a0a0a;
+      background: #0a0a0a;
     }
-
 
     .game-copy h2 {
       margin: 0;
@@ -583,19 +556,16 @@
 
       letter-spacing: -.055em;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
 
       font-weight: 800;
     }
-
 
     .game-copy h2 span {
       display: block;
 
       font-weight: 300;
     }
-
 
     .game-desc {
       margin:
@@ -605,8 +575,7 @@
 
       max-width: 610px;
 
-      color:
-        var(--muted);
+      color: var(--muted);
 
       font-size:
         clamp(
@@ -617,7 +586,6 @@
 
       line-height: 1.7;
     }
-
 
     .game-actions {
       display: flex;
@@ -630,7 +598,6 @@
 
       margin-top: 34px;
     }
-
 
     .link-arrow {
       display: inline-flex;
@@ -646,21 +613,17 @@
         rgba(255,255,255,.52);
 
       font-size: 11px;
-
       font-weight: 700;
 
       letter-spacing: .18em;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
-
 
     .link-arrow span {
       transition:
         transform .25s ease;
     }
-
 
     .link-arrow:hover span {
       transform:
@@ -668,11 +631,9 @@
     }
 
 
-
     /* =========================
        PLATFORMS
     ========================= */
-
 
     .platforms {
       display: flex;
@@ -686,10 +647,8 @@
       margin-top: 42px;
     }
 
-
     .platforms a {
       width: 92px;
-
       height: 58px;
 
       padding:
@@ -699,7 +658,6 @@
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
       overflow: hidden;
@@ -714,7 +672,6 @@
         transform .25s ease;
     }
 
-
     .platforms a:hover {
       border-color:
         rgba(255,255,255,.42);
@@ -726,63 +683,50 @@
         translateY(-2px);
     }
 
-
     .platforms img {
       display: block;
 
       width: auto;
-
       height: auto;
 
       max-width: 100%;
-
       max-height: 40px;
 
       object-fit: contain;
     }
 
-
     .platforms
     a[aria-label="Steam"]
     img {
       max-width: 74px;
-
       max-height: 36px;
     }
-
 
     .platforms
     a[aria-label="PlayStation"]
     img {
       max-width: 72px;
-
       max-height: 40px;
     }
-
 
     .platforms
     a[aria-label="Nintendo Switch"]
     img {
       max-width: 72px;
-
       max-height: 40px;
     }
-
 
     .platforms
     a[aria-label="Xbox"]
     img {
       max-width: 72px;
-
       max-height: 38px;
     }
-
 
 
     /* =========================
        ABOUT
     ========================= */
-
 
     .about {
       min-height: 88svh;
@@ -794,15 +738,12 @@
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
       text-align: center;
 
-      background:
-        #080808;
+      background: #080808;
     }
-
 
     .about > .reveal {
       width: 100%;
@@ -814,11 +755,9 @@
         auto;
     }
 
-
     .about .kicker {
       text-align: center;
     }
-
 
     .about h2 {
       margin:
@@ -843,7 +782,6 @@
       text-align: center;
     }
 
-
     .about-text {
       max-width: 720px;
 
@@ -852,8 +790,7 @@
         auto
         0;
 
-      color:
-        var(--muted);
+      color: var(--muted);
 
       font-size:
         clamp(
@@ -866,7 +803,6 @@
 
       text-align: center;
     }
-
 
     .awards {
       max-width: 760px;
@@ -883,12 +819,10 @@
         var(--line);
     }
 
-
     .awards img {
       width: auto;
 
       max-width: 100%;
-
       max-height: 130px;
 
       margin:
@@ -897,16 +831,13 @@
 
       object-fit: contain;
 
-      object-position:
-        center;
+      object-position: center;
     }
-
 
 
     /* =========================
        CONTACT
     ========================= */
-
 
     .contact {
       min-height: 74svh;
@@ -928,12 +859,10 @@
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
       text-align: center;
     }
-
 
     .contact-inner {
       width:
@@ -949,11 +878,9 @@
       text-align: center;
     }
 
-
     .contact .kicker {
       text-align: center;
     }
-
 
     .contact h2 {
       margin:
@@ -976,7 +903,6 @@
       text-align: center;
     }
 
-
     .mail {
       display: inline-block;
 
@@ -996,12 +922,10 @@
         );
     }
 
-
     .social {
       display: flex;
 
       justify-content: center;
-
       align-items: center;
 
       gap: 14px;
@@ -1009,10 +933,8 @@
       margin-top: 46px;
     }
 
-
     .social a {
       width: 48px;
-
       height: 48px;
 
       border:
@@ -1027,7 +949,6 @@
         .25s ease;
     }
 
-
     .social a:hover {
       background:
         rgba(255,255,255,.06);
@@ -1039,21 +960,17 @@
         translateY(-2px);
     }
 
-
     .social img {
       width: 22px;
-
       height: 22px;
 
       object-fit: contain;
     }
 
 
-
     /* =========================
        FOOTER
     ========================= */
-
 
     footer {
       position: relative;
@@ -1079,10 +996,8 @@
 
       letter-spacing: .16em;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
-
 
     footer img {
       width: 40px;
@@ -1091,7 +1006,6 @@
 
       opacity: .72;
     }
-
 
     footer span {
       position: absolute;
@@ -1107,11 +1021,9 @@
     }
 
 
-
     /* =========================
        REVEAL
     ========================= */
-
 
     .reveal {
       opacity: 0;
@@ -1130,7 +1042,6 @@
         cubic-bezier(.2,.7,.2,1);
     }
 
-
     .reveal.visible {
       opacity: 1;
 
@@ -1138,26 +1049,21 @@
     }
 
 
-
     /* =========================
        TABLET / MOBILE
     ========================= */
 
-
     @media (max-width: 900px) {
-
 
       :root {
         --header-h: 72px;
       }
-
 
       .site-header {
         padding:
           0
           18px;
       }
-
 
       .site-header.scrolled {
         background:
@@ -1169,16 +1075,13 @@
           none;
       }
 
-
       .brand img {
         width: 40px;
       }
 
-
       .menu-btn {
         display: block;
       }
-
 
       .nav {
         position: fixed;
@@ -1194,15 +1097,13 @@
 
         z-index: 101;
 
-        background:
-          #080808;
+        background: #080808;
 
         display: flex;
 
         flex-direction: column;
 
         align-items: center;
-
         justify-content: center;
 
         gap: 28px;
@@ -1218,12 +1119,9 @@
         pointer-events: none;
 
         transition:
-
           opacity .35s ease,
-
           visibility .35s ease;
       }
-
 
       .nav.open {
         opacity: 1;
@@ -1232,7 +1130,6 @@
 
         pointer-events: auto;
       }
-
 
       .nav a {
         font-size: 20px;
@@ -1249,7 +1146,6 @@
           transform .45s ease;
       }
 
-
       .nav.open a {
         opacity: 1;
 
@@ -1257,38 +1153,28 @@
           translateY(0);
       }
 
-
       .nav.open
       a:nth-child(1) {
-        transition-delay:
-          .08s;
+        transition-delay: .08s;
       }
-
 
       .nav.open
       a:nth-child(2) {
-        transition-delay:
-          .14s;
+        transition-delay: .14s;
       }
-
 
       .nav.open
       a:nth-child(3) {
-        transition-delay:
-          .20s;
+        transition-delay: .20s;
       }
-
 
       .nav.open
       a:nth-child(4) {
-        transition-delay:
-          .26s;
+        transition-delay: .26s;
       }
 
 
-
       /* HERO MOBILE */
-
 
       .hero {
         min-height: 100svh;
@@ -1298,10 +1184,22 @@
           22px
           0;
 
-        background:
-          #070707;
+        background: #070707;
       }
 
+      .hero-video video {
+        object-fit: cover;
+      }
+
+      .hero-video::after {
+        background:
+          linear-gradient(
+            to bottom,
+            rgba(0,0,0,.25) 0%,
+            rgba(0,0,0,.30) 55%,
+            rgba(0,0,0,.55) 100%
+          );
+      }
 
       .hero-logo {
         width:
@@ -1313,13 +1211,11 @@
         margin-bottom: 28px;
       }
 
-
       .hero-studio {
         font-size: 9px;
 
         letter-spacing: .28em;
       }
-
 
       .hero-description {
         font-size: 13px;
@@ -1329,15 +1225,12 @@
         line-height: 1.5;
       }
 
-
       .hero-scroll {
         margin-top: 44px;
       }
 
 
-
       /* GAME MOBILE */
-
 
       .game-section {
         min-height: auto;
@@ -1346,11 +1239,9 @@
           1fr;
       }
 
-
       .game-visual {
         min-height: 56svh;
       }
-
 
       .game-visual::after {
         background:
@@ -1362,7 +1253,6 @@
           );
       }
 
-
       .game-copy {
         margin-top: -2px;
 
@@ -1371,7 +1261,6 @@
           var(--pad)
           100px;
       }
-
 
       .game-copy h2 {
         font-size:
@@ -1383,41 +1272,32 @@
       }
 
 
-
       /* PLATFORM MOBILE */
-
 
       .platforms {
         gap: 10px;
       }
 
-
       .platforms a {
         width: 84px;
-
         height: 54px;
       }
-
 
       .platforms img {
         max-height: 36px;
       }
 
 
-
       /* ABOUT MOBILE */
-
 
       .about {
         min-height: auto;
 
         padding-top: 110px;
-
         padding-bottom: 120px;
 
         text-align: center;
       }
-
 
       .about > .reveal {
         max-width: none;
@@ -1426,7 +1306,6 @@
           0
           auto;
       }
-
 
       .about h2,
       .contact h2 {
@@ -1438,25 +1317,20 @@
           );
       }
 
-
       .about-text {
         margin-top: 36px;
       }
 
-
       .awards {
         margin-top: 46px;
       }
-
 
       .awards img {
         max-height: none;
       }
 
 
-
       /* CONTACT MOBILE */
-
 
       .contact {
         min-height: auto;
@@ -1464,32 +1338,25 @@
         text-align: center;
       }
 
-
       .contact-inner {
         text-align: center;
       }
-
 
       .social {
         justify-content: center;
       }
 
-
     }
 
 
-
     @media (max-width: 520px) {
-
 
       .brand img {
         width: 40px;
       }
 
 
-
       /* HERO */
-
 
       .hero-logo {
         width:
@@ -1500,27 +1367,21 @@
       }
 
 
-
       /* GAME */
-
 
       .game-visual {
         min-height: 46svh;
       }
 
 
-
       /* PLATFORMS */
-
 
       .platforms {
         gap: 8px;
       }
 
-
       .platforms a {
         width: 72px;
-
         height: 50px;
 
         padding:
@@ -1528,13 +1389,11 @@
           8px;
       }
 
-
       .platforms
       a[aria-label="Steam"]
       img {
         max-width: 60px;
       }
-
 
       .platforms
       a[aria-label="PlayStation"]
@@ -1542,13 +1401,11 @@
         max-width: 58px;
       }
 
-
       .platforms
       a[aria-label="Nintendo Switch"]
       img {
         max-width: 58px;
       }
-
 
       .platforms
       a[aria-label="Xbox"]
@@ -1557,9 +1414,7 @@
       }
 
 
-
       /* ABOUT */
-
 
       .about {
         padding-left: 22px;
@@ -1568,9 +1423,7 @@
       }
 
 
-
       /* CONTACT */
-
 
       .contact {
         padding-left: 22px;
@@ -1578,30 +1431,24 @@
         padding-right: 22px;
       }
 
-
       .mail {
         font-size: 15px;
       }
 
 
-
       /* FOOTER */
-
 
       footer {
         min-height: 82px;
 
         justify-content: center;
 
-        padding:
-          20px;
+        padding: 20px;
       }
-
 
       footer img {
         display: none;
       }
-
 
       footer span {
         position: static;
@@ -1617,29 +1464,23 @@
         line-height: 1.6;
       }
 
-
     }
-
 
 
     /* =========================
        ACCESSIBILITY
     ========================= */
 
-
     @media
     (prefers-reduced-motion: reduce) {
-
 
       html {
         scroll-behavior: auto;
       }
 
-
       *,
       *::before,
       *::after {
-
         transition-duration:
           .01ms !important;
 
@@ -1650,7 +1491,6 @@
           1 !important;
       }
 
-
     }
 
   </style>
@@ -1660,17 +1500,14 @@
 <body>
 
 
-
   <!-- =========================
        HEADER
   ========================= -->
-
 
   <header
     class="site-header"
     id="siteHeader"
   >
-
 
     <a
       class="brand"
@@ -1686,35 +1523,28 @@
     </a>
 
 
-
     <nav
       class="nav"
       id="nav"
     >
 
-
       <a href="#home">
         Home
       </a>
-
 
       <a href="#games">
         Games
       </a>
 
-
       <a href="#about">
         About
       </a>
-
 
       <a href="#contact">
         Contact
       </a>
 
-
     </nav>
-
 
 
     <button
@@ -1730,20 +1560,15 @@
 
     </button>
 
-
   </header>
-
-
 
 
   <main>
 
 
-
     <!-- =========================
          HERO
     ========================= -->
-
 
     <section
       class="hero"
@@ -1751,17 +1576,42 @@
     >
 
 
+      <!-- BACKGROUND VIDEO -->
+
+      <div
+        class="hero-video"
+        aria-hidden="true"
+      >
+
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+        >
+
+          <source
+            src="video_BG_for_gif_site_04.mp4"
+            type="video/mp4"
+          >
+
+        </video>
+
+      </div>
+
+
+      <!-- HERO CONTENT -->
+
       <div
         class="hero-copy reveal"
       >
-
 
         <img
           class="hero-logo"
           src="armag_logo_horizontal_white.png"
           alt="ARMAG"
         >
-
 
         <p
           class="hero-studio"
@@ -1770,11 +1620,13 @@
         </p>
 
 
-        <!-- <p
+        <!--
+        <p
           class="hero-description"
         >
           Atmospheric story-driven games
-        </p> -->
+        </p>
+        -->
 
 
         <a
@@ -1790,31 +1642,23 @@
 
         </a>
 
-
       </div>
 
-
     </section>
-
-
-
 
 
     <!-- =========================
          GAME
     ========================= -->
 
-
     <section
       class="section game-section"
       id="games"
     >
 
-
       <div
         class="game-visual"
       >
-
 
         <img
           src="header_image_616x353.png"
@@ -1823,23 +1667,18 @@
           decoding="async"
         >
 
-
       </div>
-
-
 
 
       <div
         class="game-copy reveal"
       >
 
-
         <p
           class="kicker"
         >
           Our game
         </p>
-
 
 
         <h2>
@@ -1853,7 +1692,6 @@
         </h2>
 
 
-
         <p
           class="game-desc"
         >
@@ -1865,11 +1703,9 @@
         </p>
 
 
-
         <div
           class="game-actions"
         >
-
 
           <a
             class="link-arrow"
@@ -1889,10 +1725,7 @@
 
           </a>
 
-
         </div>
-
-
 
 
         <div
@@ -1902,140 +1735,88 @@
         >
 
 
-
           <a
-
             href="https://store.steampowered.com/app/1490020/TICTAC_Twelve_oclock/"
-
             target="_blank"
-
             rel="noopener"
-
             aria-label="Steam"
           >
 
-
             <img
-
               src="steam.png"
-
               alt="Steam"
-
               loading="lazy"
             >
-
 
           </a>
 
 
-
-
           <a
-
             href="https://store.playstation.com/en-us/concept/10014052"
-
             target="_blank"
-
             rel="noopener"
-
             aria-label="PlayStation"
           >
 
-
             <img
-
               src="ps.png"
-
               alt="PlayStation"
-
               loading="lazy"
             >
-
 
           </a>
 
 
-
-
           <a
-
             href="https://www.nintendo.com/en-gb/Games/Nintendo-Switch-download-software/TIC-TAC-Twelve-o-clock-2817441.html"
-
             target="_blank"
-
             rel="noopener"
-
             aria-label="Nintendo Switch"
           >
 
-
             <img
-
               src="switch.png"
-
               alt="Nintendo Switch"
-
               loading="lazy"
             >
 
-
           </a>
-
-
 
 
           <a
-
             href="https://www.xbox.com/en-us/games/store/tic-tac-twelve-oclock/9pm8nq8d4phb"
-
             target="_blank"
-
             rel="noopener"
-
             aria-label="Xbox"
           >
 
-
             <img
-
               src="xbox.png"
-
               alt="Xbox"
-
               loading="lazy"
             >
 
-
           </a>
-
 
         </div>
 
-
       </div>
 
-
     </section>
-
-
-
 
 
     <!-- =========================
          ABOUT
     ========================= -->
 
-
     <section
       class="section about"
       id="about"
     >
 
-
       <div
         class="reveal"
       >
-
 
         <p
           class="kicker"
@@ -2044,12 +1825,10 @@
         </p>
 
 
-
         <h2>
           Stories that stay with you
           after the screen goes dark.
         </h2>
-
 
 
         <div
@@ -2070,57 +1849,41 @@
         </div>
 
 
-
-
         <div
           class="awards"
         >
 
-
           <img
-
             src="badges_pack_all.png"
-
             alt="Awards and festival selections"
-
             loading="lazy"
           >
 
-
         </div>
-
 
       </div>
 
-
     </section>
-
-
-
 
 
     <!-- =========================
          CONTACT
     ========================= -->
 
-
     <section
       class="section contact"
       id="contact"
     >
 
-
       <div
         class="contact-inner reveal"
       >
-
 
         <p
           class="kicker"
         >
           Contact
         </p>
-
 
 
         <h2>
@@ -2134,13 +1897,9 @@
         </h2>
 
 
-
         <a
-
           class="mail"
-
           href="mailto:armaturegames@gmail.com"
-
         >
 
           armaturegames@gmail.com ↗
@@ -2148,94 +1907,59 @@
         </a>
 
 
-
-
         <div
           class="social"
-
           aria-label="Social links"
         >
 
 
-
           <a
-
             href="https://www.youtube.com/channel/UC6KhgQm7oOCAuS6rbbC3QFw"
-
             target="_blank"
-
             rel="noopener"
-
             aria-label="YouTube"
           >
 
-
             <img
-
               src="youtube-icon.png"
-
               alt=""
             >
-
 
           </a>
 
 
-
-
           <a
-
             href="https://x.com/ArmagTeam"
-
             target="_blank"
-
             rel="noopener"
-
             aria-label="X"
           >
 
-
             <img
-
               src="x-icon.png"
-
               alt=""
             >
 
-
           </a>
-
-
 
 
           <a
-
             href="https://www.facebook.com/TicTacTwelveOclock/"
-
             target="_blank"
-
             rel="noopener"
-
             aria-label="Facebook"
           >
 
-
             <img
-
               src="facebook-icon.png"
-
               alt=""
             >
 
-
           </a>
-
 
         </div>
 
-
       </div>
-
 
     </section>
 
@@ -2243,38 +1967,25 @@
   </main>
 
 
-
-
-
   <!-- =========================
        FOOTER
   ========================= -->
 
-
   <footer>
 
-
     <img
-
       src="logo_mini.png"
-
       alt="ARMAG"
     >
-
 
     <span>
       © 2026 ARMAG. All rights reserved.
     </span>
 
-
   </footer>
 
 
-
-
-
   <script>
-
 
     const header =
       document.getElementById(
@@ -2306,78 +2017,52 @@
       false;
 
 
-
-
     /* =========================
        HEADER
     ========================= */
 
-
     function updateHeader() {
 
-
       header.classList.toggle(
-
         'scrolled',
-
         window.scrollY > 20
-
       );
 
-
     }
-
 
 
     updateHeader();
 
 
-
     window.addEventListener(
-
       'scroll',
-
       updateHeader,
-
       {
         passive: true
       }
-
     );
-
-
 
 
     /* =========================
        MOBILE MENU
     ========================= */
 
-
     function openMenu() {
 
-
-      menuOpen =
-        true;
-
+      menuOpen = true;
 
       nav.classList.add(
         'open'
       );
 
-
       menuBtn.classList.add(
         'open'
       );
 
-
       menuBtn.setAttribute(
-
         'aria-expanded',
-
         'true'
-
       );
-
 
       document
         .documentElement
@@ -2385,44 +2070,31 @@
         .overflow =
         'hidden';
 
-
       document
         .body
         .style
         .overflow =
         'hidden';
 
-
     }
-
-
 
 
     function closeMenu() {
 
-
-      menuOpen =
-        false;
-
+      menuOpen = false;
 
       nav.classList.remove(
         'open'
       );
 
-
       menuBtn.classList.remove(
         'open'
       );
 
-
       menuBtn.setAttribute(
-
         'aria-expanded',
-
         'false'
-
       );
-
 
       document
         .documentElement
@@ -2430,125 +2102,80 @@
         .overflow =
         '';
 
-
       document
         .body
         .style
         .overflow =
         '';
 
-
     }
 
 
-
-
     menuBtn.addEventListener(
-
       'click',
-
       () => {
-
 
         if (menuOpen) {
 
-
           closeMenu();
-
 
         } else {
 
-
           openMenu();
-
 
         }
 
-
       }
-
     );
-
-
 
 
     navLinks.forEach(
-
       link => {
 
-
         link.addEventListener(
-
           'click',
-
           () => {
-
 
             closeMenu();
 
-
           }
-
         );
 
-
       }
-
     );
-
-
 
 
     window.addEventListener(
-
       'resize',
-
       () => {
 
-
         if (
-
           window.innerWidth > 900 &&
-
           menuOpen
-
         ) {
-
 
           closeMenu();
 
-
         }
 
-
       }
-
     );
-
-
 
 
     /* =========================
        REVEAL
     ========================= */
 
-
     const revealObserver =
-
       new IntersectionObserver(
-
         entries => {
 
-
           entries.forEach(
-
             entry => {
-
 
               if (
                 entry.isIntersecting
               ) {
-
 
                 entry
                   .target
@@ -2557,63 +2184,42 @@
                     'visible'
                   );
 
-
                 revealObserver
                   .unobserve(
                     entry.target
                   );
 
-
               }
 
-
             }
-
           );
 
-
         },
-
         {
-
-          threshold:
-            .12
-
+          threshold: .12
         }
-
       );
 
 
-
-
     document
-
       .querySelectorAll(
         '.reveal'
       )
-
       .forEach(
-
         el => {
-
 
           revealObserver
             .observe(
               el
             );
 
-
         }
-
       );
-
-
 
 
     /* =========================
        ACTIVE NAV
     ========================= */
-
 
     const sections = [
 
@@ -2624,19 +2230,12 @@
     ];
 
 
-
-
     const sectionObserver =
-
       new IntersectionObserver(
-
         entries => {
 
-
           entries.forEach(
-
             entry => {
-
 
               if (
                 !entry.isIntersecting
@@ -2646,14 +2245,10 @@
 
               }
 
-
               navLinks.forEach(
-
                 link => {
 
-
                   link.classList.toggle(
-
                     'active',
 
                     link.getAttribute(
@@ -2667,46 +2262,30 @@
 
                   );
 
-
                 }
-
               );
 
-
             }
-
           );
 
-
         },
-
         {
-
           rootMargin:
             '-40% 0px -50% 0px'
-
         }
-
       );
 
 
-
-
     sections.forEach(
-
       section => {
-
 
         sectionObserver
           .observe(
             section
           );
 
-
       }
-
     );
-
 
   </script>
 
