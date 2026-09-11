@@ -13,12 +13,10 @@
   >
 
   <meta property="og:title" content="ARMAG — Independent Game Studio">
-
   <meta
     property="og:description"
     content="Atmospheric, story-driven horror games by ARMAG."
   >
-
   <meta property="og:image" content="preview-image.png">
   <meta property="og:type" content="website">
 
@@ -55,7 +53,6 @@
         sans-serif;
 
       -webkit-font-smoothing: antialiased;
-
       overflow-x: hidden;
     }
 
@@ -162,7 +159,6 @@
       background: #fff;
 
       transform: scaleX(0);
-
       transform-origin: right;
 
       transition:
@@ -285,9 +281,6 @@
 
       pointer-events: none;
     }
-
-
-    /* Затемнение поверх видео */
 
     .hero-video::after {
       content: "";
@@ -466,42 +459,71 @@
     .game-section {
       min-height: 100svh;
 
+      padding:
+        clamp(110px, 13vh, 160px)
+        var(--pad);
+
       display: grid;
 
       grid-template-columns:
-        minmax(0, 1.1fr)
-        minmax(390px, .9fr);
+        minmax(0, 1.25fr)
+        minmax(360px, .75fr);
 
-      align-items: stretch;
+      align-items: center;
 
-      background: #0a0a0a;
+      gap:
+        clamp(
+          50px,
+          6vw,
+          110px
+        );
+
+      background:
+        radial-gradient(
+          circle at 22% 50%,
+          rgba(255,255,255,.035),
+          transparent 36%
+        ),
+        #0a0a0a;
     }
+
+
+    /* GAME IMAGE FRAME */
 
     .game-visual {
       position: relative;
 
-      min-height: 720px;
+      width: 100%;
+
+      aspect-ratio: 616 / 353;
 
       overflow: hidden;
 
       background: #111;
+
+      box-shadow:
+        0 34px 90px rgba(0,0,0,.48);
+
+      isolation: isolate;
     }
 
-    .game-visual img {
-      width: 100%;
-      height: 100%;
 
-      object-fit: cover;
-      object-position: center;
+    .game-visual::before {
+      content: "";
 
-      transform:
-        scale(1.02);
+      position: absolute;
 
-      transition:
-        transform
-        1.2s
-        cubic-bezier(.2,.7,.2,1);
+      inset: 0;
+
+      z-index: 2;
+
+      border:
+        1px solid
+        rgba(255,255,255,.10);
+
+      pointer-events: none;
     }
+
 
     .game-visual::after {
       content: "";
@@ -510,49 +532,75 @@
 
       inset: 0;
 
+      z-index: 1;
+
       background:
         linear-gradient(
-          90deg,
-          transparent 62%,
-          rgba(10,10,10,.92)
+          to top,
+          rgba(0,0,0,.22),
+          transparent 45%
         );
 
       pointer-events: none;
     }
 
-    .game-section:hover
+
     .game-visual img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      object-position: center;
+
       transform:
-        scale(1.055);
+        scale(1);
+
+      transition:
+        transform
+        1.2s
+        cubic-bezier(.2,.7,.2,1),
+        filter
+        1.2s
+        cubic-bezier(.2,.7,.2,1);
+
+      will-change:
+        transform;
     }
 
-    .game-copy {
-      padding:
-        clamp(90px,10vh,130px)
-        var(--pad)
-        90px
-        clamp(46px,5vw,90px);
 
+    .game-visual:hover img {
+      transform:
+        scale(1.025);
+    }
+
+
+    /* GAME COPY */
+
+    .game-copy {
       display: flex;
 
       flex-direction: column;
 
       justify-content: center;
 
-      background: #0a0a0a;
+      padding: 0;
+
+      background: transparent;
     }
+
 
     .game-copy h2 {
       margin: 0;
 
       font-size:
         clamp(
-          52px,
-          6.5vw,
-          108px
+          50px,
+          5.2vw,
+          96px
         );
 
-      line-height: .88;
+      line-height: .89;
 
       letter-spacing: -.055em;
 
@@ -561,11 +609,15 @@
       font-weight: 800;
     }
 
+
     .game-copy h2 span {
       display: block;
 
+      margin-top: 8px;
+
       font-weight: 300;
     }
+
 
     .game-desc {
       margin:
@@ -573,19 +625,21 @@
         0
         0;
 
-      max-width: 610px;
+      max-width: 560px;
 
-      color: var(--muted);
+      color:
+        var(--muted);
 
       font-size:
         clamp(
           15px,
-          1.2vw,
+          1.1vw,
           18px
         );
 
       line-height: 1.7;
     }
+
 
     .game-actions {
       display: flex;
@@ -598,6 +652,7 @@
 
       margin-top: 34px;
     }
+
 
     .link-arrow {
       display: inline-flex;
@@ -620,10 +675,12 @@
       text-transform: uppercase;
     }
 
+
     .link-arrow span {
       transition:
         transform .25s ease;
     }
+
 
     .link-arrow:hover span {
       transform:
@@ -646,6 +703,7 @@
 
       margin-top: 42px;
     }
+
 
     .platforms a {
       width: 92px;
@@ -672,6 +730,7 @@
         transform .25s ease;
     }
 
+
     .platforms a:hover {
       border-color:
         rgba(255,255,255,.42);
@@ -682,6 +741,7 @@
       transform:
         translateY(-2px);
     }
+
 
     .platforms img {
       display: block;
@@ -695,12 +755,14 @@
       object-fit: contain;
     }
 
+
     .platforms
     a[aria-label="Steam"]
     img {
       max-width: 74px;
       max-height: 36px;
     }
+
 
     .platforms
     a[aria-label="PlayStation"]
@@ -709,12 +771,14 @@
       max-height: 40px;
     }
 
+
     .platforms
     a[aria-label="Nintendo Switch"]
     img {
       max-width: 72px;
       max-height: 40px;
     }
+
 
     .platforms
     a[aria-label="Xbox"]
@@ -745,6 +809,7 @@
       background: #080808;
     }
 
+
     .about > .reveal {
       width: 100%;
 
@@ -755,9 +820,11 @@
         auto;
     }
 
+
     .about .kicker {
       text-align: center;
     }
+
 
     .about h2 {
       margin:
@@ -782,6 +849,7 @@
       text-align: center;
     }
 
+
     .about-text {
       max-width: 720px;
 
@@ -790,7 +858,8 @@
         auto
         0;
 
-      color: var(--muted);
+      color:
+        var(--muted);
 
       font-size:
         clamp(
@@ -803,6 +872,7 @@
 
       text-align: center;
     }
+
 
     .awards {
       max-width: 760px;
@@ -818,6 +888,7 @@
         1px solid
         var(--line);
     }
+
 
     .awards img {
       width: auto;
@@ -864,6 +935,7 @@
       text-align: center;
     }
 
+
     .contact-inner {
       width:
         min(
@@ -878,9 +950,11 @@
       text-align: center;
     }
 
+
     .contact .kicker {
       text-align: center;
     }
+
 
     .contact h2 {
       margin:
@@ -903,6 +977,7 @@
       text-align: center;
     }
 
+
     .mail {
       display: inline-block;
 
@@ -922,6 +997,7 @@
         );
     }
 
+
     .social {
       display: flex;
 
@@ -932,6 +1008,7 @@
 
       margin-top: 46px;
     }
+
 
     .social a {
       width: 48px;
@@ -949,6 +1026,7 @@
         .25s ease;
     }
 
+
     .social a:hover {
       background:
         rgba(255,255,255,.06);
@@ -959,6 +1037,7 @@
       transform:
         translateY(-2px);
     }
+
 
     .social img {
       width: 22px;
@@ -999,6 +1078,7 @@
       text-transform: uppercase;
     }
 
+
     footer img {
       width: 40px;
 
@@ -1006,6 +1086,7 @@
 
       opacity: .72;
     }
+
 
     footer span {
       position: absolute;
@@ -1042,6 +1123,7 @@
         cubic-bezier(.2,.7,.2,1);
     }
 
+
     .reveal.visible {
       opacity: 1;
 
@@ -1053,17 +1135,41 @@
        TABLET / MOBILE
     ========================= */
 
+    @media (max-width: 1100px) {
+
+      .game-section {
+        grid-template-columns:
+          minmax(0, 1.1fr)
+          minmax(330px, .9fr);
+
+        gap: 46px;
+      }
+
+      .game-copy h2 {
+        font-size:
+          clamp(
+            46px,
+            5.6vw,
+            72px
+          );
+      }
+
+    }
+
+
     @media (max-width: 900px) {
 
       :root {
         --header-h: 72px;
       }
 
+
       .site-header {
         padding:
           0
           18px;
       }
+
 
       .site-header.scrolled {
         background:
@@ -1075,13 +1181,16 @@
           none;
       }
 
+
       .brand img {
         width: 40px;
       }
 
+
       .menu-btn {
         display: block;
       }
+
 
       .nav {
         position: fixed;
@@ -1097,7 +1206,8 @@
 
         z-index: 101;
 
-        background: #080808;
+        background:
+          #080808;
 
         display: flex;
 
@@ -1123,6 +1233,7 @@
           visibility .35s ease;
       }
 
+
       .nav.open {
         opacity: 1;
 
@@ -1130,6 +1241,7 @@
 
         pointer-events: auto;
       }
+
 
       .nav a {
         font-size: 20px;
@@ -1146,6 +1258,7 @@
           transform .45s ease;
       }
 
+
       .nav.open a {
         opacity: 1;
 
@@ -1153,24 +1266,32 @@
           translateY(0);
       }
 
+
       .nav.open
       a:nth-child(1) {
-        transition-delay: .08s;
+        transition-delay:
+          .08s;
       }
+
 
       .nav.open
       a:nth-child(2) {
-        transition-delay: .14s;
+        transition-delay:
+          .14s;
       }
+
 
       .nav.open
       a:nth-child(3) {
-        transition-delay: .20s;
+        transition-delay:
+          .20s;
       }
+
 
       .nav.open
       a:nth-child(4) {
-        transition-delay: .26s;
+        transition-delay:
+          .26s;
       }
 
 
@@ -1184,12 +1305,15 @@
           22px
           0;
 
-        background: #070707;
+        background:
+          #070707;
       }
+
 
       .hero-video video {
         object-fit: cover;
       }
+
 
       .hero-video::after {
         background:
@@ -1201,6 +1325,7 @@
           );
       }
 
+
       .hero-logo {
         width:
           min(
@@ -1211,11 +1336,13 @@
         margin-bottom: 28px;
       }
 
+
       .hero-studio {
         font-size: 9px;
 
         letter-spacing: .28em;
       }
+
 
       .hero-description {
         font-size: 13px;
@@ -1224,6 +1351,7 @@
 
         line-height: 1.5;
       }
+
 
       .hero-scroll {
         margin-top: 44px;
@@ -1235,32 +1363,30 @@
       .game-section {
         min-height: auto;
 
-        grid-template-columns:
-          1fr;
-      }
-
-      .game-visual {
-        min-height: 56svh;
-      }
-
-      .game-visual::after {
-        background:
-
-          linear-gradient(
-            to top,
-            #0a0a0a 0%,
-            transparent 34%
-          );
-      }
-
-      .game-copy {
-        margin-top: -2px;
+        display: block;
 
         padding:
-          56px
+          90px
           var(--pad)
-          100px;
+          110px;
       }
+
+
+      .game-visual {
+        width: 100%;
+
+        aspect-ratio: 616 / 353;
+
+        min-height: 0;
+      }
+
+
+      .game-copy {
+        margin-top: 54px;
+
+        padding: 0;
+      }
+
 
       .game-copy h2 {
         font-size:
@@ -1272,16 +1398,24 @@
       }
 
 
+      .game-desc {
+        max-width: 650px;
+      }
+
+
       /* PLATFORM MOBILE */
 
       .platforms {
         gap: 10px;
       }
 
+
       .platforms a {
         width: 84px;
+
         height: 54px;
       }
+
 
       .platforms img {
         max-height: 36px;
@@ -1294,10 +1428,12 @@
         min-height: auto;
 
         padding-top: 110px;
+
         padding-bottom: 120px;
 
         text-align: center;
       }
+
 
       .about > .reveal {
         max-width: none;
@@ -1306,6 +1442,7 @@
           0
           auto;
       }
+
 
       .about h2,
       .contact h2 {
@@ -1317,13 +1454,16 @@
           );
       }
 
+
       .about-text {
         margin-top: 36px;
       }
 
+
       .awards {
         margin-top: 46px;
       }
+
 
       .awards img {
         max-height: none;
@@ -1338,9 +1478,11 @@
         text-align: center;
       }
 
+
       .contact-inner {
         text-align: center;
       }
+
 
       .social {
         justify-content: center;
@@ -1369,8 +1511,33 @@
 
       /* GAME */
 
-      .game-visual {
-        min-height: 46svh;
+      .game-section {
+        padding:
+          74px
+          22px
+          90px;
+      }
+
+
+      .game-copy {
+        margin-top: 42px;
+      }
+
+
+      .game-copy h2 {
+        font-size:
+          clamp(
+            46px,
+            15vw,
+            70px
+          );
+      }
+
+
+      .game-desc {
+        margin-top: 28px;
+
+        font-size: 15px;
       }
 
 
@@ -1378,10 +1545,14 @@
 
       .platforms {
         gap: 8px;
+
+        margin-top: 34px;
       }
+
 
       .platforms a {
         width: 72px;
+
         height: 50px;
 
         padding:
@@ -1389,11 +1560,13 @@
           8px;
       }
 
+
       .platforms
       a[aria-label="Steam"]
       img {
         max-width: 60px;
       }
+
 
       .platforms
       a[aria-label="PlayStation"]
@@ -1401,11 +1574,13 @@
         max-width: 58px;
       }
 
+
       .platforms
       a[aria-label="Nintendo Switch"]
       img {
         max-width: 58px;
       }
+
 
       .platforms
       a[aria-label="Xbox"]
@@ -1431,6 +1606,7 @@
         padding-right: 22px;
       }
 
+
       .mail {
         font-size: 15px;
       }
@@ -1443,12 +1619,15 @@
 
         justify-content: center;
 
-        padding: 20px;
+        padding:
+          20px;
       }
+
 
       footer img {
         display: none;
       }
+
 
       footer span {
         position: static;
@@ -1478,9 +1657,11 @@
         scroll-behavior: auto;
       }
 
+
       *,
       *::before,
       *::after {
+
         transition-duration:
           .01ms !important;
 
@@ -1555,7 +1736,6 @@
     >
 
       <span></span>
-
       <span></span>
 
     </button>
@@ -1575,8 +1755,6 @@
       id="home"
     >
 
-
-      <!-- BACKGROUND VIDEO -->
 
       <div
         class="hero-video"
@@ -1601,8 +1779,6 @@
       </div>
 
 
-      <!-- HERO CONTENT -->
-
       <div
         class="hero-copy reveal"
       >
@@ -1613,20 +1789,12 @@
           alt="ARMAG"
         >
 
+
         <p
           class="hero-studio"
         >
           Independent Game Studio
         </p>
-
-
-        <!--
-        <p
-          class="hero-description"
-        >
-          Atmospheric story-driven games
-        </p>
-        -->
 
 
         <a
@@ -1656,6 +1824,7 @@
       id="games"
     >
 
+
       <div
         class="game-visual"
       >
@@ -1665,6 +1834,8 @@
           alt="TIC-TAC: Twelve o'clock"
           loading="eager"
           decoding="async"
+          width="616"
+          height="353"
         >
 
       </div>
@@ -1709,11 +1880,8 @@
 
           <a
             class="link-arrow"
-
             href="https://store.steampowered.com/app/1490020/TICTAC_Twelve_oclock/"
-
             target="_blank"
-
             rel="noopener"
           >
 
@@ -1730,7 +1898,6 @@
 
         <div
           class="platforms"
-
           aria-label="Available platforms"
         >
 
@@ -2244,6 +2411,7 @@
                 return;
 
               }
+
 
               navLinks.forEach(
                 link => {
